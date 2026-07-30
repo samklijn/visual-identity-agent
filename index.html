@@ -72,6 +72,19 @@ body{font-family:var(--fn);background:var(--bg);color:var(--ink);line-height:1.5
 .acc.open{border-color:var(--bd)}
 .acc-head{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none}
 .acc-ico{font-size:18px;flex-shrink:0;width:24px;text-align:center}
+.acc-num{font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--g);flex-shrink:0;width:26px;text-align:center;opacity:.85}
+
+/* ── HOME SECTION ── */
+.home-section{max-width:640px;margin:0 auto;padding:60px 24px 40px}
+.home-eyebrow{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--g);margin-bottom:20px}
+.home-title{font-size:clamp(30px,5vw,46px);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin-bottom:18px}
+.home-title span{color:var(--gl)}
+.home-sub{font-size:14px;line-height:1.7;color:var(--muted);max-width:480px;margin-bottom:32px}
+.home-feats{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:36px}
+.home-feat{background:var(--sur);border:1px solid var(--bd);border-radius:var(--rsm);padding:10px 14px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.home-feat::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--g);flex-shrink:0}
+.home-cta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.home-note{font-size:11px;color:var(--koud)}
 .acc-title{font-size:14px;font-weight:700;flex:1}
 .acc-count{font-size:10px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;background:var(--s2);color:var(--koud);transition:all .2s}
 .acc-count.has{background:rgba(124,167,63,.12);color:var(--gl)}
@@ -255,10 +268,29 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-
   </div>
 </div>
 
+<!-- ── HOME ── -->
+<div class="home-section" id="homeSection">
+  <div class="home-eyebrow">Nieuwbouw &middot; Visual Identity Agent</div>
+  <h1 class="home-title">Van projectintake naar<br><span>visuele identiteit</span></h1>
+  <p class="home-sub">Vul de projectintake in. De agent werkt het complete Visual Identity Framework zelf uit — kleurstrategie, typografie, beeldtaal en meer.</p>
+  <div class="home-feats">
+    <div class="home-feat">Strategische basis &amp; visuele kern</div>
+    <div class="home-feat">Kleurstrategie &amp; typografie</div>
+    <div class="home-feat">Logo-richting &amp; grafische elementen</div>
+    <div class="home-feat">Beeldtaal &amp; fotografie</div>
+    <div class="home-feat">Lay-out &amp; visuele hiërarchie</div>
+    <div class="home-feat">21 uitgewerkte secties</div>
+  </div>
+  <div class="home-cta">
+    <button class="btn-p" onclick="startIntake()">Start intake &rarr;</button>
+    <span class="home-note">Projectnaam en locatie zijn verplicht &middot; Groq API-sleutel vereist</span>
+  </div>
+</div>
+
 <!-- ── INTAKE ── -->
-<div class="intake" id="intakeSection">
+<div class="intake" id="intakeSection" style="display:none">
   <div class="intake-hero">
-    <div class="intake-eyebrow">Nieuwbouw Visual Identity Agent</div>
+    <div class="intake-eyebrow">Stap 1 &mdash; Intake</div>
     <h1 class="intake-title">Vul de intake in</h1>
     <p class="intake-sub">Vul de informatie zo volledig mogelijk in. Schrijf <strong>onbekend</strong> wanneer iets nog niet bekend is. Alleen projectnaam en locatie zijn verplicht.</p>
   </div>
@@ -267,7 +299,7 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-
   <!-- Aanvullende documenten upload -->
   <div class="acc" id="acc_upload" style="margin-top:8px">
     <div class="acc-head" onclick="toggleAcc('upload')">
-      <span class="acc-ico">📎</span>
+      <span class="acc-num">10</span>
       <span class="acc-title">Aanvullende documenten</span>
       <span class="acc-count" id="cnt_upload">0 bestanden</span>
       <svg class="acc-chev" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -552,6 +584,9 @@ function saveKey(){
   if(!k || !k.startsWith('gsk_')){ alert('Voer een geldige Groq API-sleutel in (begint met gsk_)'); return; }
   localStorage.setItem(KEY_STORE, k);
   document.getElementById('setupModal').style.display = 'none';
+  // If home screen is showing, move directly to intake
+  var home = document.getElementById('homeSection');
+  if(home && getComputedStyle(home).display !== 'none') showScreen('intakeSection');
 }
 function resetKey(){
   localStorage.removeItem(KEY_STORE);
@@ -559,10 +594,10 @@ function resetKey(){
   document.getElementById('setupModal').style.display = 'flex';
 }
 (function init(){
-  if(!localStorage.getItem(KEY_STORE)) document.getElementById('setupModal').style.display = 'flex';
   buildForm();
   updateIntakeCount();
   initUpload();
+  // Show home screen; modal opens when user clicks Start Intake without a key
 })();
 
 /* ═══════════════════════════════════════════════════════════
@@ -584,7 +619,7 @@ function buildForm(){
 
     return '<div class="acc'+(si===0?' open':'') +'" id="acc_'+sec.id+'">'
       +'<div class="acc-head" onclick="toggleAcc(\''+sec.id+'\')">'
-      +'<span class="acc-ico">'+sec.icon+'</span>'
+      +'<span class="acc-num">0'+(si+1)+'</span>'
       +'<span class="acc-title">'+esc(sec.title)+'</span>'
       +'<span class="acc-count" id="cnt_'+sec.id+'">0/'+sec.fields.length+'</span>'
       +'<svg class="acc-chev'+(si===0?' open':'')+'" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -678,9 +713,16 @@ function setPhase(n){
 }
 
 function showScreen(id){
-  ['intakeSection','loadingSection','controleSection','fwSection'].forEach(function(sid){
-    document.getElementById(sid).style.display = (sid===id ? '' : 'none');
+  ['homeSection','intakeSection','loadingSection','controleSection','fwSection'].forEach(function(sid){
+    var el = document.getElementById(sid);
+    if(el) el.style.display = (sid===id ? '' : 'none');
   });
+}
+
+function startIntake(){
+  var apiKey = localStorage.getItem(KEY_STORE);
+  if(!apiKey){ document.getElementById('setupModal').style.display = 'flex'; return; }
+  showScreen('intakeSection');
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -777,9 +819,11 @@ function backToControle(){
 }
 function startNew(){
   state = {intakeText:'',controleText:'',answersText:'',frameworkMarkdown:'',projectNaam:''};
+  uploadedFiles = [];
+  updateFileChips();
   document.getElementById('answersTA').value = '';
   setPhase(1);
-  showScreen('intakeSection');
+  showScreen('homeSection');
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
@@ -1021,11 +1065,14 @@ function showToast(msg){
 /* ═══════════════════════════════════════════════════════════
    FILE UPLOAD
 ═══════════════════════════════════════════════════════════ */
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
 var uploadedFiles = [];
 
 function initUpload(){
+  try {
+    if(typeof pdfjsLib !== 'undefined'){
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  } catch(e){}
   var zone = document.getElementById('uploadZone');
   if(!zone) return;
   zone.addEventListener('dragover', function(e){ e.preventDefault(); zone.classList.add('drag-over'); });
