@@ -715,7 +715,7 @@ function setPhase(n){
 function showScreen(id){
   ['homeSection','intakeSection','loadingSection','controleSection','fwSection'].forEach(function(sid){
     var el = document.getElementById(sid);
-    if(el) el.style.display = (sid===id ? '' : 'none');
+    if(el) el.style.display = (sid===id ? 'block' : 'none');
   });
 }
 
