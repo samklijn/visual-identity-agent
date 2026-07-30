@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brand Compass · Spring Real Estate</title>
+<title>Visual Identity Agent · Spring Real Estate</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -27,12 +27,10 @@ body{font-family:var(--fn);background:var(--bg);color:var(--ink);line-height:1.5
 .modal-brand{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--g)}
 .modal h2{font-size:21px;font-weight:800;margin-bottom:8px}
 .modal p{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:22px}
-.modal-link{color:var(--gl);text-decoration:none;font-weight:700}
-.modal-link:hover{text-decoration:underline}
+.ml{color:var(--gl);text-decoration:none;font-weight:700}.ml:hover{text-decoration:underline}
 .modal-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:block}
-.modal-input{width:100%;padding:13px 15px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);color:var(--ink);font-family:var(--fn);font-size:14px;outline:none;transition:border-color .15s;margin-bottom:14px}
-.modal-input:focus{border-color:var(--g)}
-.modal-input::placeholder{color:var(--koud)}
+.modal-in{width:100%;padding:13px 15px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);color:var(--ink);font-family:var(--fn);font-size:14px;outline:none;transition:border-color .15s;margin-bottom:14px}
+.modal-in:focus{border-color:var(--g)}.modal-in::placeholder{color:var(--koud)}
 .modal-btn{width:100%;padding:14px;background:var(--g);color:#fff;border:none;border-radius:var(--rsm);font-family:var(--fn);font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .15s}
 .modal-btn:hover{background:var(--gl)}
 .modal-note{font-size:11.5px;color:var(--koud);margin-top:12px;text-align:center;line-height:1.5}
@@ -47,155 +45,132 @@ body{font-family:var(--fn);background:var(--bg);color:var(--ink);line-height:1.5
 .key-btn{background:none;border:1px solid var(--bd);color:var(--koud);font-family:var(--fn);font-size:10.5px;padding:5px 12px;border-radius:999px;cursor:pointer;transition:border-color .15s,color .15s;letter-spacing:.03em}
 .key-btn:hover{border-color:var(--g);color:var(--gl)}
 
-/* ── WIZARD ── */
-.wizard{max-width:680px;margin:0 auto;padding:40px 20px 64px;width:100%;flex:1}
+/* ── PHASE INDICATOR ── */
+.phase-bar{max-width:820px;margin:0 auto;padding:24px 20px 0;display:flex;align-items:center;gap:0;width:100%}
+.ph-item{display:flex;align-items:center;gap:8px}
+.ph-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;transition:all .2s}
+.ph-dot.done{background:var(--g);color:#fff}
+.ph-dot.active{background:var(--g);color:#fff;box-shadow:0 0 0 4px rgba(124,167,63,.18)}
+.ph-dot.pending{background:var(--s2);color:var(--koud);border:1px solid var(--bd)}
+.ph-lbl{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.ph-lbl.active{color:var(--gl)}
+.ph-line{flex:1;height:1px;background:var(--bd);margin:0 10px;min-width:20px;transition:background .3s}
+.ph-line.done{background:var(--g)}
 
-/* Step progress */
-.step-indicator{display:flex;align-items:center;margin-bottom:44px}
-.step-item{display:flex;align-items:center;gap:8px}
-.step-circle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;transition:all .2s}
-.step-circle.done{background:var(--g);color:#fff}
-.step-circle.active{background:var(--g);color:#fff;box-shadow:0 0 0 4px rgba(124,167,63,.18)}
-.step-circle.pending{background:var(--s2);color:var(--koud);border:1px solid var(--bd)}
-.step-lbl{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:none}
-.step-lbl.on{color:var(--gl);display:block}
-.step-line{flex:1;height:1px;background:var(--bd);margin:0 8px;transition:background .3s}
-.step-line.done{background:var(--g)}
+/* ── INTAKE ── */
+.intake{max-width:820px;margin:0 auto;padding:28px 20px 64px;width:100%}
+.intake-hero{margin-bottom:32px}
+.intake-eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gl);margin-bottom:10px}
+.intake-title{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.intake-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:58ch}
 
-/* Step panels */
-.step-panel{display:none}
-.step-panel.on{display:block}
-.step-eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gl);margin-bottom:10px}
-.step-title{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
-.step-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.65;max-width:52ch}
+/* Accordion */
+.acc{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:8px;transition:border-color .15s}
+.acc:hover{border-color:var(--line)}
+.acc.open{border-color:var(--bd)}
+.acc-head{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none}
+.acc-ico{font-size:18px;flex-shrink:0;width:24px;text-align:center}
+.acc-title{font-size:14px;font-weight:700;flex:1}
+.acc-count{font-size:10px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;background:var(--s2);color:var(--koud);transition:all .2s}
+.acc-count.has{background:rgba(124,167,63,.12);color:var(--gl)}
+.acc-chev{color:var(--koud);transition:transform .2s;flex-shrink:0}
+.acc-chev.open{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 18px 20px}
+.acc.open .acc-body{display:block}
 
-/* Form fields */
-.fg{margin-bottom:22px}
-.fl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;display:block}
-.fi{width:100%;padding:13px 16px;background:var(--sur);border:1px solid var(--bd);border-radius:var(--rsm);color:var(--ink);font-family:var(--fn);font-size:15px;outline:none;transition:border-color .15s}
-.fi:focus{border-color:var(--g)}
-.fi::placeholder{color:var(--koud)}
-.fi-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:480px){.fi-row{grid-template-columns:1fr}}
+/* Fields inside accordion */
+.fg{margin-bottom:16px}
+.fl{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;display:block}
+.fl .req{color:var(--gl);margin-left:2px}
+.fi,.fa{width:100%;padding:10px 13px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);color:var(--ink);font-family:var(--fn);font-size:13.5px;outline:none;transition:border-color .15s;line-height:1.5}
+.fi:focus,.fa:focus{border-color:var(--g)}
+.fi::placeholder,.fa::placeholder{color:var(--koud)}
+.fa{resize:vertical;min-height:56px}
+.fg-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.fg-2{grid-template-columns:1fr}}
 
-/* Option cards */
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px}
-.card-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-@media(max-width:420px){.card-grid-2{grid-template-columns:1fr}}
-.c-opt{background:var(--sur);border:1.5px solid var(--bd);border-radius:var(--r);padding:14px 15px;cursor:pointer;transition:border-color .14s,background .14s;user-select:none}
-.c-opt:hover{border-color:var(--line)}
-.c-opt.sel{border-color:var(--g);background:rgba(124,167,63,.07)}
-.c-ico{font-size:20px;margin-bottom:8px;line-height:1}
-.c-name{font-size:13px;font-weight:700;line-height:1.3}
-.c-sub{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.4}
-
-/* Sfeer tags */
-.sfeer-grid{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.s-tag{padding:9px 15px;border-radius:999px;border:1.5px solid var(--bd);background:var(--sur);font-size:12.5px;font-weight:600;cursor:pointer;transition:all .14s;user-select:none;color:var(--muted)}
-.s-tag:hover{border-color:var(--line);color:var(--ink)}
-.s-tag.sel{border-color:var(--g);background:rgba(124,167,63,.08);color:var(--gl)}
-.sfeer-hint{font-size:11.5px;color:var(--koud);margin-bottom:22px}
-
-/* Nav buttons */
-.w-nav{display:flex;gap:10px;align-items:center;margin-top:32px;flex-wrap:wrap}
+/* Submit bar */
+.intake-submit{margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .btn-p{padding:13px 26px;background:var(--g);color:#fff;border:none;border-radius:999px;font-family:var(--fn);font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .13s;display:flex;align-items:center;gap:7px}
-.btn-p:hover{background:var(--gl)}
-.btn-p:disabled{opacity:.35;cursor:not-allowed}
+.btn-p:hover{background:var(--gl)}.btn-p:disabled{opacity:.35;cursor:not-allowed}
 .btn-g{padding:13px 20px;background:none;color:var(--muted);border:1px solid var(--bd);border-radius:999px;font-family:var(--fn);font-size:12px;font-weight:700;cursor:pointer;transition:all .13s}
 .btn-g:hover{border-color:var(--line);color:var(--ink)}
+.intake-count-hint{font-size:11.5px;color:var(--koud)}
 
 /* ── LOADING ── */
-.loading-section{display:none;max-width:600px;margin:0 auto;padding:80px 20px;text-align:center;flex:1}
-.l-icon{width:56px;height:56px;border-radius:14px;background:rgba(124,167,63,.1);border:1px solid rgba(124,167,63,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+.loading-section{display:none;max-width:620px;margin:0 auto;padding:80px 20px;text-align:center;flex:1}
+.l-icon{width:56px;height:56px;border-radius:14px;background:rgba(124,167,63,.1);border:1px solid rgba(124,167,63,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;animation:pulse 1.8s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.94)}}
-.l-icon{animation:pulse 1.8s ease-in-out infinite}
 .l-title{font-size:22px;font-weight:800;margin-bottom:8px}
 .l-sub{font-size:14px;color:var(--muted)}
-.l-steps{margin-top:28px;text-align:left;max-width:340px;margin-left:auto;margin-right:auto}
-.l-step{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
-.l-step:last-child{border-bottom:none}
-.l-dot{width:7px;height:7px;border-radius:50%;background:var(--bd);flex-shrink:0;transition:background .3s}
+.l-dot-row{display:flex;justify-content:center;gap:8px;margin-top:24px}
+.l-dot{width:7px;height:7px;border-radius:50%;background:var(--bd);transition:background .3s}
 .l-dot.active{background:var(--g);animation:blink 1.1s ease-in-out infinite}
 .l-dot.done{background:var(--g);animation:none}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 
-/* ── ERROR ── */
-.error-section{display:none;max-width:500px;margin:80px auto;padding:20px;text-align:center}
+/* ── CONTROLE ── */
+.controle-section{display:none;max-width:820px;margin:0 auto;padding:28px 20px 64px;width:100%}
+.controle-ai{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:0;overflow:hidden;margin-bottom:24px}
+.controle-ai-head{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.controle-ai-badge{width:28px;height:28px;border-radius:7px;background:var(--g);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
+.controle-ai-lbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gl)}
+.controle-ai-body{padding:20px 22px;font-size:14px;line-height:1.75;color:var(--muted);white-space:pre-wrap;word-break:break-word}
 
-/* ── RESULTS ── */
-.results-section{display:none;max-width:840px;margin:0 auto;padding:40px 20px 80px;width:100%}
+.answers-box{margin-bottom:24px}
+.answers-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block}
+.answers-ta{width:100%;padding:14px 16px;background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);color:var(--ink);font-family:var(--fn);font-size:14px;line-height:1.65;outline:none;resize:vertical;min-height:120px;transition:border-color .15s}
+.answers-ta:focus{border-color:var(--g)}
+.answers-ta::placeholder{color:var(--koud)}
+.controle-hint{font-size:11.5px;color:var(--koud);margin-bottom:16px;line-height:1.5}
 
-.res-header{margin-bottom:40px}
-.res-project{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.res-positioning{font-size:clamp(20px,3.5vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:14px}
-.res-verhaal{font-size:15px;color:var(--muted);line-height:1.75;max-width:60ch}
-.tov-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-.tov-chip{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(124,167,63,.1);border:1px solid rgba(124,167,63,.2);color:var(--gl)}
+/* ── FRAMEWORK ── */
+.fw-section{display:none;max-width:860px;margin:0 auto;padding:28px 20px 80px;width:100%}
+.fw-title-area{margin-bottom:36px}
+.fw-project{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.fw-main-title{font-size:clamp(22px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.fw-status-chip{display:inline-block;padding:4px 13px;border-radius:999px;background:rgba(124,167,63,.1);border:1px solid rgba(124,167,63,.22);color:var(--gl);font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
 
-/* Sections */
-.res-sec{margin-bottom:44px}
-.res-sec-lbl{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--koud);margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+/* Framework section cards */
+.fw-card{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:8px;transition:border-color .15s}
+.fw-card:hover{border-color:var(--line)}
+.fw-card-head{display:flex;align-items:center;gap:13px;padding:14px 18px;cursor:pointer;user-select:none}
+.fw-num{font-size:9.5px;font-weight:800;letter-spacing:.07em;color:var(--gl);background:rgba(124,167,63,.1);padding:3px 9px;border-radius:999px;flex-shrink:0}
+.fw-card-title{font-size:14px;font-weight:700;flex:1}
+.fw-chev{color:var(--koud);transition:transform .2s;flex-shrink:0}
+.fw-chev.open{transform:rotate(180deg)}
+.fw-bar{height:2px;background:var(--line);margin:0 18px}
+.fw-body{display:none;padding:4px 22px 22px}
+.fw-body.open{display:block}
 
-/* Palette */
-.palette-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-@media(max-width:600px){.palette-row{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:380px){.palette-row{grid-template-columns:repeat(2,1fr)}}
-.swatch{border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.05)}
-.swatch-color{height:80px;cursor:pointer;position:relative;transition:transform .12s}
-.swatch-color:hover{transform:scale(1.03)}
-.swatch-copy-lbl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;background:rgba(0,0,0,.22);font-size:10px;font-weight:800;letter-spacing:.05em;color:#fff;transition:opacity .14s;text-transform:uppercase}
-.swatch-color:hover .swatch-copy-lbl{opacity:1}
-.swatch-info{background:var(--sur);padding:10px}
-.swatch-naam{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.swatch-hex{font-size:12px;font-weight:800;font-family:monospace;color:var(--ink);margin-top:2px}
-.swatch-rol{font-size:10.5px;color:var(--koud);margin-top:4px;line-height:1.4}
+/* Markdown rendering */
+.md-content h1{font-size:clamp(18px,3vw,24px);font-weight:800;letter-spacing:-.01em;margin:20px 0 10px;color:var(--ink)}
+.md-content h2{font-size:16px;font-weight:700;margin:18px 0 8px;color:var(--ink)}
+.md-content h3{font-size:13.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--gl);margin:16px 0 8px}
+.md-content p{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:10px}
+.md-content ul,.md-content ol{padding-left:18px;margin-bottom:12px}
+.md-content li{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:4px}
+.md-content strong{color:var(--ink);font-weight:700}
+.md-content em{font-style:italic;color:var(--muted)}
+.md-content hr{border:none;border-top:1px solid var(--line);margin:16px 0}
+.md-highlight{background:linear-gradient(135deg,rgba(124,167,63,.08),rgba(137,182,71,.02));border:1px solid rgba(124,167,63,.2);border-radius:var(--rsm);padding:12px 16px;margin:12px 0;font-size:13.5px;line-height:1.7}
+.md-highlight strong{color:var(--gl)}
+.md-blockquote{border-left:3px solid var(--g);padding:8px 16px;margin:12px 0;background:var(--s2);border-radius:0 var(--rsm) var(--rsm) 0}
+.md-blockquote p{color:var(--muted);font-style:italic;margin:0}
+.md-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:12.5px}
+.md-table th{background:var(--s2);color:var(--gl);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;text-align:left;border-bottom:1px solid var(--bd)}
+.md-table td{padding:8px 12px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
+.md-table tr:last-child td{border-bottom:none}
+.color-swatch-inline{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.1)}
 
-/* Reden cards (below palette) */
-.reden-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:12px}
-.reden-card{background:var(--sur);border:1px solid var(--bd);border-radius:var(--rsm);padding:12px 14px}
-.reden-dot{width:10px;height:10px;border-radius:50%;margin-bottom:8px;flex-shrink:0}
-.reden-text{font-size:11.5px;color:var(--koud);line-height:1.5}
+/* Score badges inside framework */
+.score-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:7px;margin:12px 0}
+.score-item{background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);padding:8px 12px;display:flex;justify-content:space-between;align-items:center}
+.score-lbl{font-size:11px;color:var(--muted)}
+.score-val{font-size:14px;font-weight:800;color:var(--gl)}
 
-/* Typography */
-.font-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:500px){.font-cards{grid-template-columns:1fr}}
-.font-card{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:22px}
-.font-role{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gl);margin-bottom:10px}
-.font-preview{font-size:30px;font-weight:700;line-height:1.1;margin-bottom:12px;min-height:38px;transition:font-family .3s}
-.font-name{font-size:13px;font-weight:700;color:var(--ink)}
-.font-weights{font-size:11px;color:var(--muted);margin-top:2px}
-.font-reden{font-size:12px;color:var(--koud);margin-top:10px;line-height:1.55}
-.font-richtlijn{grid-column:1/-1;padding:15px;background:var(--bg);border-radius:var(--rsm);font-size:12.5px;color:var(--muted);line-height:1.65;font-style:italic;border:1px solid var(--bd)}
-
-/* Fotografie */
-.foto-card{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:22px}
-.foto-stijl{font-size:15px;color:var(--ink);line-height:1.7;margin-bottom:6px}
-.foto-belichting{font-size:13px;color:var(--koud);line-height:1.6;margin-bottom:16px}
-.tag-row{display:flex;flex-wrap:wrap;gap:7px}
-.f-tag{font-size:11.5px;padding:5px 12px;border-radius:999px;background:var(--bg);border:1px solid var(--bd);color:var(--muted)}
-.f-tag.avoid{border-color:rgba(217,113,62,.25);background:rgba(217,113,62,.07);color:var(--rood)}
-.f-tag.search{background:rgba(124,167,63,.06);border-color:rgba(124,167,63,.22);color:var(--gl)}
-.foto-sub-lbl{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--koud);margin-bottom:8px;margin-top:14px}
-
-/* Moodboard */
-.mood-words{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.mood-word{font-size:14px;font-weight:700;padding:8px 18px;border-radius:999px;background:var(--sur);border:1px solid var(--bd);color:var(--ink)}
-.pin-tag{font-size:11.5px;padding:5px 13px;border-radius:999px;background:rgba(230,0,35,.07);border:1px solid rgba(230,0,35,.2);color:#e0404a;text-decoration:none;display:inline-block;transition:background .13s}
-.pin-tag:hover{background:rgba(230,0,35,.14)}
-
-/* Toepassingen */
-.toep-grid{display:grid;gap:10px}
-.toep-card{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:18px}
-.toep-lbl{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gl);margin-bottom:7px}
-.toep-text{font-size:13.5px;color:var(--muted);line-height:1.65}
-
-/* Opener */
-.opener-box{background:linear-gradient(135deg,rgba(124,167,63,.08),rgba(137,182,71,.02));border:1px solid rgba(124,167,63,.2);border-radius:var(--r);padding:24px;margin-bottom:36px}
-.opener-lbl{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gl);margin-bottom:12px}
-.opener-text{font-size:15px;color:var(--muted);line-height:1.75;font-style:italic}
-
-/* Actions */
-.res-actions{display:flex;gap:10px;flex-wrap:wrap}
+/* Actions bar */
+.fw-actions{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap}
 
 /* ── FOOTER ── */
 footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-top:1px solid var(--line);letter-spacing:.06em;text-transform:uppercase;margin-top:auto}
@@ -206,15 +181,15 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-
 
 /* ── PRINT ── */
 @media print{
-  .top,.key-btn,.w-nav,.res-actions,.toast,.modal-bg{display:none!important}
+  .top,.key-btn,.fw-actions,.phase-bar,.toast,.modal-bg,.controle-section,.intake,.loading-section{display:none!important}
+  .fw-section{display:block!important;padding:0}
+  .fw-card{break-inside:avoid}
+  .fw-body{display:block!important}
   body{background:#fff;color:#111}
-  .results-section{display:block!important;padding:20px}
-  .swatch-color{print-color-adjust:exact;-webkit-print-color-adjust:exact}
-  .swatch-info,.font-card,.foto-card,.toep-card,.opener-box,.mood-word{background:#f5f5f5;border-color:#ddd;color:#111}
-  .tov-chip{background:#eef5e6;border-color:#7CA73F;color:#4a7021}
-  .res-verhaal,.font-reden,.toep-text,.opener-text,.foto-belichting{color:#444}
-  .res-positioning{color:#111}
-  footer{border-top:1px solid #ddd;color:#999}
+  .fw-card,.md-highlight,.md-blockquote{background:#f5f5f5;border-color:#ddd}
+  .md-content p,.md-content li{color:#333}
+  .md-content h1,.md-content h2,.fw-card-title{color:#111}
+  .md-content h3,.fw-num,.fw-status-chip{color:#4a7021}
 }
 </style>
 </head>
@@ -228,11 +203,11 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-
       <div class="modal-brand">Spring Real Estate</div>
     </div>
     <h2>Groq API-sleutel instellen</h2>
-    <p>Brand Compass gebruikt Groq AI met internetzoekopdrachten om de best passende visuele identiteit te adviseren. Maak een gratis sleutel aan op <a class="modal-link" href="https://console.groq.com" target="_blank">console.groq.com</a> &rarr; API Keys &rarr; Create API key.</p>
+    <p>De Visual Identity Agent gebruikt Groq AI om het complete Visual Identity Framework te genereren. Maak een gratis sleutel aan op <a class="ml" href="https://console.groq.com" target="_blank">console.groq.com</a> &rarr; API Keys &rarr; Create API key.</p>
     <label class="modal-lbl" for="apiKeyInput">Groq API-sleutel</label>
-    <input class="modal-input" id="apiKeyInput" type="password" placeholder="gsk_..." autocomplete="off" spellcheck="false"/>
+    <input class="modal-in" id="apiKeyInput" type="password" placeholder="gsk_..." autocomplete="off" spellcheck="false"/>
     <button class="modal-btn" onclick="saveKey()">Opslaan &amp; doorgaan</button>
-    <div class="modal-note">Sleutel wordt alleen lokaal opgeslagen in jouw browser &mdash; nooit naar onze servers gestuurd.</div>
+    <div class="modal-note">Sleutel wordt alleen lokaal opgeslagen in jouw browser.</div>
   </div>
 </div>
 
@@ -242,712 +217,762 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-
   <div class="v-sep"></div>
   <div>
     <div class="brand-name">Spring Real Estate</div>
-    <div class="brand-sub">Brand Compass &middot; Visuele identiteit nieuwbouw</div>
+    <div class="brand-sub">Visual Identity Agent &middot; Nieuwbouwprojecten</div>
   </div>
   <div class="top-right">
     <button class="key-btn" onclick="resetKey()">&#9881; Sleutel</button>
   </div>
 </div>
 
-<!-- ── WIZARD ── -->
-<div class="wizard" id="wizardSection">
-
-  <!-- Step indicator -->
-  <div class="step-indicator">
-    <div class="step-item">
-      <div class="step-circle active" id="sc1">1</div>
-      <span class="step-lbl on" id="sl1">Project</span>
-    </div>
-    <div class="step-line" id="line12"></div>
-    <div class="step-item">
-      <div class="step-circle pending" id="sc2">2</div>
-      <span class="step-lbl" id="sl2">Doelgroep</span>
-    </div>
-    <div class="step-line" id="line23"></div>
-    <div class="step-item">
-      <div class="step-circle pending" id="sc3">3</div>
-      <span class="step-lbl" id="sl3">Sfeer</span>
-    </div>
-    <div class="step-line" id="line34"></div>
-    <div class="step-item">
-      <div class="step-circle pending" id="sc4">4</div>
-      <span class="step-lbl" id="sl4">Referenties</span>
-    </div>
+<!-- ── PHASE BAR ── -->
+<div class="phase-bar" id="phaseBar">
+  <div class="ph-item">
+    <div class="ph-dot active" id="ph1">1</div>
+    <span class="ph-lbl active" id="phl1">Intake</span>
   </div>
-
-  <!-- ── STEP 1: Basisinfo ── -->
-  <div class="step-panel on" id="step1">
-    <div class="step-eyebrow">Stap 1 van 4</div>
-    <h1 class="step-title">Vertel ons over het project</h1>
-    <p class="step-sub">De basis bepaalt de richting. Vul de kerngegevens in zodat de AI de juiste branding kan adviseren.</p>
-
-    <div class="fg">
-      <label class="fl" for="f-naam">Projectnaam</label>
-      <input class="fi" id="f-naam" type="text" placeholder="bijv. Havenpark, De Meent, Weststraat 22..." autocomplete="off"/>
-    </div>
-
-    <div class="fg">
-      <label class="fl">Projecttype</label>
-      <div class="card-grid">
-        <div class="c-opt" data-field="type" data-val="Appartementen" onclick="selCard(this)">
-          <div class="c-ico">🏢</div>
-          <div class="c-name">Appartementen</div>
-          <div class="c-sub">Gestapeld, complex</div>
-        </div>
-        <div class="c-opt" data-field="type" data-val="Grondgebonden woningen" onclick="selCard(this)">
-          <div class="c-ico">🏡</div>
-          <div class="c-name">Grondgebonden</div>
-          <div class="c-sub">Rij, 2-onder-1-kap</div>
-        </div>
-        <div class="c-opt" data-field="type" data-val="Stadswoningen" onclick="selCard(this)">
-          <div class="c-ico">🏙️</div>
-          <div class="c-name">Stadswoningen</div>
-          <div class="c-sub">Urban, mixed-use</div>
-        </div>
-        <div class="c-opt" data-field="type" data-val="Villa's en vrijstaand" onclick="selCard(this)">
-          <div class="c-ico">🏡</div>
-          <div class="c-name">Villa's / vrijstaand</div>
-          <div class="c-sub">Luxe, ruim</div>
-        </div>
-        <div class="c-opt" data-field="type" data-val="Gemengd programma" onclick="selCard(this)">
-          <div class="c-ico">🔀</div>
-          <div class="c-name">Gemengd</div>
-          <div class="c-sub">Wonen + commercieel</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="fi-row" style="margin-bottom:22px">
-      <div class="fg" style="margin-bottom:0">
-        <label class="fl" for="f-locatie">Locatie / stad</label>
-        <input class="fi" id="f-locatie" type="text" placeholder="bijv. Amsterdam Noord, Breda..." autocomplete="off"/>
-      </div>
-      <div class="fg" style="margin-bottom:0">
-        <label class="fl" for="f-aantal">Aantal woningen</label>
-        <input class="fi" id="f-aantal" type="number" min="1" placeholder="bijv. 45" autocomplete="off"/>
-      </div>
-    </div>
-
-    <div class="fg">
-      <label class="fl">Prijssegment</label>
-      <div class="card-grid-2">
-        <div class="c-opt" data-field="segment" data-val="Betaalbaar (tot €350.000)" onclick="selCard(this)">
-          <div class="c-name">Betaalbaar</div>
-          <div class="c-sub">Tot €350.000</div>
-        </div>
-        <div class="c-opt" data-field="segment" data-val="Middensegment (€350.000–€550.000)" onclick="selCard(this)">
-          <div class="c-name">Middensegment</div>
-          <div class="c-sub">€350.000 – €550.000</div>
-        </div>
-        <div class="c-opt" data-field="segment" data-val="Hoger segment (€550.000–€900.000)" onclick="selCard(this)">
-          <div class="c-name">Hoger segment</div>
-          <div class="c-sub">€550.000 – €900.000</div>
-        </div>
-        <div class="c-opt" data-field="segment" data-val="Luxe (boven €900.000)" onclick="selCard(this)">
-          <div class="c-name">Luxe</div>
-          <div class="c-sub">Boven €900.000</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-nav">
-      <button class="btn-p" onclick="goStep(2)">
-        Doelgroep &rarr;
-      </button>
-    </div>
+  <div class="ph-line" id="phline1"></div>
+  <div class="ph-item">
+    <div class="ph-dot pending" id="ph2">2</div>
+    <span class="ph-lbl" id="phl2">Controle</span>
   </div>
-
-  <!-- ── STEP 2: Doelgroep ── -->
-  <div class="step-panel" id="step2">
-    <div class="step-eyebrow">Stap 2 van 4</div>
-    <h1 class="step-title">Wie is de koper?</h1>
-    <p class="step-sub">Selecteer de primaire doelgroep(en). Dit stuurt de tone-of-voice en visuele aanpak sterk. Meerdere keuzes mogelijk.</p>
-
-    <div class="fg">
-      <label class="fl">Doelgroep</label>
-      <div class="card-grid">
-        <div class="c-opt multi" data-field="doelgroep" data-val="Starters" onclick="selMulti(this)">
-          <div class="c-ico">🌱</div>
-          <div class="c-name">Starters</div>
-          <div class="c-sub">Eerste woning</div>
-        </div>
-        <div class="c-opt multi" data-field="doelgroep" data-val="Jonge gezinnen" onclick="selMulti(this)">
-          <div class="c-ico">👨‍👩‍👧</div>
-          <div class="c-name">Jonge gezinnen</div>
-          <div class="c-sub">Groei en ruimte</div>
-        </div>
-        <div class="c-opt multi" data-field="doelgroep" data-val="Doorstromers" onclick="selMulti(this)">
-          <div class="c-ico">🏠</div>
-          <div class="c-name">Doorstromers</div>
-          <div class="c-sub">Opwaarderen</div>
-        </div>
-        <div class="c-opt multi" data-field="doelgroep" data-val="Senioren 55+" onclick="selMulti(this)">
-          <div class="c-ico">🌿</div>
-          <div class="c-name">Senioren 55+</div>
-          <div class="c-sub">Comfort, gemak</div>
-        </div>
-        <div class="c-opt multi" data-field="doelgroep" data-val="Investeerders" onclick="selMulti(this)">
-          <div class="c-ico">📈</div>
-          <div class="c-name">Investeerders</div>
-          <div class="c-sub">Rendement</div>
-        </div>
-        <div class="c-opt multi" data-field="doelgroep" data-val="Expats en internationale kopers" onclick="selMulti(this)">
-          <div class="c-ico">🌍</div>
-          <div class="c-name">Expats</div>
-          <div class="c-sub">Internationaal</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-nav">
-      <button class="btn-g" onclick="goStep(1)">Terug</button>
-      <button class="btn-p" onclick="goStep(3)">Sfeer &rarr;</button>
-    </div>
+  <div class="ph-line" id="phline2"></div>
+  <div class="ph-item">
+    <div class="ph-dot pending" id="ph3">3</div>
+    <span class="ph-lbl" id="phl3">Framework</span>
   </div>
+</div>
 
-  <!-- ── STEP 3: Sfeer ── -->
-  <div class="step-panel" id="step3">
-    <div class="step-eyebrow">Stap 3 van 4</div>
-    <h1 class="step-title">Welke sfeer past hier bij?</h1>
-    <p class="step-sub">Kies 1 tot 3 woorden die de gewenste uitstraling omschrijven. Dit vormt de visuele persoonlijkheid van het project.</p>
-
-    <div class="sfeer-grid">
-      <div class="s-tag" onclick="sfeerSel(this)">Modern &amp; strak</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Klassiek &amp; tijdloos</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Minimalistisch</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Warm &amp; gezellig</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Naturel &amp; organisch</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Industrieel &amp; rauw</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Scandinavisch</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Mediterraan</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Urban &amp; dynamisch</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Landelijk &amp; rustiek</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Luxueus &amp; exclusief</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Duurzaam &amp; groen</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Toegankelijk &amp; eerlijk</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Speels &amp; creatief</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Koel &amp; zakelijk</div>
-      <div class="s-tag" onclick="sfeerSel(this)">Avontuurlijk</div>
-    </div>
-    <div class="sfeer-hint" id="sfeerHint">0 van max. 3 geselecteerd</div>
-
-    <div class="w-nav">
-      <button class="btn-g" onclick="goStep(2)">Terug</button>
-      <button class="btn-p" onclick="goStep(4)">Referenties &rarr;</button>
-    </div>
+<!-- ── INTAKE ── -->
+<div class="intake" id="intakeSection">
+  <div class="intake-hero">
+    <div class="intake-eyebrow">Nieuwbouw Visual Identity Agent</div>
+    <h1 class="intake-title">Vul de intake in</h1>
+    <p class="intake-sub">Vul de informatie zo volledig mogelijk in. Schrijf <strong>onbekend</strong> wanneer iets nog niet bekend is. Alleen projectnaam en locatie zijn verplicht.</p>
   </div>
-
-  <!-- ── STEP 4: Referenties ── -->
-  <div class="step-panel" id="step4">
-    <div class="step-eyebrow">Stap 4 van 4</div>
-    <h1 class="step-title">Inspiratie en referenties</h1>
-    <p class="step-sub">Optioneel maar waardevol. Deel links of merknamen die je aanspreken — de AI doorzoekt die mee voor een scherper advies.</p>
-
-    <div class="fg">
-      <label class="fl" for="f-ref1">Project of website die je mooi vindt (URL of naam)</label>
-      <input class="fi" id="f-ref1" type="text" placeholder="bijv. https://... of naam van project" autocomplete="off"/>
-    </div>
-    <div class="fg">
-      <label class="fl" for="f-ref2">Een merk of stijl die past (buiten vastgoed mag ook)</label>
-      <input class="fi" id="f-ref2" type="text" placeholder="bijv. Aesop, Muji, Airbnb, Zara Home..." autocomplete="off"/>
-    </div>
-    <div class="fg">
-      <label class="fl" for="f-extra">Extra context voor de AI</label>
-      <textarea class="fi" id="f-extra" rows="3" placeholder="Wat maakt dit project uniek? Welke associaties wil je vermijden? Wat mist er nog?" style="resize:vertical;font-family:var(--fn);line-height:1.55"></textarea>
-    </div>
-
-    <div class="w-nav">
-      <button class="btn-g" onclick="goStep(3)">Terug</button>
-      <button class="btn-p" id="analyzeBtn" onclick="doAnalyze()">
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M8 1.5l1.8 5H15L10.5 9.8l1.8 5L8 12l-4.3 2.8 1.8-5L1 6.5h5.2z" fill="white"/>
-        </svg>
-        Brand Compass genereren
-      </button>
-    </div>
+  <div id="accordionContainer"></div>
+  <div class="intake-submit">
+    <button class="btn-p" id="submitBtn" onclick="submitIntake()">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l1.8 5H15L10.5 9.8l1.8 5L8 12l-4.3 2.8 1.8-5L1 6.5h5.2z" fill="white"/></svg>
+      Verstuur naar AI Agent
+    </button>
+    <span class="intake-count-hint" id="intakeCountHint"></span>
   </div>
 </div>
 
 <!-- ── LOADING ── -->
 <div class="loading-section" id="loadingSection">
   <div class="l-icon">
-    <svg width="26" height="26" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <svg width="26" height="26" viewBox="0 0 16 16" fill="none">
       <path d="M8 1.5l1.8 5H15L10.5 9.8l1.8 5L8 12l-4.3 2.8 1.8-5L1 6.5h5.2z" fill="#7CA73F"/>
     </svg>
   </div>
-  <div class="l-title">Brand Compass wordt opgebouwd</div>
-  <div class="l-sub">AI doorzoekt designtrends en bouwt jouw visuele identiteit</div>
-  <div class="l-steps">
-    <div class="l-step"><div class="l-dot" id="ld1"></div>Projectprofiel analyseren</div>
-    <div class="l-step"><div class="l-dot" id="ld2"></div>Kleurtrends opzoeken</div>
-    <div class="l-step"><div class="l-dot" id="ld3"></div>Typografie onderzoeken</div>
-    <div class="l-step"><div class="l-dot" id="ld4"></div>Moodboard samenstellen</div>
-    <div class="l-step"><div class="l-dot" id="ld5"></div>Merkadvies formuleren</div>
+  <div class="l-title" id="loadTitle">Agent analyseert de intake</div>
+  <div class="l-sub" id="loadSub">Even geduld — dit kan 30-60 seconden duren</div>
+  <div class="l-dot-row">
+    <div class="l-dot active" id="ld1"></div>
+    <div class="l-dot" id="ld2"></div>
+    <div class="l-dot" id="ld3"></div>
+    <div class="l-dot" id="ld4"></div>
+    <div class="l-dot" id="ld5"></div>
   </div>
 </div>
 
-<!-- ── ERROR ── -->
-<div class="error-section" id="errorSection">
-  <div style="font-size:22px;font-weight:800;margin-bottom:8px;color:var(--rood)">Analyse mislukt</div>
-  <div id="errorMsg" style="font-size:14px;color:var(--muted);margin-bottom:24px;line-height:1.65"></div>
-  <button class="btn-p" onclick="showWizard()">Opnieuw proberen</button>
+<!-- ── CONTROLE ── -->
+<div class="controle-section" id="controleSection">
+  <div class="intake-hero" style="margin-bottom:24px">
+    <div class="intake-eyebrow">Stap 2 — Controle</div>
+    <h1 class="intake-title">Analyse &amp; vragen</h1>
+    <p class="intake-sub">De agent heeft de intake beoordeeld. Lees de samenvatting en beantwoord eventuele vragen voordat het framework wordt gegenereerd.</p>
+  </div>
+
+  <div class="controle-ai">
+    <div class="controle-ai-head">
+      <div class="controle-ai-badge">AI</div>
+      <div class="controle-ai-lbl">Visual Identity Agent — Controle</div>
+    </div>
+    <div class="controle-ai-body" id="controleText"></div>
+  </div>
+
+  <div class="answers-box">
+    <label class="answers-lbl" for="answersTA">Jouw antwoorden op de vragen (optioneel)</label>
+    <textarea class="answers-ta" id="answersTA" placeholder="Typ hier je antwoorden, aanvullingen of opmerkingen..."></textarea>
+  </div>
+  <p class="controle-hint">Klik op <strong>Genereer Framework</strong> om door te gaan, ook als je geen vragen hebt beantwoord.</p>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn-p" onclick="doFramework()">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 3h10v2H3zm0 4h10v2H3zm0 4h7v2H3z" fill="white"/></svg>
+      Genereer Visual Identity Framework
+    </button>
+    <button class="btn-g" onclick="backToIntake()">&#8592; Intake aanpassen</button>
+  </div>
 </div>
 
-<!-- ── RESULTS ── -->
-<div class="results-section" id="resultsSection"></div>
+<!-- ── FRAMEWORK ── -->
+<div class="fw-section" id="fwSection">
+  <div class="fw-title-area">
+    <div class="fw-project" id="fwProjectLabel"></div>
+    <h1 class="fw-main-title" id="fwMainTitle">Visual Identity Framework</h1>
+    <span class="fw-status-chip" id="fwStatus">Eerste concept</span>
+  </div>
+  <div id="fwCards"></div>
+  <div class="fw-actions">
+    <button class="btn-p" onclick="window.print()">&#128438; Afdrukken / PDF</button>
+    <button class="btn-g" onclick="backToControle()">&#8592; Terugkoppeling geven</button>
+    <button class="btn-g" onclick="startNew()">&#8635; Nieuw project</button>
+  </div>
+</div>
 
-<footer>Spring Real Estate &middot; Brand Compass &middot; Projectmarketing &amp; Makelaardij</footer>
+<footer>Spring Real Estate &middot; Visual Identity Agent &middot; Projectmarketing &amp; Makelaardij</footer>
 <div class="toast" id="toast" aria-live="polite"></div>
 
 <script>
-var KEY_STORE='spring-vi-key';
-var GROQ_URL='https://api.groq.com/openai/v1/chat/completions';
+/* ═══════════════════════════════════════════════════════════
+   CONSTANTS
+═══════════════════════════════════════════════════════════ */
+var KEY_STORE = 'spring-via-key';
+var GROQ_URL  = 'https://api.groq.com/openai/v1/chat/completions';
+var MODEL_PRIMARY  = 'llama-3.3-70b-versatile';
+var MODEL_FALLBACK = 'llama-3.1-8b-instant';
 
-// State
-var D={type:'',segment:'',doelgroep:[],sfeer:[]};
-var currentStep=1;
+var SYSTEM_PROMPT = [
+  'Je naam is Nieuwbouw Visual Identity Agent.',
+  '',
+  'ROL:',
+  'Je bent een senior visual identity strategist en art director voor Nederlandse nieuwbouwprojecten.',
+  'Je vertaalt branding, positionering, projectnaam en storytelling naar een duidelijke visuele identiteit.',
+  'Je bepaalt: visuele merkstrategie, visuele richting, kleurgebruik, typografie, fotografie, beeldtaal,',
+  'grafische elementen, logo-richting, ontwerpprincipes, visuele do\'s en don\'ts,',
+  'en richtlijnen voor andere agents en ontwerpers.',
+  'Je maakt geen complete website, brochure, campagne of definitieve productiemiddelen.',
+  '',
+  'STAP 2 — CONTROLE (gebruik alleen wanneer de gebruiker dit vraagt):',
+  '1. Vat de belangrijkste visuele uitgangspunten kort samen.',
+  '2. Benoem alleen essentiële ontbrekende informatie.',
+  '3. Stel maximaal vijf aanvullende vragen.',
+  '4. Verzin geen architectuur- of projectkenmerken.',
+  '5. Markeer aannames duidelijk.',
+  '6. Benoem tegenstrijdigheden.',
+  '7. Vraag toestemming om het framework te maken.',
+  '',
+  'STAP 3 — RESULTAAT (gebruik wanneer de gebruiker het framework vraagt):',
+  'Maak één compact Visual Identity Framework met EXACT deze 21 secties:',
+  '## 1. Strategische basis',
+  '## 2. Visuele kern',
+  '## 3. Visuele ontwerpprincipes',
+  '## 4. Visuele richting',
+  '## 5. Kleurstrategie',
+  '## 6. Typografiestrategie',
+  '## 7. Logo-richting',
+  '## 8. Beeldtaal',
+  '## 9. Fotografie',
+  '## 10. Renders en visualisaties',
+  '## 11. Grafische elementen',
+  '## 12. Lay-out en compositie',
+  '## 13. Materiaal- en textuurgevoel',
+  '## 14. Iconografie en illustratie',
+  '## 15. Visuele hiërarchie',
+  '## 16. Toepassingsrichtlijnen',
+  '## 17. Visuele do\'s en don\'ts',
+  '## 18. Concurrentieonderscheid',
+  '## 19. Toegankelijkheid en bruikbaarheid',
+  '## 20. Openstaande punten',
+  '## 21. Status',
+  '',
+  'KWALITEITSEISEN:',
+  '- Voortkomen uit de branding en positionering.',
+  '- De projectnaam versterken en het centrale verhaal ondersteunen.',
+  '- Passen bij doelgroep, prijsniveau, architectuur en locatie.',
+  '- Onderscheidend maar geloofwaardig zijn.',
+  '- Bruikbaar voor digitale en gedrukte middelen.',
+  '- Consistent en overdraagbaar aan ontwerpers.',
+  '',
+  'VERMIJD:',
+  '- Generieke luxe-uitstraling, automatisch goud/zwart/serif bij premium.',
+  '- Visuele trends zonder strategische reden.',
+  '- Slecht leesbare combinaties.',
+  '- Niet-onderbouwde kleurkeuzes.',
+  '- Stockfotografie zonder relevantie.',
+  '- Een identiteit die alleen op een moodboard werkt.',
+  '- Complete uitwerking van website, campagne of brochure.'
+].join('\n');
 
-// ── API KEY ──────────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════════
+   INTAKE FORM DEFINITION
+═══════════════════════════════════════════════════════════ */
+var SECTIONS = [
+  {id:'project', icon:'🏢', title:'Project', fields:[
+    {id:'naam',     label:'Projectnaam', req:true},
+    {id:'locatie',  label:'Locatie',     req:true},
+    {id:'ontwikkelaar', label:'Ontwikkelaar'},
+    {id:'architect',    label:'Architect'},
+    {id:'woningen',     label:'Aantal en type woningen'},
+    {id:'prijsklasse',  label:'Indicatieve prijsklasse'},
+    {id:'projectkenmerken',    label:'Belangrijkste projectkenmerken',    rows:2},
+    {id:'architectuurkenmerken', label:'Belangrijkste architectonische kenmerken', rows:2},
+    {id:'locatiekenmerken',    label:'Belangrijkste locatiekenmerken',    rows:2},
+    {id:'duurzaamheid',        label:'Belangrijkste duurzaamheidskenmerken', rows:2}
+  ]},
+  {id:'doelgroep', icon:'👥', title:'Doelgroep', fields:[
+    {id:'dprimair',      label:'Primaire doelgroep'},
+    {id:'dsecundair',    label:'Secundaire doelgroep'},
+    {id:'dprijsbeleving',label:'Gewenste prijsbeleving'},
+    {id:'demotie',       label:'Gewenste emotie'},
+    {id:'dwoonwensen',   label:'Belangrijkste woonwensen',   rows:2},
+    {id:'dkoopmotieven', label:'Belangrijkste koopmotieven', rows:2},
+    {id:'dvertrouwen',   label:'Wat moet vertrouwen uitstralen', rows:2},
+    {id:'dafschrikken',  label:'Wat kan visueel afschrikken', rows:2}
+  ]},
+  {id:'branding', icon:'🏷️', title:'Branding', fields:[
+    {id:'bessentie',     label:'Merkessentie'},
+    {id:'bbelofte',      label:'Merkbelofte'},
+    {id:'bwaarden',      label:'Kernwaarden'},
+    {id:'bpersoonlijkheid', label:'Merkpersoonlijkheid'},
+    {id:'btov',          label:'Tone of voice'},
+    {id:'buitstraling',  label:'Gewenste uitstraling',   rows:2},
+    {id:'bongewenst',    label:'Ongewenste uitstraling',  rows:2},
+    {id:'bwoordenin',    label:'Woorden die bij het merk passen'},
+    {id:'bwoordenuit',   label:'Woorden die niet passen'}
+  ]},
+  {id:'positionering', icon:'📍', title:'Positionering', fields:[
+    {id:'pgekozen',    label:'Gekozen positionering',    rows:2},
+    {id:'ponderscheid',label:'Primaire onderscheid'},
+    {id:'ppijlers',    label:'Positioneringspijlers',    rows:2},
+    {id:'pfunctioneel',label:'Functionele waarde'},
+    {id:'pemotioneel', label:'Emotionele waarde'},
+    {id:'pbewijs',     label:'Belangrijkste bewijsvoering', rows:2}
+  ]},
+  {id:'naming', icon:'✏️', title:'Naming', fields:[
+    {id:'nnaam',          label:'Projectnaam (bevestiging)'},
+    {id:'nbetekenis',     label:'Betekenis van de naam'},
+    {id:'nassociaties',   label:'Gewenste associaties'},
+    {id:'nongewenst',     label:'Ongewenste associaties'},
+    {id:'nsubtitel',      label:'Eventuele subtitel'},
+    {id:'nstijl',         label:'Dominant of ingetogen toepassen'}
+  ]},
+  {id:'storytelling', icon:'📖', title:'Storytelling', fields:[
+    {id:'sverhaal',       label:'Centrale verhaalgedachte', rows:2},
+    {id:'sperspectief',   label:'Primair vertelperspectief'},
+    {id:'spijlers',       label:'Verhaalpijlers',           rows:2},
+    {id:'semotie',        label:'Belangrijkste emoties'},
+    {id:'slocatie',       label:'Rol van de locatie'},
+    {id:'sarchitectuur',  label:'Rol van architectuur'},
+    {id:'sbewoners',      label:'Rol van bewoners'},
+    {id:'sboodschap',     label:'Belangrijkste hoofdboodschap', rows:2}
+  ]},
+  {id:'architectuur', icon:'🏗️', title:'Architectuur & Omgeving', fields:[
+    {id:'astijl',         label:'Architectuurstijl'},
+    {id:'amaterialen',    label:'Materialen'},
+    {id:'akleuren',       label:'Kleuren in het gebouw'},
+    {id:'alandschap',     label:'Landschap en groen'},
+    {id:'ahistorisch',    label:'Historische kenmerken'},
+    {id:'akarakter',      label:'Stedelijk of landelijk karakter'},
+    {id:'arenders',       label:'Beschikbare renders'},
+    {id:'afotografie',    label:'Beschikbare fotografie'},
+    {id:'avisueelinc',    label:'Visuele kenmerken die moeten terugkomen', rows:2},
+    {id:'avisueelex',     label:'Visuele kenmerken die niet moeten worden gebruikt', rows:2}
+  ]},
+  {id:'concurrentie', icon:'⚔️', title:'Concurrentie', fields:[
+    {id:'cconcurrenten',  label:'Belangrijkste concurrerende projecten', rows:2},
+    {id:'ccleuren',       label:'Veelgebruikte kleuren in de markt'},
+    {id:'ctypografie',    label:'Veelgebruikte typografie'},
+    {id:'cfotografie',    label:'Veelgebruikte fotografie'},
+    {id:'ccliches',       label:'Visuele clichés in de markt', rows:2},
+    {id:'cinspiratiepr',  label:'Projecten die inspireren'},
+    {id:'cvermijden',     label:'Projecten die niet passen'},
+    {id:'conderscheid',   label:'Gewenste mate van onderscheid'}
+  ]},
+  {id:'randvoorwaarden', icon:'⚙️', title:'Praktische Randvoorwaarden', fields:[
+    {id:'rhuisstijl',     label:'Bestaande huisstijl ontwikkelaar'},
+    {id:'rlogos',         label:'Verplichte logo\'s'},
+    {id:'rkleuren',       label:'Verplichte kleuren'},
+    {id:'rtoegang',       label:'Toegankelijkheidseisen'},
+    {id:'rdigitaal',      label:'Digitale toepassingen'},
+    {id:'rdrukwerk',      label:'Gedrukte toepassingen'},
+    {id:'rbewegwijzering',label:'Bewegwijzering'},
+    {id:'rverkoopcentrum',label:'Verkoopcentrum'},
+    {id:'rtalen',         label:'Benodigde talen'},
+    {id:'rbeperkingen',   label:'Technische beperkingen'},
+    {id:'rgoedkeuring',   label:'Wie keurt de visuele identiteit goed'},
+    {id:'rstatus',        label:'Gewenste status van het resultaat'}
+  ]}
+];
+
+/* ═══════════════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════════════ */
+var state = {
+  intakeText: '',
+  controleText: '',
+  answersText: '',
+  frameworkMarkdown: '',
+  projectNaam: ''
+};
+
+/* ═══════════════════════════════════════════════════════════
+   API KEY
+═══════════════════════════════════════════════════════════ */
 function saveKey(){
-  var k=document.getElementById('apiKeyInput').value.trim();
-  if(!k||!k.startsWith('gsk_')){alert('Voer een geldige Groq API-sleutel in (begint met gsk_)');return;}
-  localStorage.setItem(KEY_STORE,k);
-  document.getElementById('setupModal').style.display='none';
+  var k = document.getElementById('apiKeyInput').value.trim();
+  if(!k || !k.startsWith('gsk_')){ alert('Voer een geldige Groq API-sleutel in (begint met gsk_)'); return; }
+  localStorage.setItem(KEY_STORE, k);
+  document.getElementById('setupModal').style.display = 'none';
 }
 function resetKey(){
   localStorage.removeItem(KEY_STORE);
-  document.getElementById('apiKeyInput').value='';
-  document.getElementById('setupModal').style.display='flex';
+  document.getElementById('apiKeyInput').value = '';
+  document.getElementById('setupModal').style.display = 'flex';
 }
 (function init(){
-  if(!localStorage.getItem(KEY_STORE)) document.getElementById('setupModal').style.display='flex';
+  if(!localStorage.getItem(KEY_STORE)) document.getElementById('setupModal').style.display = 'flex';
+  buildForm();
+  updateIntakeCount();
 })();
 
-// ── WIZARD ──────────────────────────────────────────────────────────────
-function goStep(n){
-  if(n>currentStep&&!validate(currentStep)) return;
-  for(var i=1;i<=4;i++){
-    var c=document.getElementById('sc'+i);
-    var l=document.getElementById('sl'+i);
-    c.className='step-circle '+(i<n?'done':i===n?'active':'pending');
-    if(l) l.className='step-lbl'+(i===n?' on':'');
+/* ═══════════════════════════════════════════════════════════
+   BUILD INTAKE FORM
+═══════════════════════════════════════════════════════════ */
+function buildForm(){
+  var container = document.getElementById('accordionContainer');
+  container.innerHTML = SECTIONS.map(function(sec, si){
+    var fieldsHtml = sec.fields.map(function(f){
+      var tag = f.rows ? 'textarea' : 'input';
+      var attrs = f.rows
+        ? 'class="fa" rows="'+f.rows+'"'
+        : 'class="fi" type="text"';
+      attrs += ' id="f_'+f.id+'" placeholder="'+(f.req?'Verplicht veld':'onbekend')+'"';
+      attrs += ' oninput="updateFieldCount(\''+sec.id+'\')"';
+      return '<div class="fg"><label class="fl" for="f_'+f.id+'">'+esc(f.label)+(f.req?'<span class="req">*</span>':'')+'</label>'
+        +'<'+tag+' '+attrs+(tag==='textarea'?' style="font-family:var(--fn)"':'')+'>'+( tag==='textarea' ? '</textarea>' : '>')+'</div>';
+    }).join('');
+
+    return '<div class="acc'+(si===0?' open':'') +'" id="acc_'+sec.id+'">'
+      +'<div class="acc-head" onclick="toggleAcc(\''+sec.id+'\')">'
+      +'<span class="acc-ico">'+sec.icon+'</span>'
+      +'<span class="acc-title">'+esc(sec.title)+'</span>'
+      +'<span class="acc-count" id="cnt_'+sec.id+'">0/'+sec.fields.length+'</span>'
+      +'<svg class="acc-chev'+(si===0?' open':'')+'" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      +'</div>'
+      +'<div class="acc-body">'+fieldsHtml+'</div>'
+      +'</div>';
+  }).join('');
+}
+
+function toggleAcc(id){
+  var el = document.getElementById('acc_'+id);
+  var open = el.classList.contains('open');
+  el.classList.toggle('open', !open);
+  var chev = el.querySelector('.acc-chev');
+  if(chev) chev.classList.toggle('open', !open);
+}
+
+function updateFieldCount(secId){
+  var sec = SECTIONS.find(function(s){ return s.id===secId; });
+  if(!sec) return;
+  var filled = sec.fields.filter(function(f){
+    var el = document.getElementById('f_'+f.id);
+    return el && el.value.trim() && el.value.trim() !== 'onbekend';
+  }).length;
+  var cnt = document.getElementById('cnt_'+secId);
+  if(cnt){
+    cnt.textContent = filled+'/'+sec.fields.length;
+    cnt.classList.toggle('has', filled > 0);
   }
-  ['line12','line23','line34'].forEach(function(id,idx){
-    var el=document.getElementById(id);
-    if(el) el.className='step-line'+(n>idx+2?' done':'');
+  updateIntakeCount();
+}
+
+function updateIntakeCount(){
+  var total = 0, filled = 0;
+  SECTIONS.forEach(function(sec){
+    sec.fields.forEach(function(f){
+      total++;
+      var el = document.getElementById('f_'+f.id);
+      if(el && el.value.trim() && el.value.trim() !== 'onbekend') filled++;
+    });
   });
-  document.getElementById('step'+currentStep).classList.remove('on');
-  document.getElementById('step'+n).classList.add('on');
-  currentStep=n;
-  window.scrollTo({top:54,behavior:'smooth'});
+  var hint = document.getElementById('intakeCountHint');
+  if(hint) hint.textContent = filled + ' van ' + total + ' velden ingevuld';
 }
 
-function validate(step){
-  if(step===1){
-    if(!document.getElementById('f-naam').value.trim()){alert('Vul een projectnaam in');return false;}
-    if(!D.type){alert('Kies een projecttype');return false;}
-    if(!document.getElementById('f-locatie').value.trim()){alert('Vul een locatie in');return false;}
-    if(!D.segment){alert('Kies een prijssegment');return false;}
+/* ═══════════════════════════════════════════════════════════
+   COLLECT & BUILD INTAKE TEXT
+═══════════════════════════════════════════════════════════ */
+function collectIntake(){
+  var result = {};
+  SECTIONS.forEach(function(sec){
+    sec.fields.forEach(function(f){
+      var el = document.getElementById('f_'+f.id);
+      result[f.id] = el ? el.value.trim() : '';
+    });
+  });
+  return result;
+}
+
+function buildIntakeText(data){
+  var lines = [];
+  SECTIONS.forEach(function(sec){
+    lines.push('\n== ' + sec.title.toUpperCase() + ' ==');
+    sec.fields.forEach(function(f){
+      var val = data[f.id] || 'onbekend';
+      lines.push(f.label + ': ' + val);
+    });
+  });
+  return lines.join('\n');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PHASE NAVIGATION
+═══════════════════════════════════════════════════════════ */
+function setPhase(n){
+  for(var i=1;i<=3;i++){
+    var d=document.getElementById('ph'+i);
+    var l=document.getElementById('phl'+i);
+    d.className='ph-dot '+(i<n?'done':i===n?'active':'pending');
+    l.className='ph-lbl'+(i===n?' active':'');
   }
-  if(step===2&&!D.doelgroep.length){alert('Kies minimaal één doelgroep');return false;}
-  if(step===3&&!D.sfeer.length){alert('Kies minimaal één sfeerwoord');return false;}
-  return true;
+  document.getElementById('phline1').className='ph-line'+(n>1?' done':'');
+  document.getElementById('phline2').className='ph-line'+(n>2?' done':'');
 }
 
-// Single select cards
-function selCard(el){
-  var field=el.dataset.field;
-  var val=el.dataset.val;
-  el.closest('.fg').querySelectorAll('.c-opt:not(.multi)').forEach(function(c){c.classList.remove('sel');});
-  el.classList.add('sel');
-  D[field]=val;
-}
-
-// Multi select cards
-function selMulti(el){
-  var field=el.dataset.field;
-  var val=el.dataset.val;
-  if(el.classList.contains('sel')){
-    el.classList.remove('sel');
-    D[field]=D[field].filter(function(v){return v!==val;});
-  } else {
-    el.classList.add('sel');
-    if(!D[field]) D[field]=[];
-    D[field].push(val);
-  }
-}
-
-// Sfeer tags (max 3)
-function sfeerSel(el){
-  var txt=el.textContent;
-  if(el.classList.contains('sel')){
-    el.classList.remove('sel');
-    D.sfeer=D.sfeer.filter(function(v){return v!==txt;});
-  } else {
-    if(D.sfeer.length>=3){showToast('Maximaal 3 sfeerwoorden');return;}
-    el.classList.add('sel');
-    D.sfeer.push(txt);
-  }
-  document.getElementById('sfeerHint').textContent=D.sfeer.length+' van max. 3 geselecteerd';
-}
-
-// ── ANALYZE ─────────────────────────────────────────────────────────────
-async function doAnalyze(){
-  var apiKey=localStorage.getItem(KEY_STORE);
-  if(!apiKey){resetKey();return;}
-  if(!validate(4)) return;
-
-  var naam=document.getElementById('f-naam').value.trim();
-  var locatie=document.getElementById('f-locatie').value.trim();
-  var aantal=document.getElementById('f-aantal').value||'onbekend';
-  var ref1=document.getElementById('f-ref1').value.trim();
-  var ref2=document.getElementById('f-ref2').value.trim();
-  var extra=document.getElementById('f-extra').value.trim();
-
-  document.getElementById('wizardSection').style.display='none';
-  document.getElementById('loadingSection').style.display='block';
-  document.getElementById('errorSection').style.display='none';
-  document.getElementById('resultsSection').style.display='none';
-
-  startLoadingAnim();
-
-  try{
-    var result=await callGroq(apiKey,{naam,locatie,aantal,ref1,ref2,extra});
-    result._naam=naam;
-    stopLoadingAnim();
-    renderResults(result);
-  }catch(e){
-    stopLoadingAnim();
-    document.getElementById('loadingSection').style.display='none';
-    document.getElementById('errorSection').style.display='block';
-    document.getElementById('errorMsg').textContent=e.message;
-  }
-}
-
-var _ldTimer=null;
-function startLoadingAnim(){
-  var dots=['ld1','ld2','ld3','ld4','ld5'];
-  var delays=[0,700,1800,3500,5500];
-  dots.forEach(function(id){document.getElementById(id).className='l-dot';});
-  delays.forEach(function(delay,i){
-    setTimeout(function(){
-      if(document.getElementById('loadingSection').style.display==='none') return;
-      if(i>0) document.getElementById(dots[i-1]).className='l-dot done';
-      document.getElementById(dots[i]).className='l-dot active';
-    },delay);
+function showScreen(id){
+  ['intakeSection','loadingSection','controleSection','fwSection'].forEach(function(sid){
+    document.getElementById(sid).style.display = (sid===id ? '' : 'none');
   });
 }
-function stopLoadingAnim(){
-  document.getElementById('loadingSection').style.display='none';
+
+/* ═══════════════════════════════════════════════════════════
+   SUBMIT INTAKE → STAP 2 CONTROLE
+═══════════════════════════════════════════════════════════ */
+function submitIntake(){
+  var apiKey = localStorage.getItem(KEY_STORE);
+  if(!apiKey){ resetKey(); return; }
+
+  var data = collectIntake();
+  var naam = data.naam || '';
+  var locatie = data.locatie || '';
+  if(!naam.trim()){ alert('Vul een projectnaam in (verplicht).'); return; }
+  if(!locatie.trim()){ alert('Vul een locatie in (verplicht).'); return; }
+
+  state.intakeText = buildIntakeText(data);
+  state.projectNaam = naam;
+
+  document.getElementById('loadTitle').textContent = 'Agent analyseert de intake';
+  document.getElementById('loadSub').textContent = 'Even geduld — dit kan 20-30 seconden duren';
+  setPhase(2);
+  showScreen('loadingSection');
+  animateDots();
+
+  var prompt = state.intakeText
+    + '\n\n---\nVoer nu Stap 2 — Controle uit.'
+    + ' Vat de belangrijkste visuele uitgangspunten kort samen, benoem alleen essentiële ontbrekende informatie,'
+    + ' stel maximaal vijf gerichte vragen, markeer aannames duidelijk,'
+    + ' en vraag toestemming om het Visual Identity Framework te maken.';
+
+  callGroq(apiKey, [{role:'user', content:prompt}], 1500)
+    .then(function(txt){
+      state.controleText = txt;
+      document.getElementById('controleText').textContent = txt;
+      showScreen('controleSection');
+    })
+    .catch(function(e){
+      showScreen('intakeSection');
+      setPhase(1);
+      alert('Fout: ' + e.message);
+    });
 }
 
-// ── GROQ API ─────────────────────────────────────────────────────────────
-async function callGroq(apiKey,p){
-  var prompt=buildPrompt(p);
-  var models=['compound-beta','llama-3.3-70b-versatile'];
-  var lastErr=null;
+/* ═══════════════════════════════════════════════════════════
+   GENERATE FRAMEWORK → STAP 3
+═══════════════════════════════════════════════════════════ */
+function doFramework(){
+  var apiKey = localStorage.getItem(KEY_STORE);
+  if(!apiKey){ resetKey(); return; }
 
-  for(var mi=0;mi<models.length;mi++){
-    var model=models[mi];
+  state.answersText = document.getElementById('answersTA').value.trim();
+
+  var messages = [
+    {role:'user', content: state.intakeText + '\n\n---\nVoer nu Stap 2 — Controle uit zoals hierboven.'},
+    {role:'assistant', content: state.controleText}
+  ];
+
+  var userMsg = state.answersText
+    ? 'Mijn antwoorden op je vragen:\n\n' + state.answersText + '\n\n---\n'
+    : '';
+  userMsg += 'Voer nu Stap 3 — Resultaat uit. '
+    + 'Maak het complete Visual Identity Framework voor ' + state.projectNaam + '. '
+    + 'Begin met "# Visual Identity Framework — ' + state.projectNaam + '" '
+    + 'en werk alle 21 secties volledig uit in de exacte structuur. '
+    + 'Wees concreet, specifiek en toepasbaar. Geef voor secties 5 en 6 indicatieve hex-codes.';
+  messages.push({role:'user', content:userMsg});
+
+  document.getElementById('loadTitle').textContent = 'Framework wordt gegenereerd';
+  document.getElementById('loadSub').textContent = 'Dit duurt 45-90 seconden — het framework is uitgebreid';
+  setPhase(3);
+  showScreen('loadingSection');
+  animateDots();
+
+  callGroq(apiKey, messages, 8000)
+    .then(function(txt){
+      state.frameworkMarkdown = txt;
+      renderFramework(txt);
+      showScreen('fwSection');
+    })
+    .catch(function(e){
+      showScreen('controleSection');
+      setPhase(2);
+      alert('Fout: ' + e.message);
+    });
+}
+
+function backToIntake(){
+  setPhase(1);
+  showScreen('intakeSection');
+}
+function backToControle(){
+  setPhase(2);
+  showScreen('controleSection');
+}
+function startNew(){
+  state = {intakeText:'',controleText:'',answersText:'',frameworkMarkdown:'',projectNaam:''};
+  document.getElementById('answersTA').value = '';
+  setPhase(1);
+  showScreen('intakeSection');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GROQ API CALL
+═══════════════════════════════════════════════════════════ */
+async function callGroq(apiKey, messages, maxTokens){
+  var models = [MODEL_PRIMARY, MODEL_FALLBACK];
+  var lastErr = null;
+
+  for(var mi = 0; mi < models.length; mi++){
     try{
-      var body={
-        model:model,
-        messages:[
-          {role:'system',content:'Je bent een expert visual identity consultant voor Nederlandse nieuwbouwprojecten. Je gebruikt actuele webinformatie om onderbouwde merkadviezen te geven. Antwoord ALTIJD met valide JSON, geen tekst buiten het JSON-object.'},
-          {role:'user',content:prompt}
-        ],
-        max_tokens:2200,
-        temperature:0.55
-      };
-      if(model!=='compound-beta') body.response_format={type:'json_object'};
+      var ctrl = new AbortController();
+      var timer = setTimeout(function(){ ctrl.abort(); }, 90000);
 
-      var ctrl=new AbortController();
-      var timer=setTimeout(function(){ctrl.abort();},60000);
-      var res=await fetch(GROQ_URL,{
-        method:'POST',
-        headers:{'Authorization':'Bearer '+apiKey,'Content-Type':'application/json'},
-        body:JSON.stringify(body),
-        signal:ctrl.signal
+      var res = await fetch(GROQ_URL, {
+        method: 'POST',
+        headers: {'Authorization':'Bearer '+apiKey,'Content-Type':'application/json'},
+        body: JSON.stringify({
+          model: models[mi],
+          messages: [{role:'system', content:SYSTEM_PROMPT}].concat(messages),
+          max_tokens: maxTokens || 4000,
+          temperature: 0.6
+        }),
+        signal: ctrl.signal
       });
       clearTimeout(timer);
 
       if(!res.ok){
-        var ed=await res.json().catch(function(){return{};});
-        var msg=ed.error&&ed.error.message?ed.error.message:'HTTP '+res.status;
-        if(res.status===400||res.status===404){lastErr=new Error(msg);continue;}
+        var ed = await res.json().catch(function(){ return {}; });
+        var msg = ed.error && ed.error.message ? ed.error.message : 'HTTP '+res.status;
+        if(res.status === 400 || res.status === 404){ lastErr = new Error(msg); continue; }
         throw new Error(msg);
       }
-      var gd=await res.json();
-      var content=gd.choices[0].message.content;
-      return extractJSON(content);
-    }catch(e){
-      if(e.name==='AbortError') throw new Error('Tijdlimiet overschreden. Probeer opnieuw.');
-      lastErr=e;
-      if(mi<models.length-1) continue;
+      var gd = await res.json();
+      var content = gd.choices[0].message.content;
+      if(!content) throw new Error('Leeg antwoord ontvangen van de AI.');
+      return content;
+    } catch(e){
+      if(e.name === 'AbortError') throw new Error('Tijdlimiet overschreden. Probeer opnieuw.');
+      lastErr = e;
+      if(mi < models.length - 1) continue;
     }
   }
-  throw lastErr||new Error('Analyse mislukt. Controleer je API-sleutel en probeer opnieuw.');
+  throw lastErr || new Error('Analyse mislukt. Controleer je API-sleutel.');
 }
 
-function buildPrompt(p){
-  var refs=[];
-  if(p.ref1) refs.push(p.ref1);
-  if(p.ref2) refs.push(p.ref2);
+/* ═══════════════════════════════════════════════════════════
+   RENDER FRAMEWORK
+═══════════════════════════════════════════════════════════ */
+function renderFramework(markdown){
+  // Extract project title from first # heading
+  var titleMatch = markdown.match(/^#\s+(.+)$/m);
+  var fullTitle = titleMatch ? titleMatch[1] : 'Visual Identity Framework — ' + state.projectNaam;
+  var projPart = fullTitle.replace(/^Visual Identity Framework\s*[—–-]*\s*/i, '');
 
-  return 'Je bent een visual identity expert voor Nederlandse nieuwbouwprojecten.\n\n'
-    +'Gebruik je internetzoekcapaciteiten om actuele branding- en designtrends te onderzoeken:\n'
-    +'1. Kleurpaletten voor '+D.segment+' vastgoed in Nederland en internationaal (2024-2025)\n'
-    +'2. Typografie trends voor '+D.sfeer.join(' & ')+' projectmarketing\n'
-    +'3. Visuele identiteiten van toonaangevende nieuwbouwprojecten voor '+D.doelgroep.join(' en ')+'\n'
-    +'4. Fotografie- en moodboard trends voor woonprojecten gericht op '+D.doelgroep[0]+'\n'
-    +(refs.length?'5. De visuele stijl van: '+refs.join(', ')+'\n':'')
-    +'\nPROJECTGEGEVENS:\n'
-    +'- Projectnaam: '+p.naam+'\n'
-    +'- Type: '+D.type+'\n'
-    +'- Locatie: '+p.locatie+'\n'
-    +'- Aantal woningen: '+p.aantal+'\n'
-    +'- Prijssegment: '+D.segment+'\n'
-    +'- Doelgroep: '+D.doelgroep.join(', ')+'\n'
-    +'- Gewenste sfeer: '+D.sfeer.join(', ')+'\n'
-    +(refs.length?'- Inspiratiebronnen: '+refs.join(', ')+'\n':'')
-    +(p.extra?'- Extra context: '+p.extra+'\n':'')
-    +'\nGeef een volledig, gefundeerd visueel identiteitsadvies gebaseerd op je webonderzoek.\n\n'
-    +'Antwoord UITSLUITEND met dit JSON-object (geen tekst ervoor of erna):\n'
-    +'{\n'
-    +'  "positionering": "één krachtige zin – de merkessentie van '+p.naam+'",\n'
-    +'  "brand_verhaal": "2-3 zinnen over de visuele identiteit en merkbelofte",\n'
-    +'  "tone_of_voice": ["woord1","woord2","woord3","woord4"],\n'
-    +'  "kleurpalet": [\n'
-    +'    {"naam":"Primair","hex":"#XXXXXX","rol":"rol omschrijving","reden":"waarom deze kleur past bij dit project"},\n'
-    +'    {"naam":"Secondair","hex":"#XXXXXX","rol":"rol omschrijving","reden":"waarom"},\n'
-    +'    {"naam":"Accent","hex":"#XXXXXX","rol":"rol omschrijving","reden":"waarom"},\n'
-    +'    {"naam":"Neutraal","hex":"#XXXXXX","rol":"achtergrond / wit ruimte","reden":"waarom"},\n'
-    +'    {"naam":"Tekst","hex":"#XXXXXX","rol":"kopij en body tekst","reden":"waarom"}\n'
-    +'  ],\n'
-    +'  "typografie": {\n'
-    +'    "heading": {"naam":"Exacte Google Fonts naam","gewichten":"Bold 700, Regular 400","reden":"uitleg"},\n'
-    +'    "body": {"naam":"Exacte Google Fonts naam","gewichten":"Regular 400, SemiBold 600","reden":"uitleg"},\n'
-    +'    "richtlijn": "hoe de twee fonts samen te gebruiken in uitingen"\n'
-    +'  },\n'
-    +'  "fotografie": {\n'
-    +'    "stijl": "beschrijving fotografiestijl (2-3 zinnen)",\n'
-    +'    "belichting": "beschrijving licht en sfeer",\n'
-    +'    "onderwerpen": ["wat fotograferen 1","wat fotograferen 2","wat fotograferen 3"],\n'
-    +'    "vermijden": ["vermijden 1","vermijden 2"],\n'
-    +'    "moodboard_zoektermen": ["zoekterm1","zoekterm2","zoekterm3","zoekterm4","zoekterm5"]\n'
-    +'  },\n'
-    +'  "moodboard": {\n'
-    +'    "kernwoorden": ["woord1","woord2","woord3","woord4","woord5","woord6"],\n'
-    +'    "pinterest_zoektermen": ["zoekterm1 (Engels)","zoekterm2","zoekterm3"],\n'
-    +'    "inspiratie_projecten": ["project of merk 1","project of merk 2","project of merk 3"]\n'
-    +'  },\n'
-    +'  "toepassingen": {\n'
-    +'    "logo_richting": "stijladvies voor het logo (niet het ontwerp zelf)",\n'
-    +'    "brochure_stijl": "stijladvies voor brochures en drukwerk",\n'
-    +'    "digitaal": "stijladvies website en social media"\n'
-    +'  },\n'
-    +'  "gespreksopener": "2 zinnen waarmee een Spring Real Estate makelaar dit gesprek opent met de ontwikkelaar"\n'
-    +'}';
-}
+  document.getElementById('fwProjectLabel').textContent = 'Visual Identity Framework · ' + (projPart || state.projectNaam);
+  document.getElementById('fwMainTitle').textContent = fullTitle;
+  document.getElementById('fwStatus').textContent = 'Eerste concept';
 
-function extractJSON(text){
-  try{return JSON.parse(text);}catch(e){}
-  var m=text.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
-  if(m){try{return JSON.parse(m[1]);}catch(e){}}
-  var s=text.indexOf('{'),en=text.lastIndexOf('}');
-  if(s!==-1&&en>s){try{return JSON.parse(text.slice(s,en+1));}catch(e){}}
-  throw new Error('AI-antwoord kon niet worden verwerkt. Probeer opnieuw.');
-}
+  // Split into sections by ## headings
+  var parts = markdown.split(/(?=^## )/m);
+  var cards = parts.filter(function(p){ return p.trim().startsWith('##'); });
 
-// ── RENDER RESULTS ───────────────────────────────────────────────────────
-function renderResults(d){
-  var naam=d._naam||'Project';
-  var rs=document.getElementById('resultsSection');
+  if(!cards.length){
+    // Fallback: show as single card
+    document.getElementById('fwCards').innerHTML = '<div class="fw-card open"><div class="fw-card-head"><span class="fw-card-title">Framework</span></div><div class="fw-body open md-content">' + simpleMarkdown(markdown) + '</div></div>';
+    return;
+  }
 
-  // Palette
-  var paletteHtml=(d.kleurpalet||[]).map(function(c){
-    var hex=c.hex||'#888';
-    return '<div class="swatch">'
-      +'<div class="swatch-color" style="background:'+esc(hex)+'" onclick="copyColor(\''+esc(hex)+'\')" title="Klik om te kopiëren">'
-      +'<div class="swatch-copy-lbl">Kopieer</div>'
-      +'</div>'
-      +'<div class="swatch-info">'
-      +'<div class="swatch-naam">'+esc(c.naam||'')+'</div>'
-      +'<div class="swatch-hex">'+esc(hex)+'</div>'
-      +'<div class="swatch-rol">'+esc(c.rol||'')+'</div>'
-      +'</div></div>';
+  document.getElementById('fwCards').innerHTML = cards.map(function(card, i){
+    var lines = card.split('\n');
+    var headerLine = lines[0].replace(/^##\s+/, '');
+    var numMatch = headerLine.match(/^(\d+)\.\s+/);
+    var num = numMatch ? numMatch[1].padStart(2,'0') : (i+1).toString().padStart(2,'0');
+    var title = headerLine.replace(/^\d+\.\s+/, '');
+    var body = lines.slice(1).join('\n').trim();
+
+    return '<div class="fw-card" id="fwcard_'+i+'">'
+      + '<div class="fw-card-head" onclick="toggleFwCard('+i+')">'
+      + '<span class="fw-num">'+num+'</span>'
+      + '<span class="fw-card-title">'+esc(title)+'</span>'
+      + '<svg class="fw-chev" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      + '</div>'
+      + '<div class="fw-bar"></div>'
+      + '<div class="fw-body md-content" id="fwbody_'+i+'">' + simpleMarkdown(body) + '</div>'
+      + '</div>';
   }).join('');
 
-  var redenHtml=(d.kleurpalet||[]).filter(function(c){return c.reden;}).map(function(c){
-    return '<div class="reden-card" style="display:flex;align-items:flex-start;gap:10px">'
-      +'<div class="reden-dot" style="background:'+esc(c.hex||'#888')+';margin-top:3px"></div>'
-      +'<div class="reden-text"><strong style="color:var(--muted);font-size:10px;letter-spacing:.06em;text-transform:uppercase">'+esc(c.naam||'')+'</strong><br>'+esc(c.reden||'')+'</div>'
-      +'</div>';
-  }).join('');
+  // Open first two cards
+  [0, 1].forEach(function(i){
+    var body = document.getElementById('fwbody_'+i);
+    var card = document.getElementById('fwcard_'+i);
+    if(body){ body.classList.add('open'); }
+    if(card){ var chev = card.querySelector('.fw-chev'); if(chev) chev.classList.add('open'); }
+  });
 
-  // Typography
-  var ty=d.typografie||{};
-  var fontHtml='';
-  if(ty.heading){
-    fontHtml+='<div class="font-card">'
-      +'<div class="font-role">Heading &amp; titels</div>'
-      +'<div class="font-preview" id="prev-h">Aa Bb Cc</div>'
-      +'<div class="font-name">'+esc(ty.heading.naam||'')+'</div>'
-      +'<div class="font-weights">'+esc(ty.heading.gewichten||'')+'</div>'
-      +'<div class="font-reden">'+esc(ty.heading.reden||'')+'</div>'
-      +'</div>';
-  }
-  if(ty.body){
-    fontHtml+='<div class="font-card">'
-      +'<div class="font-role">Body &amp; lopende tekst</div>'
-      +'<div class="font-preview" id="prev-b" style="font-size:20px;font-weight:400">De nieuwe woning wacht op jou.</div>'
-      +'<div class="font-name">'+esc(ty.body.naam||'')+'</div>'
-      +'<div class="font-weights">'+esc(ty.body.gewichten||'')+'</div>'
-      +'<div class="font-reden">'+esc(ty.body.reden||'')+'</div>'
-      +'</div>';
-  }
-  if(ty.richtlijn) fontHtml+='<div class="font-richtlijn">'+esc(ty.richtlijn)+'</div>';
-
-  // Fotografie
-  var foto=d.fotografie||{};
-  var fotoHtml='<div class="foto-card">'
-    +'<div class="foto-stijl">'+esc(foto.stijl||'')+'</div>'
-    +(foto.belichting?'<div class="foto-belichting">'+esc(foto.belichting)+'</div>':'');
-  if((foto.onderwerpen||[]).length){
-    fotoHtml+='<div class="foto-sub-lbl">Fotografeer dit</div><div class="tag-row">';
-    (foto.onderwerpen||[]).forEach(function(t){fotoHtml+='<span class="f-tag">'+esc(t)+'</span>';});
-    fotoHtml+='</div>';
-  }
-  if((foto.vermijden||[]).length){
-    fotoHtml+='<div class="foto-sub-lbl">Vermijd</div><div class="tag-row">';
-    (foto.vermijden||[]).forEach(function(t){fotoHtml+='<span class="f-tag avoid">&#x2715; '+esc(t)+'</span>';});
-    fotoHtml+='</div>';
-  }
-  if((foto.moodboard_zoektermen||[]).length){
-    fotoHtml+='<div class="foto-sub-lbl">Zoektermen voor beeldbank</div><div class="tag-row">';
-    (foto.moodboard_zoektermen||[]).forEach(function(t){fotoHtml+='<span class="f-tag search">&#128269; '+esc(t)+'</span>';});
-    fotoHtml+='</div>';
-  }
-  fotoHtml+='</div>';
-
-  // Moodboard
-  var mood=d.moodboard||{};
-  var moodHtml='';
-  if((mood.kernwoorden||[]).length){
-    moodHtml+='<div class="mood-words">';
-    mood.kernwoorden.forEach(function(w){moodHtml+='<div class="mood-word">'+esc(w)+'</div>';});
-    moodHtml+='</div>';
-  }
-  if((mood.pinterest_zoektermen||[]).length){
-    moodHtml+='<div class="foto-sub-lbl" style="margin-top:4px">Pinterest zoektermen</div><div class="tag-row" style="margin-bottom:14px">';
-    mood.pinterest_zoektermen.forEach(function(t){
-      moodHtml+='<a class="pin-tag" href="https://www.pinterest.com/search/pins/?q='+encodeURIComponent(t)+'" target="_blank" rel="noopener">&#128204; '+esc(t)+'</a>';
-    });
-    moodHtml+='</div>';
-  }
-  if((mood.inspiratie_projecten||[]).length){
-    moodHtml+='<div class="foto-sub-lbl">Inspiratieprojecten &amp; merken</div><div class="tag-row">';
-    mood.inspiratie_projecten.forEach(function(t){moodHtml+='<span class="f-tag">'+esc(t)+'</span>';});
-    moodHtml+='</div>';
-  }
-
-  // Toepassingen
-  var app=d.toepassingen||{};
-  var appHtml='';
-  if(app.logo_richting||app.brochure_stijl||app.digitaal){
-    appHtml='<div class="res-sec"><div class="res-sec-lbl">Toepassingen</div><div class="toep-grid">';
-    if(app.logo_richting) appHtml+='<div class="toep-card"><div class="toep-lbl">Logo richting</div><div class="toep-text">'+esc(app.logo_richting)+'</div></div>';
-    if(app.brochure_stijl) appHtml+='<div class="toep-card"><div class="toep-lbl">Brochure &amp; drukwerk</div><div class="toep-text">'+esc(app.brochure_stijl)+'</div></div>';
-    if(app.digitaal) appHtml+='<div class="toep-card"><div class="toep-lbl">Website &amp; social media</div><div class="toep-text">'+esc(app.digitaal)+'</div></div>';
-    appHtml+='</div></div>';
-  }
-
-  // TOV
-  var tovHtml=(d.tone_of_voice||[]).map(function(t){return '<span class="tov-chip">'+esc(t)+'</span>';}).join('');
-
-  rs.innerHTML=''
-    +'<div class="res-header">'
-    +'<div class="res-project">Brand Compass &middot; '+esc(naam)+'</div>'
-    +'<div class="res-positioning">'+esc(d.positionering||'')+'</div>'
-    +(d.brand_verhaal?'<div class="res-verhaal">'+esc(d.brand_verhaal)+'</div>':'')
-    +(tovHtml?'<div class="tov-row">'+tovHtml+'</div>':'')
-    +'</div>'
-
-    +'<div class="res-sec"><div class="res-sec-lbl">Kleurpalet</div>'
-    +'<div class="palette-row">'+paletteHtml+'</div>'
-    +(redenHtml?'<div class="reden-grid" style="margin-top:14px">'+redenHtml+'</div>':'')
-    +'</div>'
-
-    +'<div class="res-sec"><div class="res-sec-lbl">Typografie</div>'
-    +'<div class="font-cards">'+fontHtml+'</div></div>'
-
-    +'<div class="res-sec"><div class="res-sec-lbl">Fotografie &amp; beeld</div>'+fotoHtml+'</div>'
-
-    +'<div class="res-sec"><div class="res-sec-lbl">Moodboard</div>'+moodHtml+'</div>'
-
-    +appHtml
-
-    +(d.gespreksopener
-      ?'<div class="opener-box"><div class="opener-lbl">Gespreksopener voor de ontwikkelaar</div><div class="opener-text">'+esc(d.gespreksopener)+'</div></div>'
-      :'')
-
-    +'<div class="res-actions">'
-    +'<button class="btn-p" onclick="window.print()">&#128438; Afdrukken / PDF</button>'
-    +'<button class="btn-g" onclick="showWizard()">&#8635; Nieuw project</button>'
-    +'</div>';
-
-  rs.style.display='block';
-
-  // Load Google Fonts for preview
-  if(ty.heading&&ty.heading.naam) loadGFont(ty.heading.naam,'prev-h',true);
-  if(ty.body&&ty.body.naam) loadGFont(ty.body.naam,'prev-b',false);
-
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
-function showWizard(){
-  document.getElementById('resultsSection').style.display='none';
-  document.getElementById('errorSection').style.display='none';
-  document.getElementById('wizardSection').style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
+function toggleFwCard(i){
+  var body = document.getElementById('fwbody_'+i);
+  var card = document.getElementById('fwcard_'+i);
+  if(!body) return;
+  var isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  var chev = card && card.querySelector('.fw-chev');
+  if(chev) chev.classList.toggle('open', !isOpen);
 }
 
-function loadGFont(name,previewId,bold){
-  var encoded=encodeURIComponent(name).replace(/%20/g,'+');
-  var link=document.createElement('link');
-  link.rel='stylesheet';
-  link.href='https://fonts.googleapis.com/css2?family='+encoded+':wght@400;700&display=swap';
-  document.head.appendChild(link);
-  setTimeout(function(){
-    var el=document.getElementById(previewId);
-    if(el){
-      el.style.fontFamily="'"+name.replace(/'/g,"\\'")+"',serif";
-      if(bold) el.style.fontWeight='700';
+/* ═══════════════════════════════════════════════════════════
+   SIMPLE MARKDOWN RENDERER
+═══════════════════════════════════════════════════════════ */
+function simpleMarkdown(text){
+  if(!text) return '';
+
+  // Escape HTML first, then apply markdown
+  var lines = text.split('\n');
+  var out = [];
+  var inUl = false, inOl = false;
+
+  function closeList(){
+    if(inUl){ out.push('</ul>'); inUl = false; }
+    if(inOl){ out.push('</ol>'); inOl = false; }
+  }
+
+  lines.forEach(function(line){
+    // Headings
+    if(/^### /.test(line)){
+      closeList();
+      out.push('<h3>'+inlineMarkdown(line.replace(/^### /,''))+'</h3>');
+      return;
     }
-  },1200);
+    if(/^## /.test(line)){
+      closeList();
+      out.push('<h2>'+inlineMarkdown(line.replace(/^## /,''))+'</h2>');
+      return;
+    }
+    if(/^# /.test(line)){
+      closeList();
+      out.push('<h1>'+inlineMarkdown(line.replace(/^# /,''))+'</h1>');
+      return;
+    }
+    // Horizontal rule
+    if(/^---+$/.test(line.trim())){
+      closeList();
+      out.push('<hr>');
+      return;
+    }
+    // Unordered list
+    if(/^[-*]\s/.test(line)){
+      if(!inUl){ out.push('<ul>'); inUl = true; }
+      if(inOl){ out.push('</ol>'); inOl = false; }
+      out.push('<li>'+inlineMarkdown(line.replace(/^[-*]\s+/,''))+'</li>');
+      return;
+    }
+    // Ordered list
+    if(/^\d+\.\s/.test(line)){
+      if(!inOl){ out.push('<ol>'); inOl = true; }
+      if(inUl){ out.push('</ul>'); inUl = false; }
+      out.push('<li>'+inlineMarkdown(line.replace(/^\d+\.\s+/,''))+'</li>');
+      return;
+    }
+    // Blank line
+    if(!line.trim()){
+      closeList();
+      return;
+    }
+    // Special highlight lines (ALL CAPS label followed by colon)
+    if(/^[A-ZÉÈÀÜÖÏËÊ\s]{4,}:/.test(line)){
+      closeList();
+      var colon = line.indexOf(':');
+      var lbl = line.slice(0, colon);
+      var rest = line.slice(colon+1).trim();
+      out.push('<div class="md-highlight"><strong>'+esc(lbl)+':</strong> '+inlineMarkdown(rest)+'</div>');
+      return;
+    }
+    // Blockquote
+    if(/^> /.test(line)){
+      closeList();
+      out.push('<div class="md-blockquote"><p>'+inlineMarkdown(line.replace(/^> /,''))+'</p></div>');
+      return;
+    }
+    // Regular paragraph
+    closeList();
+    out.push('<p>'+inlineMarkdown(line)+'</p>');
+  });
+
+  closeList();
+  return out.join('\n');
 }
 
-// ── UTILS ───────────────────────────────────────────────────────────────
+function inlineMarkdown(text){
+  // Inline hex color display
+  text = text.replace(/(#[0-9A-Fa-f]{6})\b/g, function(m){
+    return '<span class="color-swatch-inline" style="background:'+m+'"></span><code style="font-size:11px;color:var(--gl)">'+m+'</code>';
+  });
+  // Bold
+  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  // Italic
+  text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  // Inline code
+  text = text.replace(/`(.+?)`/g, '<code style="font-size:11.5px;background:var(--s2);padding:1px 5px;border-radius:3px;color:var(--gl)">$1</code>');
+  return text;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LOADING ANIMATION
+═══════════════════════════════════════════════════════════ */
+var _ldInterval = null;
+function animateDots(){
+  var dots = ['ld1','ld2','ld3','ld4','ld5'];
+  var idx = 0;
+  dots.forEach(function(id){ document.getElementById(id).className='l-dot'; });
+  document.getElementById(dots[0]).className = 'l-dot active';
+  clearInterval(_ldInterval);
+  _ldInterval = setInterval(function(){
+    document.getElementById(dots[idx]).className = 'l-dot done';
+    idx = (idx+1) % dots.length;
+    if(idx === 0){ dots.forEach(function(id){ document.getElementById(id).className='l-dot'; }); }
+    document.getElementById(dots[idx]).className = 'l-dot active';
+  }, 1400);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UTILS
+═══════════════════════════════════════════════════════════ */
 function esc(s){
-  return String(s||'')
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;');
-}
-function copyColor(hex){
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(hex).then(function(){showToast('Gekopieerd: '+hex);});
-  } else {
-    showToast(hex);
-  }
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 function showToast(msg){
-  var t=document.getElementById('toast');
-  t.textContent=msg;
+  var t = document.getElementById('toast');
+  t.textContent = msg;
   t.classList.add('show');
   clearTimeout(t._timer);
-  t._timer=setTimeout(function(){t.classList.remove('show');},2200);
+  t._timer = setTimeout(function(){ t.classList.remove('show'); }, 2200);
 }
 </script>
 </body>
