@@ -22,206 +22,218 @@
 body{font-family:var(--fn);background:var(--bg);color:var(--ink);line-height:1.5;min-height:100vh;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
 
 /* ── MODAL ── */
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px}
-.modal{background:var(--sur);border:1px solid var(--bd);border-radius:16px;padding:36px;max-width:460px;width:100%}
-.modal-logo{display:flex;align-items:center;gap:10px;margin-bottom:28px}
-.modal-mark{width:34px;height:34px;background:var(--g);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;color:#fff}
-.modal-brand{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--g)}
-.modal h2{font-size:21px;font-weight:800;margin-bottom:8px}
-.modal p{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:22px}
-.ml{color:var(--gl);text-decoration:none;font-weight:700}.ml:hover{text-decoration:underline}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(6px);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal{background:var(--sur);border:1px solid var(--bd);border-radius:16px;padding:32px;max-width:460px;width:100%}
+.modal-logo{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.modal-mark{width:32px;height:32px;background:var(--g);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff}
+.modal-brand{font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--g)}
+.modal h2{font-size:20px;font-weight:800;margin-bottom:8px}
+.modal p{font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:20px}
 .modal-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:block}
-.modal-in{width:100%;padding:13px 15px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);color:var(--ink);font-family:var(--fn);font-size:14px;outline:none;transition:border-color .15s;margin-bottom:14px}
-.modal-in:focus{border-color:var(--g)}.modal-in::placeholder{color:var(--koud)}
-.modal-btn{width:100%;padding:14px;background:var(--g);color:#fff;border:none;border-radius:var(--rsm);font-family:var(--fn);font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.modal-in{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);color:var(--ink);font-family:var(--fn);font-size:14px;outline:none;transition:border-color .15s}
+.modal-in:focus{border-color:var(--g)}
+.modal-in::placeholder{color:var(--koud)}
+.modal-btn{width:100%;padding:13px;background:var(--g);color:#fff;border:none;border-radius:var(--rsm);font-family:var(--fn);font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;margin-top:4px;transition:background .15s}
 .modal-btn:hover{background:var(--gl)}
-.modal-note{font-size:11.5px;color:var(--koud);margin-top:12px;text-align:center;line-height:1.5}
+.modal-note{font-size:11.5px;color:var(--koud);margin-top:12px;text-align:center}
+a.ml{color:var(--gl);text-decoration:none;font-weight:700}
+a.ml:hover{text-decoration:underline}
 
 /* ── TOP BAR ── */
-.top{position:sticky;top:0;z-index:20;background:rgba(12,12,12,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 24px;height:54px;display:flex;align-items:center;gap:14px}
-.s-mark{width:28px;height:28px;background:var(--g);border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
-.v-sep{width:1px;height:22px;background:var(--line)}
+.top{position:sticky;top:0;z-index:20;background:rgba(12,12,12,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:0 22px;height:52px;display:flex;align-items:center;gap:12px}
+.s-mark{width:26px;height:26px;background:var(--g);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
+.v-sep{width:1px;height:20px;background:var(--line)}
 .brand-name{font-weight:800;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--g);line-height:1.1}
 .brand-sub{font-size:9px;font-weight:600;letter-spacing:.07em;color:var(--muted);margin-top:1px}
 .top-right{margin-left:auto;display:flex;align-items:center;gap:10px}
-.key-btn{background:none;border:1px solid var(--bd);color:var(--koud);font-family:var(--fn);font-size:10.5px;padding:5px 12px;border-radius:999px;cursor:pointer;transition:border-color .15s,color .15s;letter-spacing:.03em}
+.key-btn{background:none;border:1px solid var(--bd);color:var(--koud);font-family:var(--fn);font-size:11px;padding:5px 12px;border-radius:999px;cursor:pointer;transition:border-color .15s,color .15s}
 .key-btn:hover{border-color:var(--g);color:var(--gl)}
 
-/* ── PHASE INDICATOR ── */
-.phase-bar{max-width:820px;margin:0 auto;padding:24px 20px 0;display:flex;align-items:center;gap:0;width:100%}
-.ph-item{display:flex;align-items:center;gap:8px}
-.ph-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;transition:all .2s}
-.ph-dot.done{background:var(--g);color:#fff}
-.ph-dot.active{background:var(--g);color:#fff;box-shadow:0 0 0 4px rgba(124,167,63,.18)}
-.ph-dot.pending{background:var(--s2);color:var(--koud);border:1px solid var(--bd)}
-.ph-lbl{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-.ph-lbl.active{color:var(--gl)}
-.ph-line{flex:1;height:1px;background:var(--bd);margin:0 10px;min-width:20px;transition:background .3s}
-.ph-line.done{background:var(--g)}
+/* ── HERO ── */
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:52px 20px 40px}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gl);margin-bottom:18px}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-.015em;line-height:1.05;margin-bottom:12px}
+.hero h1 em{font-style:normal;color:var(--gl)}
+.hero .sub{font-size:15px;color:var(--muted);max-width:50ch;line-height:1.65;margin-bottom:32px}
+.caps{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:32px}
+.cap-pill{font-size:11px;font-weight:600;padding:5px 13px;border-radius:999px;background:var(--sur);border:1px solid var(--bd);color:var(--muted);display:flex;align-items:center;gap:5px}
+.cap-dot{width:5px;height:5px;border-radius:50%;background:var(--gl);flex-shrink:0}
+.btn-start{background:var(--g);color:#fff;border:none;font-family:var(--fn);font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:13px 32px;border-radius:999px;cursor:pointer;transition:background .15s}
+.btn-start:hover{background:var(--gl)}
 
-/* ── INTAKE ── */
-.intake{max-width:820px;margin:0 auto;padding:28px 20px 64px;width:100%}
-.intake-hero{margin-bottom:32px}
-.intake-eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gl);margin-bottom:10px}
-.intake-title{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
-.intake-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:58ch}
+/* ── WIZARD ── */
+.wizard{width:100%;max-width:740px;margin:0 auto;padding:0 20px 64px}
+.progress{display:flex;align-items:center;justify-content:center;margin-bottom:28px}
+.prog-step{display:flex;align-items:center;gap:8px}
+.prog-dot{width:32px;height:32px;border-radius:50%;border:2px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--koud);background:var(--bg);transition:.2s;flex-shrink:0}
+.prog-dot.active{border-color:var(--g);color:var(--g);background:rgba(124,167,63,.08)}
+.prog-dot.done{border-color:var(--g);background:var(--g);color:#fff}
+.prog-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--koud);transition:.2s}
+.prog-dot.active + .prog-label,.prog-dot.done + .prog-label{color:var(--muted)}
+.prog-line{width:48px;height:1px;background:var(--bd);flex-shrink:0;margin:0 4px;transition:background .3s}
+.prog-line.done{background:var(--g)}
 
-/* Accordion */
-.acc{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:8px;transition:border-color .15s}
-.acc:hover{border-color:var(--line)}
-.acc.open{border-color:var(--bd)}
-.acc-head{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none}
-.acc-ico{font-size:18px;flex-shrink:0;width:24px;text-align:center}
-.acc-num{font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--g);flex-shrink:0;width:26px;text-align:center;opacity:.85}
+.step-card{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:28px;display:none}
+.step-card.active{display:block}
+.step-title{font-size:17px;font-weight:800;margin-bottom:4px}
+.step-sub{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.55}
 
-/* ── HOME SECTION ── */
-.home-section{max-width:640px;margin:0 auto;padding:60px 24px 40px}
-.home-eyebrow{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--g);margin-bottom:20px}
-.home-title{font-size:clamp(30px,5vw,46px);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin-bottom:18px}
-.home-title span{color:var(--gl)}
-.home-sub{font-size:14px;line-height:1.7;color:var(--muted);max-width:480px;margin-bottom:32px}
-.home-feats{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:36px}
-.home-feat{background:var(--sur);border:1px solid var(--bd);border-radius:var(--rsm);padding:10px 14px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}
-.home-feat::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--g);flex-shrink:0}
-.home-cta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.home-note{font-size:11px;color:var(--koud)}
-.acc-title{font-size:14px;font-weight:700;flex:1}
-.acc-count{font-size:10px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;background:var(--s2);color:var(--koud);transition:all .2s}
-.acc-count.has{background:rgba(124,167,63,.12);color:var(--gl)}
-.acc-chev{color:var(--koud);transition:transform .2s;flex-shrink:0}
-.acc-chev.open{transform:rotate(180deg)}
-.acc-body{display:none;padding:0 18px 20px}
-.acc.open .acc-body{display:block}
+/* ── FIELDS ── */
+.field{margin-bottom:16px}
+.field-row{display:grid;gap:14px}
+.field-row.c2{grid-template-columns:1fr 1fr}
+.field-row.c3{grid-template-columns:1fr 1fr 1fr}
+.fld-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.opt-tag{font-size:9px;font-weight:600;color:var(--koud);background:var(--bg);border:1px solid var(--bd);padding:1px 6px;border-radius:3px;letter-spacing:.04em}
+.req-tag{font-size:9px;font-weight:700;color:var(--gl);letter-spacing:.04em}
+.fld-inp{width:100%;padding:10px 13px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);color:var(--ink);font-family:var(--fn);font-size:13.5px;outline:none;transition:border-color .15s}
+.fld-inp:focus{border-color:var(--g)}
+.fld-inp::placeholder{color:var(--koud)}
+.fld-sel{width:100%;padding:10px 13px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);color:var(--ink);font-family:var(--fn);font-size:13.5px;outline:none;transition:border-color .15s;appearance:none;cursor:pointer}
+.fld-sel:focus{border-color:var(--g)}
+.fld-sel option{background:var(--sur)}
+.fld-ta{width:100%;padding:10px 13px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);color:var(--ink);font-family:var(--fn);font-size:13.5px;outline:none;transition:border-color .15s;resize:vertical;min-height:80px;line-height:1.6}
+.fld-ta:focus{border-color:var(--g)}
+.fld-ta::placeholder{color:var(--koud)}
+.sec-div{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--koud);border-bottom:1px solid var(--bd);padding-bottom:8px;margin:24px 0 16px}
 
-/* Fields inside accordion */
-.fg{margin-bottom:16px}
-.fl{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;display:block}
-.fl .req{color:var(--gl);margin-left:2px}
-.fi,.fa{width:100%;padding:10px 13px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);color:var(--ink);font-family:var(--fn);font-size:13.5px;outline:none;transition:border-color .15s;line-height:1.5}
-.fi:focus,.fa:focus{border-color:var(--g)}
-.fi::placeholder,.fa::placeholder{color:var(--koud)}
-.fa{resize:vertical;min-height:56px}
-.fg-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:480px){.fg-2{grid-template-columns:1fr}}
+/* ── CHIPS ── */
+.chip-group{display:flex;flex-wrap:wrap;gap:7px}
+.chip{padding:6px 13px;border-radius:999px;background:var(--bg);border:1px solid var(--bd);color:var(--muted);font-family:var(--fn);font-size:11.5px;font-weight:600;cursor:pointer;transition:.12s;user-select:none}
+.chip:hover{border-color:var(--g);color:var(--gl)}
+.chip.sel{border-color:var(--g);background:rgba(124,167,63,.1);color:var(--gl)}
 
-/* Submit bar */
-.intake-submit{margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.btn-p{padding:13px 26px;background:var(--g);color:#fff;border:none;border-radius:999px;font-family:var(--fn);font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .13s;display:flex;align-items:center;gap:7px}
-.btn-p:hover{background:var(--gl)}.btn-p:disabled{opacity:.35;cursor:not-allowed}
-.btn-g{padding:13px 20px;background:none;color:var(--muted);border:1px solid var(--bd);border-radius:999px;font-family:var(--fn);font-size:12px;font-weight:700;cursor:pointer;transition:all .13s}
-.btn-g:hover{border-color:var(--line);color:var(--ink)}
-.intake-count-hint{font-size:11.5px;color:var(--koud)}
+/* ── STEP NAV ── */
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:20px;border-top:1px solid var(--bd)}
+.btn-back{background:none;border:1px solid var(--bd);color:var(--muted);font-family:var(--fn);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:11px 22px;border-radius:999px;cursor:pointer;transition:.12s}
+.btn-back:hover{border-color:var(--g);color:var(--gl)}
+.btn-next{background:var(--g);color:#fff;border:none;font-family:var(--fn);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:11px 28px;border-radius:999px;cursor:pointer;transition:.12s}
+.btn-next:hover{background:var(--gl)}
+.btn-next:active{transform:scale(.97)}
+.btn-direct{background:none;border:1px solid var(--bd);color:var(--muted);font-family:var(--fn);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:9px 18px;border-radius:999px;cursor:pointer;transition:.12s}
+.btn-direct:hover{border-color:var(--g);color:var(--gl)}
+
+/* ── UPLOAD ── */
+.upload-zone{border:1.5px dashed var(--bd);border-radius:var(--r);padding:20px;text-align:center;cursor:pointer;transition:.15s;position:relative}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--g);background:rgba(124,167,63,.04)}
+.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upload-ico{font-size:22px;margin-bottom:6px}
+.upload-lbl{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:3px}
+.upload-sub{font-size:11px;color:var(--koud)}
+.file-list{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.file-item{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);font-size:12.5px}
+.file-ico{font-size:15px;flex-shrink:0}
+.file-name{flex:1;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-status{font-size:10px;font-weight:700;letter-spacing:.06em;flex-shrink:0}
+.file-status.ok{color:var(--gl)}
+.file-status.loading{color:var(--koud)}
+.file-remove{background:none;border:none;color:var(--koud);cursor:pointer;font-size:16px;padding:0 3px;line-height:1;flex-shrink:0}
+.file-remove:hover{color:var(--rood)}
 
 /* ── LOADING ── */
-.loading-section{display:none;max-width:620px;margin:0 auto;padding:80px 20px;text-align:center;flex:1}
-.l-icon{width:56px;height:56px;border-radius:14px;background:rgba(124,167,63,.1);border:1px solid rgba(124,167,63,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;animation:pulse 1.8s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.94)}}
-.l-title{font-size:22px;font-weight:800;margin-bottom:8px}
-.l-sub{font-size:14px;color:var(--muted)}
-.l-dot-row{display:flex;justify-content:center;gap:8px;margin-top:24px}
-.l-dot{width:7px;height:7px;border-radius:50%;background:var(--bd);transition:background .3s}
-.l-dot.active{background:var(--g);animation:blink 1.1s ease-in-out infinite}
-.l-dot.done{background:var(--g);animation:none}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.loading-card{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);max-width:560px;margin:80px auto;padding:48px 32px;text-align:center;display:none}
+.loading-card.show{display:block}
+.spinner{width:44px;height:44px;border:3px solid var(--bd);border-top-color:var(--g);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 24px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ld-title{font-size:17px;font-weight:800;margin-bottom:6px}
+.ld-sub{font-size:13px;color:var(--muted)}
 
 /* ── CONTROLE ── */
-.controle-section{display:none;max-width:820px;margin:0 auto;padding:28px 20px 64px;width:100%}
-.controle-ai{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:0;overflow:hidden;margin-bottom:24px}
-.controle-ai-head{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
-.controle-ai-badge{width:28px;height:28px;border-radius:7px;background:var(--g);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
-.controle-ai-lbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gl)}
-.controle-ai-body{padding:20px 22px;font-size:14px;line-height:1.75;color:var(--muted);white-space:pre-wrap;word-break:break-word}
-
-.answers-box{margin-bottom:24px}
-.answers-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block}
-.answers-ta{width:100%;padding:14px 16px;background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);color:var(--ink);font-family:var(--fn);font-size:14px;line-height:1.65;outline:none;resize:vertical;min-height:120px;transition:border-color .15s}
-.answers-ta:focus{border-color:var(--g)}
-.answers-ta::placeholder{color:var(--koud)}
-.controle-hint{font-size:11.5px;color:var(--koud);margin-bottom:16px;line-height:1.5}
+.controle-wrap{max-width:740px;margin:0 auto;padding:28px 20px 64px;display:none}
+.controle-wrap.show{display:block}
+.c-eyebrow{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gl);margin-bottom:12px}
+.c-title{font-size:clamp(24px,4vw,38px);font-weight:800;letter-spacing:-.015em;margin-bottom:6px}
+.c-sub{font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+.c-ai-box{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:20px}
+.c-ai-head{display:flex;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--bd)}
+.c-ai-badge{font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--gl);background:rgba(124,167,63,.1);padding:3px 9px;border-radius:999px}
+.c-ai-lbl{font-size:12px;font-weight:700;color:var(--muted)}
+.c-ai-body{padding:18px 20px}
+.c-ai-body .md-content p{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:8px}
+.c-ai-body .md-content h3{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gl);margin:16px 0 7px}
+.c-ai-body .md-content ul{padding-left:0;list-style:none;margin-bottom:10px}
+.c-ai-body .md-content li{font-size:13.5px;color:var(--muted);line-height:1.65;padding:3px 0 3px 18px;position:relative}
+.c-ai-body .md-content li::before{content:"—";position:absolute;left:0;color:var(--gl);font-weight:700}
+.c-ai-body .md-content strong{color:var(--ink);font-weight:700}
+.c-answers{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:20px;margin-bottom:20px}
+.c-answers-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block}
+.c-answers-ta{width:100%;padding:10px 13px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);color:var(--ink);font-family:var(--fn);font-size:13.5px;outline:none;transition:border-color .15s;resize:vertical;min-height:90px;line-height:1.6}
+.c-answers-ta:focus{border-color:var(--g)}
+.c-answers-ta::placeholder{color:var(--koud)}
+.c-hint{font-size:12px;color:var(--koud);margin-bottom:20px}
+.c-btns{display:flex;gap:10px;flex-wrap:wrap}
 
 /* ── FRAMEWORK ── */
-.fw-section{display:none;max-width:860px;margin:0 auto;padding:28px 20px 80px;width:100%}
-.fw-title-area{margin-bottom:36px}
-.fw-project{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.fw-main-title{font-size:clamp(22px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
-.fw-status-chip{display:inline-block;padding:4px 13px;border-radius:999px;background:rgba(124,167,63,.1);border:1px solid rgba(124,167,63,.22);color:var(--gl);font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.fw-wrap{max-width:860px;margin:0 auto;padding:28px 20px 80px;display:none}
+.fw-wrap.show{display:block}
+.fw-head{text-align:center;padding:20px 0 32px}
+.fw-eyebrow{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.fw-title{font-size:clamp(22px,4vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.fw-chip{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gl);background:rgba(124,167,63,.1);padding:3px 12px;border-radius:999px;border:1px solid rgba(124,167,63,.2)}
 
-/* Framework section cards */
-.fw-card{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:8px;transition:border-color .15s}
+/* Framework cards */
+.fw-card{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:8px;transition:border-color .12s}
 .fw-card:hover{border-color:var(--line)}
-.fw-card-head{display:flex;align-items:center;gap:13px;padding:14px 18px;cursor:pointer;user-select:none}
-.fw-num{font-size:9.5px;font-weight:800;letter-spacing:.07em;color:var(--gl);background:rgba(124,167,63,.1);padding:3px 9px;border-radius:999px;flex-shrink:0}
-.fw-card-title{font-size:14px;font-weight:700;flex:1}
+.fw-card-head{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none}
+.fw-num{font-size:9px;font-weight:800;letter-spacing:.06em;color:var(--gl);background:rgba(124,167,63,.1);padding:3px 9px;border-radius:999px;flex-shrink:0;white-space:nowrap}
+.fw-card-title{font-size:13.5px;font-weight:800;flex:1}
 .fw-chev{color:var(--koud);transition:transform .2s;flex-shrink:0}
 .fw-chev.open{transform:rotate(180deg)}
-.fw-bar{height:2px;background:var(--line);margin:0 18px}
-.fw-body{display:none;padding:4px 22px 22px}
+.copy-btn{background:none;border:none;color:var(--koud);cursor:pointer;font-size:14px;padding:2px 6px;line-height:1;flex-shrink:0;transition:color .12s;font-family:inherit}
+.copy-btn:hover{color:var(--gl)}
+.fw-body{padding:0 20px 20px;display:none}
 .fw-body.open{display:block}
+.fw-actions{display:flex;gap:10px;justify-content:center;margin-top:28px;flex-wrap:wrap}
 
-/* Markdown rendering */
-.md-content h1{font-size:clamp(18px,3vw,24px);font-weight:800;letter-spacing:-.01em;margin:20px 0 10px;color:var(--ink)}
-.md-content h2{font-size:16px;font-weight:700;margin:18px 0 8px;color:var(--ink)}
-.md-content h3{font-size:13.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--gl);margin:16px 0 8px}
-.md-content p{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:10px}
-.md-content ul,.md-content ol{padding-left:18px;margin-bottom:12px}
-.md-content li{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:4px}
+/* Buttons */
+.btn-p{background:var(--g);color:#fff;border:none;font-family:var(--fn);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:11px 24px;border-radius:999px;cursor:pointer;transition:.12s;display:inline-flex;align-items:center;gap:6px}
+.btn-p:hover{background:var(--gl)}
+.btn-g{background:none;border:1px solid var(--bd);color:var(--muted);font-family:var(--fn);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:11px 22px;border-radius:999px;cursor:pointer;transition:.12s}
+.btn-g:hover{border-color:var(--g);color:var(--gl)}
+
+/* ── MD CONTENT (in fw-card) ── */
+.md-content p{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:10px}
+.md-content h3{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gl);margin:18px 0 7px}
+.md-content h4{font-size:13px;font-weight:700;color:var(--ink);margin:14px 0 6px}
+.md-content ul{padding-left:0;margin-bottom:10px;list-style:none}
+.md-content ul li{font-size:13.5px;color:var(--muted);line-height:1.65;padding:4px 0 4px 20px;position:relative}
+.md-content ul li::before{content:"—";position:absolute;left:0;color:var(--gl);font-weight:700}
+.md-content ol{padding-left:0;margin-bottom:10px;list-style:none;counter-reset:ol}
+.md-content ol li{font-size:13.5px;color:var(--muted);line-height:1.65;padding:4px 0 4px 24px;position:relative;counter-increment:ol}
+.md-content ol li::before{content:counter(ol);position:absolute;left:0;color:var(--gl);font-weight:800;font-size:11px}
 .md-content strong{color:var(--ink);font-weight:700}
-.md-content em{font-style:italic;color:var(--muted)}
-.md-content hr{border:none;border-top:1px solid var(--line);margin:16px 0}
-.md-highlight{background:linear-gradient(135deg,rgba(124,167,63,.08),rgba(137,182,71,.02));border:1px solid rgba(124,167,63,.2);border-radius:var(--rsm);padding:12px 16px;margin:12px 0;font-size:13.5px;line-height:1.7}
-.md-highlight strong{color:var(--gl)}
-.md-blockquote{border-left:3px solid var(--g);padding:8px 16px;margin:12px 0;background:var(--s2);border-radius:0 var(--rsm) var(--rsm) 0}
-.md-blockquote p{color:var(--muted);font-style:italic;margin:0}
-.md-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:12.5px}
-.md-table th{background:var(--s2);color:var(--gl);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;text-align:left;border-bottom:1px solid var(--bd)}
-.md-table td{padding:8px 12px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
-.md-table tr:last-child td{border-bottom:none}
-.color-swatch-inline{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.1)}
-
-/* Score badges inside framework */
-.score-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:7px;margin:12px 0}
-.score-item{background:var(--bg);border:1px solid var(--bd);border-radius:var(--rsm);padding:8px 12px;display:flex;justify-content:space-between;align-items:center}
-.score-lbl{font-size:11px;color:var(--muted)}
-.score-val{font-size:14px;font-weight:800;color:var(--gl)}
-
-/* Actions bar */
-.fw-actions{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap}
-
-/* ── FOOTER ── */
-footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-top:1px solid var(--line);letter-spacing:.06em;text-transform:uppercase;margin-top:auto}
+.md-content em{color:var(--muted);font-style:italic}
+.md-content blockquote{background:rgba(124,167,63,.05);border-left:3px solid var(--g);padding:12px 16px;border-radius:0 var(--rsm) var(--rsm) 0;margin:10px 0;font-size:13.5px;color:var(--muted);line-height:1.7;font-style:italic}
+.md-content hr{border:none;border-top:1px solid var(--bd);margin:16px 0}
+.md-content code{font-size:11.5px;background:var(--s2);padding:1px 5px;border-radius:3px;color:var(--gl)}
+.color-swatch-inline{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:middle;margin-right:4px;border:1px solid rgba(255,255,255,.1)}
 
 /* ── TOAST ── */
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--sur);border:1px solid var(--g);color:var(--ink);padding:10px 22px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.04em;opacity:0;transition:opacity .2s;pointer-events:none;z-index:200;white-space:nowrap}
 .toast.show{opacity:1}
 
-/* ── PRINT ── */
+/* ── FOOTER ── */
+footer{text-align:center;font-size:10.5px;color:var(--koud);padding:18px;border-top:1px solid var(--line);letter-spacing:.06em;text-transform:uppercase;margin-top:auto}
+
+@media(max-width:600px){
+  .field-row.c2,.field-row.c3{grid-template-columns:1fr}
+  .prog-label{display:none}
+  .prog-line{width:20px}
+}
 @media print{
-  .top,.key-btn,.fw-actions,.phase-bar,.toast,.modal-bg,.controle-section,.intake,.loading-section{display:none!important}
-  .fw-section{display:block!important;padding:0}
-  .fw-card{break-inside:avoid}
+  .top,.key-btn,.fw-actions,.toast,.modal-bg,.controle-wrap,.wizard,.hero,.loading-card{display:none!important}
+  .fw-wrap{display:block!important;padding:0}
   .fw-body{display:block!important}
   body{background:#fff;color:#111}
-  .fw-card,.md-highlight,.md-blockquote{background:#f5f5f5;border-color:#ddd}
+  .fw-card,.fw-card-head{background:#f5f5f5;border-color:#ddd}
   .md-content p,.md-content li{color:#333}
-  .md-content h1,.md-content h2,.fw-card-title{color:#111}
-  .md-content h3,.fw-num,.fw-status-chip{color:#4a7021}
+  .fw-card-title,.fw-num{color:#4a7021}
 }
-/* ── FILE UPLOAD ── */
-.upload-zone{border:2px dashed var(--bd);border-radius:var(--r);padding:20px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;margin-top:4px}
-.upload-zone:hover,.upload-zone.drag-over{border-color:var(--g);background:rgba(124,167,63,.07)}
-.upload-zone-ico{font-size:22px;margin-bottom:6px}
-.upload-zone-lbl{color:var(--muted);font-size:12.5px;line-height:1.6}
-.upload-zone-lbl strong{color:var(--gl)}
-.file-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.file-chip{display:flex;align-items:center;gap:7px;background:var(--s2);border:1px solid var(--bd);border-radius:999px;padding:4px 12px;font-size:11.5px;color:var(--ink)}
-.file-chip-name{max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.file-chip-rm{cursor:pointer;color:var(--muted);font-size:16px;line-height:1}
-.file-chip-rm:hover{color:var(--ink)}
 </style>
 </head>
 <body>
 
-<!-- ── SETUP MODAL ── -->
+<!-- ── MODAL ── -->
 <div class="modal-bg" id="setupModal" style="display:none">
   <div class="modal">
     <div class="modal-logo">
@@ -229,9 +241,9 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-
       <div class="modal-brand">Spring Real Estate</div>
     </div>
     <h2>Groq API-sleutel instellen</h2>
-    <p>De Visual Identity Agent gebruikt Groq AI om het complete Visual Identity Framework te genereren. Maak een gratis sleutel aan op <a class="ml" href="https://console.groq.com" target="_blank">console.groq.com</a> &rarr; API Keys &rarr; Create API key.</p>
+    <p>De Visual Identity Agent gebruikt Groq AI. Maak een gratis sleutel aan op <a class="ml" href="https://console.groq.com" target="_blank">console.groq.com</a> &rarr; API Keys &rarr; Create API key.</p>
     <label class="modal-lbl" for="apiKeyInput">Groq API-sleutel</label>
-    <input class="modal-in" id="apiKeyInput" type="password" placeholder="gsk_..." autocomplete="off" spellcheck="false"/>
+    <input class="modal-in" id="apiKeyInput" type="password" placeholder="gsk_..." autocomplete="off" spellcheck="false">
     <button class="modal-btn" onclick="saveKey()">Opslaan &amp; doorgaan</button>
     <div class="modal-note">Sleutel wordt alleen lokaal opgeslagen in jouw browser.</div>
   </div>
@@ -243,149 +255,357 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-
   <div class="v-sep"></div>
   <div>
     <div class="brand-name">Spring Real Estate</div>
-    <div class="brand-sub">Visual Identity Agent &middot; Nieuwbouwprojecten</div>
+    <div class="brand-sub" id="topSub">Visual Identity Agent &middot; Nieuwbouwprojecten</div>
   </div>
   <div class="top-right">
     <button class="key-btn" onclick="resetKey()">&#9881; Sleutel</button>
   </div>
 </div>
 
-<!-- ── PHASE BAR ── -->
-<div class="phase-bar" id="phaseBar">
-  <div class="ph-item">
-    <div class="ph-dot active" id="ph1">1</div>
-    <span class="ph-lbl active" id="phl1">Intake</span>
+<!-- ── HERO ── -->
+<div class="hero" id="heroSection">
+  <div class="eyebrow">Nieuwbouw &middot; Visual Identity Agent &middot; Brand &amp; Design</div>
+  <h1>Van projectintake naar<br><em>visuele identiteit</em></h1>
+  <p class="sub">Vul de intake in, de agent werkt het complete Visual Identity Framework uit — kleurstrategie, typografie, beeldtaal en 21 uitgewerkte secties.</p>
+  <div class="caps">
+    <div class="cap-pill"><div class="cap-dot"></div>Kleurstrategie</div>
+    <div class="cap-pill"><div class="cap-dot"></div>Typografie</div>
+    <div class="cap-pill"><div class="cap-dot"></div>Logo-richting</div>
+    <div class="cap-pill"><div class="cap-dot"></div>Beeldtaal &amp; fotografie</div>
+    <div class="cap-pill"><div class="cap-dot"></div>Grafische elementen</div>
+    <div class="cap-pill"><div class="cap-dot"></div>Visuele do's &amp; don'ts</div>
+    <div class="cap-pill"><div class="cap-dot"></div>21 secties</div>
   </div>
-  <div class="ph-line" id="phline1"></div>
-  <div class="ph-item">
-    <div class="ph-dot pending" id="ph2">2</div>
-    <span class="ph-lbl" id="phl2">Controle</span>
-  </div>
-  <div class="ph-line" id="phline2"></div>
-  <div class="ph-item">
-    <div class="ph-dot pending" id="ph3">3</div>
-    <span class="ph-lbl" id="phl3">Framework</span>
-  </div>
+  <button class="btn-start" onclick="startIntake()">Start intake &darr;</button>
 </div>
 
-<!-- ── HOME ── -->
-<div class="home-section" id="homeSection">
-  <div class="home-eyebrow">Nieuwbouw &middot; Visual Identity Agent</div>
-  <h1 class="home-title">Van projectintake naar<br><span>visuele identiteit</span></h1>
-  <p class="home-sub">Vul de projectintake in. De agent werkt het complete Visual Identity Framework zelf uit — kleurstrategie, typografie, beeldtaal en meer.</p>
-  <div class="home-feats">
-    <div class="home-feat">Strategische basis &amp; visuele kern</div>
-    <div class="home-feat">Kleurstrategie &amp; typografie</div>
-    <div class="home-feat">Logo-richting &amp; grafische elementen</div>
-    <div class="home-feat">Beeldtaal &amp; fotografie</div>
-    <div class="home-feat">Lay-out &amp; visuele hiërarchie</div>
-    <div class="home-feat">21 uitgewerkte secties</div>
-  </div>
-  <div class="home-cta">
-    <button class="btn-p" onclick="startIntake()">Start intake &rarr;</button>
-    <span class="home-note">Projectnaam en locatie zijn verplicht &middot; Groq API-sleutel vereist</span>
-  </div>
-</div>
+<!-- ── WIZARD ── -->
+<div class="wizard" id="wizardSection" style="display:none">
 
-<!-- ── INTAKE ── -->
-<div class="intake" id="intakeSection" style="display:none">
-  <div class="intake-hero">
-    <div class="intake-eyebrow">Stap 1 &mdash; Intake</div>
-    <h1 class="intake-title">Vul de intake in</h1>
-    <p class="intake-sub">Vul de informatie zo volledig mogelijk in. Schrijf <strong>onbekend</strong> wanneer iets nog niet bekend is. Alleen projectnaam en locatie zijn verplicht.</p>
-  </div>
-  <div id="accordionContainer"></div>
-
-  <!-- Aanvullende documenten upload -->
-  <div class="acc" id="acc_upload" style="margin-top:8px">
-    <div class="acc-head" onclick="toggleAcc('upload')">
-      <span class="acc-num">10</span>
-      <span class="acc-title">Aanvullende documenten</span>
-      <span class="acc-count" id="cnt_upload">0 bestanden</span>
-      <svg class="acc-chev" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="progress">
+    <div class="prog-step">
+      <div class="prog-dot active" id="dot1">1</div>
+      <span class="prog-label">Project &amp; Architectuur</span>
     </div>
-    <div class="acc-body">
-      <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
-        <div class="upload-zone-ico">📄</div>
-        <div class="upload-zone-lbl">Sleep bestanden hier naartoe of <strong>klik om te uploaden</strong><br>Ondersteunde formaten: PDF, TXT</div>
+    <div class="prog-line" id="line1"></div>
+    <div class="prog-step">
+      <div class="prog-dot" id="dot2">2</div>
+      <span class="prog-label">Doelgroep &amp; Merk</span>
+    </div>
+    <div class="prog-line" id="line2"></div>
+    <div class="prog-step">
+      <div class="prog-dot" id="dot3">3</div>
+      <span class="prog-label">Naam &amp; Randvoorwaarden</span>
+    </div>
+  </div>
+
+  <!-- ── STAP 1 ── -->
+  <div class="step-card active" id="step1">
+    <div class="step-title">Project &amp; Architectuur</div>
+    <div class="step-sub">Vul in wat je weet. Laat leeg wat onbekend is — de agent werkt met wat er is.</div>
+
+    <div class="sec-div">Projectgegevens</div>
+    <div class="field-row c2">
+      <div class="field">
+        <label class="fld-lbl" for="f_naam">Projectnaam <span class="req-tag">verplicht</span></label>
+        <input class="fld-inp" id="f_naam" type="text" placeholder="bijv. De Nieuwe Werf" autocomplete="off">
       </div>
-      <input type="file" id="fileInput" multiple accept=".pdf,.txt" style="display:none" onchange="handleFiles(this.files)">
-      <div class="file-chips" id="fileChips"></div>
+      <div class="field">
+        <label class="fld-lbl" for="f_locatie">Locatie (gemeente + wijk) <span class="req-tag">verplicht</span></label>
+        <input class="fld-inp" id="f_locatie" type="text" placeholder="bijv. Amsterdam-Noord, Buiksloterham" autocomplete="off">
+      </div>
+    </div>
+    <div class="field-row c2">
+      <div class="field">
+        <label class="fld-lbl" for="f_ontwikkelaar">Ontwikkelaar <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_ontwikkelaar" type="text" placeholder="bijv. Heijmans, AM" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="fld-lbl" for="f_architect">Architect <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_architect" type="text" placeholder="bijv. MVRDV, OMA" autocomplete="off">
+      </div>
+    </div>
+    <div class="field-row c3">
+      <div class="field">
+        <label class="fld-lbl" for="f_prijsseg">Prijssegment</label>
+        <select class="fld-sel" id="f_prijsseg">
+          <option value="">Kies…</option>
+          <option>Starter koop (&lt; €325k)</option>
+          <option>Middensegment (€325k–€600k)</option>
+          <option>Hoger segment (€600k–€1M)</option>
+          <option>Luxe / topsegment (&gt; €1M)</option>
+          <option>Middenhuur (€900–€1.500/mnd)</option>
+          <option>Vrije sector huur (&gt; €1.500/mnd)</option>
+          <option>Gemengd koop/huur</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="fld-lbl" for="f_omvang">Projectomvang</label>
+        <select class="fld-sel" id="f_omvang">
+          <option value="">Kies…</option>
+          <option>Klein (&lt; 50 won.)</option>
+          <option>Middelgroot (50–150 won.)</option>
+          <option>Groot (150–400 won.)</option>
+          <option>Grootschalig (&gt; 400 won.)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="fld-lbl" for="f_fase">Verkoopfase <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_fase" type="text" placeholder="bijv. start verkoop Q3 2026" autocomplete="off">
+      </div>
+    </div>
+    <div class="field">
+      <label class="fld-lbl">Type woningen</label>
+      <div class="chip-group">
+        <div class="chip" onclick="chip(this,'wtype')">Appartementen</div>
+        <div class="chip" onclick="chip(this,'wtype')">Grondgebonden</div>
+        <div class="chip" onclick="chip(this,'wtype')">Luxe / villa</div>
+        <div class="chip" onclick="chip(this,'wtype')">Stadswoningen</div>
+        <div class="chip" onclick="chip(this,'wtype')">Gemengd</div>
+        <div class="chip" onclick="chip(this,'wtype')">Koop</div>
+        <div class="chip" onclick="chip(this,'wtype')">Huur</div>
+      </div>
+    </div>
+
+    <div class="sec-div">Architectuur &amp; Locatie</div>
+    <div class="field-row c2">
+      <div class="field">
+        <label class="fld-lbl" for="f_architectuur">Architectuurstijl <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_architectuur" type="text" placeholder="bijv. modern, betonstijl, grote raampartijen" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="fld-lbl" for="f_materialen">Materiaalgebruik <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_materialen" type="text" placeholder="bijv. baksteen, cortenstaal, hout, glas" autocomplete="off">
+      </div>
+    </div>
+    <div class="field">
+      <label class="fld-lbl" for="f_arch_kenmerken">Opvallende architectonische kenmerken <span class="opt-tag">optioneel</span></label>
+      <textarea class="fld-ta" id="f_arch_kenmerken" placeholder="Beschrijf de meest beeldbepalende kenmerken van het gebouw of de woningen…"></textarea>
+    </div>
+    <div class="field">
+      <label class="fld-lbl" for="f_locatie_kenmerken">Karakter van de locatie <span class="opt-tag">optioneel</span></label>
+      <textarea class="fld-ta" id="f_locatie_kenmerken" placeholder="Omgeving, unieke liggingsvoordelen, sfeer van de buurt…"></textarea>
+    </div>
+    <div class="field">
+      <label class="fld-lbl">Duurzaamheid <span class="opt-tag">optioneel</span></label>
+      <div class="chip-group">
+        <div class="chip" onclick="chip(this,'duur')">BENG / Energieneutraal</div>
+        <div class="chip" onclick="chip(this,'duur')">Gasloos</div>
+        <div class="chip" onclick="chip(this,'duur')">BREEAM</div>
+        <div class="chip" onclick="chip(this,'duur')">Circulair</div>
+        <div class="chip" onclick="chip(this,'duur')">Groen dak</div>
+        <div class="chip" onclick="chip(this,'duur')">Zonnepanelen</div>
+        <div class="chip" onclick="chip(this,'duur')">Geen focus</div>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <span></span>
+      <button class="btn-next" onclick="goStep(2)">Volgende stap &rarr;</button>
     </div>
   </div>
 
-  <div class="intake-submit">
-    <button class="btn-p" id="submitBtn" onclick="submitIntake()">
-      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l1.8 5H15L10.5 9.8l1.8 5L8 12l-4.3 2.8 1.8-5L1 6.5h5.2z" fill="white"/></svg>
-      Verstuur naar AI Agent
-    </button>
-    <button class="btn-g" id="directBtn" onclick="directGenereer()" title="Sla de controlefase over en genereer het framework direct">
-      &#9889; Direct genereren
-    </button>
-    <span class="intake-count-hint" id="intakeCountHint"></span>
+  <!-- ── STAP 2 ── -->
+  <div class="step-card" id="step2">
+    <div class="step-title">Doelgroep &amp; Merkidentiteit</div>
+    <div class="step-sub">Wie wonen er straks, en wat moet de visuele identiteit voor hen uitstralen?</div>
+
+    <div class="sec-div">Doelgroep</div>
+    <div class="field">
+      <label class="fld-lbl">Primaire doelgroep</label>
+      <div class="chip-group">
+        <div class="chip" onclick="chip(this,'doel')">Starters</div>
+        <div class="chip" onclick="chip(this,'doel')">Jonge gezinnen</div>
+        <div class="chip" onclick="chip(this,'doel')">Doorstromers</div>
+        <div class="chip" onclick="chip(this,'doel')">Empty nesters</div>
+        <div class="chip" onclick="chip(this,'doel')">Senioren / 55+</div>
+        <div class="chip" onclick="chip(this,'doel')">Young professionals</div>
+        <div class="chip" onclick="chip(this,'doel')">Beleggers</div>
+        <div class="chip" onclick="chip(this,'doel')">Expats</div>
+      </div>
+    </div>
+    <div class="field-row c2">
+      <div class="field">
+        <label class="fld-lbl" for="f_doelsecundair">Secundaire doelgroep <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_doelsecundair" type="text" placeholder="bijv. tweeverdieners zonder kinderen, 35–50 jaar" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="fld-lbl" for="f_koopmotieven">Belangrijkste koopmotieven <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_koopmotieven" type="text" placeholder="bijv. meer ruimte, in de stad blijven, investering" autocomplete="off">
+      </div>
+    </div>
+
+    <div class="sec-div">Merkidentiteit</div>
+    <div class="field-row c2">
+      <div class="field">
+        <label class="fld-lbl" for="f_essentie">Merkessentie <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_essentie" type="text" placeholder="bijv. Thuis in de stad" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="fld-lbl" for="f_belofte">Merkbelofte <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_belofte" type="text" placeholder="bijv. Wonen als vanzelfsprekend" autocomplete="off">
+      </div>
+    </div>
+    <div class="field">
+      <label class="fld-lbl" for="f_waarden">Kernwaarden <span class="opt-tag">optioneel</span></label>
+      <input class="fld-inp" id="f_waarden" type="text" placeholder="bijv. kwaliteit, duurzaamheid, verbinding, rust" autocomplete="off">
+    </div>
+    <div class="field">
+      <label class="fld-lbl">Tone of voice <span class="opt-tag">optioneel</span></label>
+      <div class="chip-group">
+        <div class="chip" onclick="chip(this,'tov')">Warm &amp; menselijk</div>
+        <div class="chip" onclick="chip(this,'tov')">Ambitieus &amp; trots</div>
+        <div class="chip" onclick="chip(this,'tov')">Nuchter &amp; zakelijk</div>
+        <div class="chip" onclick="chip(this,'tov')">Po&#235;tisch &amp; verhalend</div>
+        <div class="chip" onclick="chip(this,'tov')">Modern &amp; direct</div>
+        <div class="chip" onclick="chip(this,'tov')">Exclusief &amp; subtiel</div>
+      </div>
+    </div>
+    <div class="field-row c2">
+      <div class="field">
+        <label class="fld-lbl" for="f_uitstraling">Gewenste uitstraling <span class="opt-tag">optioneel</span></label>
+        <textarea class="fld-ta" id="f_uitstraling" style="min-height:70px" placeholder="Wat moet de visuele identiteit uitstralen?"></textarea>
+      </div>
+      <div class="field">
+        <label class="fld-lbl" for="f_ongewenst">Ongewenste uitstraling <span class="opt-tag">optioneel</span></label>
+        <textarea class="fld-ta" id="f_ongewenst" style="min-height:70px" placeholder="Wat mag de identiteit absoluut NIET uitstralen?"></textarea>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-back" onclick="goStep(1)">&larr; Terug</button>
+      <button class="btn-next" onclick="goStep(3)">Volgende stap &rarr;</button>
+    </div>
   </div>
-</div>
+
+  <!-- ── STAP 3 ── -->
+  <div class="step-card" id="step3">
+    <div class="step-title">Naam, Verhaal &amp; Randvoorwaarden</div>
+    <div class="step-sub">De projectnaam, het centrale verhaal en de praktische kaders voor de identiteit.</div>
+
+    <div class="sec-div">Projectnaam &amp; Verhaal</div>
+    <div class="field-row c2">
+      <div class="field">
+        <label class="fld-lbl" for="f_naambevestiging">Projectnaam (bevestiging) <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_naambevestiging" type="text" placeholder="bijv. De Nieuwe Werf" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="fld-lbl" for="f_naambetekenis">Betekenis van de naam <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_naambetekenis" type="text" placeholder="bijv. vernoemd naar voormalige scheepswerf" autocomplete="off">
+      </div>
+    </div>
+    <div class="field">
+      <label class="fld-lbl" for="f_verhaal">Centrale verhaalgedachte <span class="opt-tag">optioneel</span></label>
+      <textarea class="fld-ta" id="f_verhaal" placeholder="Het centrale verhaal van het project — wat maakt dit project uniek?"></textarea>
+    </div>
+    <div class="field">
+      <label class="fld-lbl" for="f_positionering">Positionering in de markt <span class="opt-tag">optioneel</span></label>
+      <textarea class="fld-ta" id="f_positionering" style="min-height:70px" placeholder="Hoe positioneert dit project zich t.o.v. concurrenten?"></textarea>
+    </div>
+
+    <div class="sec-div">Concurrentie &amp; Visueel</div>
+    <div class="field">
+      <label class="fld-lbl" for="f_concurrenten">Concurrerende projecten <span class="opt-tag">optioneel</span></label>
+      <textarea class="fld-ta" id="f_concurrenten" style="min-height:70px" placeholder="Welke projecten zijn concurrerend? Wat doen zij visueel?"></textarea>
+    </div>
+    <div class="field-row c2">
+      <div class="field">
+        <label class="fld-lbl" for="f_visueel_inc">Visueel — moet terugkomen <span class="opt-tag">optioneel</span></label>
+        <textarea class="fld-ta" id="f_visueel_inc" style="min-height:70px" placeholder="Visuele kenmerken die in de identiteit moeten terugkomen…"></textarea>
+      </div>
+      <div class="field">
+        <label class="fld-lbl" for="f_visueel_exc">Visueel — mag niet <span class="opt-tag">optioneel</span></label>
+        <textarea class="fld-ta" id="f_visueel_exc" style="min-height:70px" placeholder="Visuele clichés of elementen die niet gebruikt mogen worden…"></textarea>
+      </div>
+    </div>
+
+    <div class="sec-div">Randvoorwaarden</div>
+    <div class="field-row c2">
+      <div class="field">
+        <label class="fld-lbl" for="f_kleuren_verplicht">Verplichte kleuren <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_kleuren_verplicht" type="text" placeholder="bijv. huisstijlkleuren ontwikkelaar" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="fld-lbl" for="f_logos_verplicht">Verplichte logo's <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_logos_verplicht" type="text" placeholder="bijv. logo ontwikkelaar, gemeente" autocomplete="off">
+      </div>
+    </div>
+    <div class="field-row c2">
+      <div class="field">
+        <label class="fld-lbl" for="f_technisch">Technische vereisten <span class="opt-tag">optioneel</span></label>
+        <input class="fld-inp" id="f_technisch" type="text" placeholder="bijv. WCAG AA, meerdere talen" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="fld-lbl" for="f_status_resultaat">Gewenste status resultaat</label>
+        <select class="fld-sel" id="f_status_resultaat">
+          <option value="">Kies…</option>
+          <option>Eerste richting / moodboard</option>
+          <option>Eerste concept</option>
+          <option>Definitief kader voor ontwerpers</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="sec-div">Aanvullende documenten <span class="opt-tag" style="margin-left:4px">optioneel</span></div>
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" id="fileInput" multiple accept=".pdf,.txt" onchange="handleFiles(this.files)">
+      <div class="upload-ico">&#128196;</div>
+      <div class="upload-lbl">Sleep bestanden hier naartoe of klik om te uploaden</div>
+      <div class="upload-sub">PDF, TXT — de agent leest de inhoud mee</div>
+    </div>
+    <div class="file-list" id="fileList"></div>
+
+    <div class="step-nav">
+      <button class="btn-back" onclick="goStep(2)">&larr; Terug</button>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="btn-direct" onclick="directGenereer()" title="Framework direct genereren zonder controlestap">&#9889; Direct</button>
+        <button class="btn-next" onclick="submitIntake()">Verstuur naar agent &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wizard -->
 
 <!-- ── LOADING ── -->
-<div class="loading-section" id="loadingSection">
-  <div class="l-icon">
-    <svg width="26" height="26" viewBox="0 0 16 16" fill="none">
-      <path d="M8 1.5l1.8 5H15L10.5 9.8l1.8 5L8 12l-4.3 2.8 1.8-5L1 6.5h5.2z" fill="#7CA73F"/>
-    </svg>
-  </div>
-  <div class="l-title" id="loadTitle">Agent analyseert de intake</div>
-  <div class="l-sub" id="loadSub">Even geduld — dit kan 30-60 seconden duren</div>
-  <div class="l-dot-row">
-    <div class="l-dot active" id="ld1"></div>
-    <div class="l-dot" id="ld2"></div>
-    <div class="l-dot" id="ld3"></div>
-    <div class="l-dot" id="ld4"></div>
-    <div class="l-dot" id="ld5"></div>
-  </div>
+<div class="loading-card" id="loadingSection">
+  <div class="spinner"></div>
+  <div class="ld-title" id="loadTitle">Agent analyseert de intake</div>
+  <div class="ld-sub" id="loadSub">Even geduld — dit kan 30-60 seconden duren</div>
 </div>
 
 <!-- ── CONTROLE ── -->
-<div class="controle-section" id="controleSection">
-  <div class="intake-hero" style="margin-bottom:24px">
-    <div class="intake-eyebrow">Stap 2 — Controle</div>
-    <h1 class="intake-title">Analyse &amp; vragen</h1>
-    <p class="intake-sub">De agent heeft de intake beoordeeld. Lees de samenvatting en beantwoord eventuele vragen voordat het framework wordt gegenereerd.</p>
-  </div>
-
-  <div class="controle-ai">
-    <div class="controle-ai-head">
-      <div class="controle-ai-badge">AI</div>
-      <div class="controle-ai-lbl">Visual Identity Agent — Controle</div>
+<div class="controle-wrap" id="controleSection">
+  <div class="c-eyebrow">Stap 2 &mdash; Controle</div>
+  <h1 class="c-title">Analyse &amp; vragen</h1>
+  <p class="c-sub">De agent heeft de intake beoordeeld. Lees de samenvatting, beantwoord eventuele vragen en klik op <strong>Genereer Framework</strong>.</p>
+  <div class="c-ai-box">
+    <div class="c-ai-head">
+      <div class="c-ai-badge">AI</div>
+      <div class="c-ai-lbl">Visual Identity Agent — Controle</div>
     </div>
-    <div class="controle-ai-body" id="controleText"></div>
+    <div class="c-ai-body md-content" id="controleText"></div>
   </div>
-
-  <div class="answers-box">
-    <label class="answers-lbl" for="answersTA">Jouw antwoorden op de vragen (optioneel)</label>
-    <textarea class="answers-ta" id="answersTA" placeholder="Typ hier je antwoorden, aanvullingen of opmerkingen..."></textarea>
+  <div class="c-answers">
+    <label class="c-answers-lbl" for="answersTA">Jouw antwoorden op de vragen <span class="opt-tag">optioneel</span></label>
+    <textarea class="c-answers-ta" id="answersTA" placeholder="Typ hier je antwoorden, aanvullingen of opmerkingen…"></textarea>
   </div>
-  <p class="controle-hint">Klik op <strong>Genereer Framework</strong> om door te gaan, ook als je geen vragen hebt beantwoord.</p>
-
-  <div style="display:flex;gap:10px;flex-wrap:wrap">
-    <button class="btn-p" onclick="doFramework()">
-      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 3h10v2H3zm0 4h10v2H3zm0 4h7v2H3z" fill="white"/></svg>
-      Genereer Visual Identity Framework
-    </button>
-    <button class="btn-g" onclick="backToIntake()">&#8592; Intake aanpassen</button>
+  <div class="c-btns">
+    <button class="btn-p" onclick="doFramework()">Genereer Visual Identity Framework &rarr;</button>
+    <button class="btn-g" onclick="backToIntake()">&larr; Intake aanpassen</button>
   </div>
 </div>
 
 <!-- ── FRAMEWORK ── -->
-<div class="fw-section" id="fwSection">
-  <div class="fw-title-area">
-    <div class="fw-project" id="fwProjectLabel"></div>
-    <h1 class="fw-main-title" id="fwMainTitle">Visual Identity Framework</h1>
-    <span class="fw-status-chip" id="fwStatus">Eerste concept</span>
+<div class="fw-wrap" id="fwSection">
+  <div class="fw-head">
+    <div class="fw-eyebrow" id="fwProjectLabel">Visual Identity Framework</div>
+    <h1 class="fw-title" id="fwMainTitle">Visual Identity Framework</h1>
+    <span class="fw-chip" id="fwStatus">Eerste concept</span>
   </div>
   <div id="fwCards"></div>
   <div class="fw-actions">
-    <button class="btn-p" onclick="exportPDF()">&#128438; PDF Exporteren</button>
-    <button class="btn-g" onclick="backToControle()">&#8592; Terugkoppeling geven</button>
+    <button class="btn-p" onclick="exportPDF()">&#128438; PDF exporteren</button>
+    <button class="btn-g" onclick="backToControle()">&larr; Terugkoppeling geven</button>
     <button class="btn-g" onclick="startNew()">&#8635; Nieuw project</button>
   </div>
 </div>
@@ -394,13 +614,11 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-
 <div class="toast" id="toast" aria-live="polite"></div>
 
 <script>
-/* ═══════════════════════════════════════════════════════════
-   CONSTANTS
-═══════════════════════════════════════════════════════════ */
 var KEY_STORE = 'spring-via-key';
 var GROQ_URL  = 'https://api.groq.com/openai/v1/chat/completions';
 var MODEL_PRIMARY  = 'llama-3.3-70b-versatile';
 var MODEL_FALLBACK = 'llama-3.1-8b-instant';
+var currentStep = 1;
 
 var SYSTEM_PROMPT = [
   'Je naam is Nieuwbouw Visual Identity Agent.',
@@ -409,18 +627,14 @@ var SYSTEM_PROMPT = [
   'Je bent een senior visual identity strategist en art director voor Nederlandse nieuwbouwprojecten.',
   'Je vertaalt branding, positionering, projectnaam en storytelling naar een duidelijke visuele identiteit.',
   'Je bepaalt: visuele merkstrategie, visuele richting, kleurgebruik, typografie, fotografie, beeldtaal,',
-  'grafische elementen, logo-richting, ontwerpprincipes, visuele do\'s en don\'ts,',
-  'en richtlijnen voor andere agents en ontwerpers.',
-  'Je maakt geen complete website, brochure, campagne of definitieve productiemiddelen.',
+  'grafische elementen, logo-richting, ontwerpprincipes, visuele do\'s en don\'ts.',
   '',
   'STAP 2 — CONTROLE (gebruik alleen wanneer de gebruiker dit vraagt):',
   '1. Vat de belangrijkste visuele uitgangspunten kort samen.',
   '2. Benoem alleen essentiële ontbrekende informatie.',
   '3. Stel maximaal vijf aanvullende vragen.',
-  '4. Verzin geen architectuur- of projectkenmerken.',
-  '5. Markeer aannames duidelijk.',
-  '6. Benoem tegenstrijdigheden.',
-  '7. Vraag toestemming om het framework te maken.',
+  '4. Markeer aannames duidelijk.',
+  '5. Vraag toestemming om het framework te maken.',
   '',
   'STAP 3 — RESULTAAT (gebruik wanneer de gebruiker het framework vraagt):',
   'Maak één compact Visual Identity Framework met EXACT deze 21 secties:',
@@ -447,127 +661,19 @@ var SYSTEM_PROMPT = [
   '## 21. Status',
   '',
   'KWALITEITSEISEN:',
+  '- Concreet, specifiek en direct toepasbaar.',
   '- Voortkomen uit de branding en positionering.',
-  '- De projectnaam versterken en het centrale verhaal ondersteunen.',
-  '- Passen bij doelgroep, prijsniveau, architectuur en locatie.',
-  '- Onderscheidend maar geloofwaardig zijn.',
-  '- Bruikbaar voor digitale en gedrukte middelen.',
-  '- Consistent en overdraagbaar aan ontwerpers.',
+  '- Onderscheidend maar geloofwaardig.',
+  '- Geef voor secties 5 en 6 indicatieve hex-codes.',
   '',
   'VERMIJD:',
   '- Generieke luxe-uitstraling, automatisch goud/zwart/serif bij premium.',
   '- Visuele trends zonder strategische reden.',
   '- Slecht leesbare combinaties.',
   '- Niet-onderbouwde kleurkeuzes.',
-  '- Stockfotografie zonder relevantie.',
-  '- Een identiteit die alleen op een moodboard werkt.',
-  '- Complete uitwerking van website, campagne of brochure.'
+  '- Een identiteit die alleen op een moodboard werkt.'
 ].join('\n');
 
-/* ═══════════════════════════════════════════════════════════
-   INTAKE FORM DEFINITION
-═══════════════════════════════════════════════════════════ */
-var SECTIONS = [
-  {id:'project', icon:'🏢', title:'Project', fields:[
-    {id:'naam',     label:'Projectnaam', req:true},
-    {id:'locatie',  label:'Locatie',     req:true},
-    {id:'ontwikkelaar', label:'Ontwikkelaar'},
-    {id:'architect',    label:'Architect'},
-    {id:'woningen',     label:'Aantal en type woningen'},
-    {id:'prijsklasse',  label:'Indicatieve prijsklasse'},
-    {id:'projectkenmerken',    label:'Belangrijkste projectkenmerken',    rows:2},
-    {id:'architectuurkenmerken', label:'Belangrijkste architectonische kenmerken', rows:2},
-    {id:'locatiekenmerken',    label:'Belangrijkste locatiekenmerken',    rows:2},
-    {id:'duurzaamheid',        label:'Belangrijkste duurzaamheidskenmerken', rows:2}
-  ]},
-  {id:'doelgroep', icon:'👥', title:'Doelgroep', fields:[
-    {id:'dprimair',      label:'Primaire doelgroep'},
-    {id:'dsecundair',    label:'Secundaire doelgroep'},
-    {id:'dprijsbeleving',label:'Gewenste prijsbeleving'},
-    {id:'demotie',       label:'Gewenste emotie'},
-    {id:'dwoonwensen',   label:'Belangrijkste woonwensen',   rows:2},
-    {id:'dkoopmotieven', label:'Belangrijkste koopmotieven', rows:2},
-    {id:'dvertrouwen',   label:'Wat moet vertrouwen uitstralen', rows:2},
-    {id:'dafschrikken',  label:'Wat kan visueel afschrikken', rows:2}
-  ]},
-  {id:'branding', icon:'🏷️', title:'Branding', fields:[
-    {id:'bessentie',     label:'Merkessentie'},
-    {id:'bbelofte',      label:'Merkbelofte'},
-    {id:'bwaarden',      label:'Kernwaarden'},
-    {id:'bpersoonlijkheid', label:'Merkpersoonlijkheid'},
-    {id:'btov',          label:'Tone of voice'},
-    {id:'buitstraling',  label:'Gewenste uitstraling',   rows:2},
-    {id:'bongewenst',    label:'Ongewenste uitstraling',  rows:2},
-    {id:'bwoordenin',    label:'Woorden die bij het merk passen'},
-    {id:'bwoordenuit',   label:'Woorden die niet passen'}
-  ]},
-  {id:'positionering', icon:'📍', title:'Positionering', fields:[
-    {id:'pgekozen',    label:'Gekozen positionering',    rows:2},
-    {id:'ponderscheid',label:'Primaire onderscheid'},
-    {id:'ppijlers',    label:'Positioneringspijlers',    rows:2},
-    {id:'pfunctioneel',label:'Functionele waarde'},
-    {id:'pemotioneel', label:'Emotionele waarde'},
-    {id:'pbewijs',     label:'Belangrijkste bewijsvoering', rows:2}
-  ]},
-  {id:'naming', icon:'✏️', title:'Naming', fields:[
-    {id:'nnaam',          label:'Projectnaam (bevestiging)'},
-    {id:'nbetekenis',     label:'Betekenis van de naam'},
-    {id:'nassociaties',   label:'Gewenste associaties'},
-    {id:'nongewenst',     label:'Ongewenste associaties'},
-    {id:'nsubtitel',      label:'Eventuele subtitel'},
-    {id:'nstijl',         label:'Dominant of ingetogen toepassen'}
-  ]},
-  {id:'storytelling', icon:'📖', title:'Storytelling', fields:[
-    {id:'sverhaal',       label:'Centrale verhaalgedachte', rows:2},
-    {id:'sperspectief',   label:'Primair vertelperspectief'},
-    {id:'spijlers',       label:'Verhaalpijlers',           rows:2},
-    {id:'semotie',        label:'Belangrijkste emoties'},
-    {id:'slocatie',       label:'Rol van de locatie'},
-    {id:'sarchitectuur',  label:'Rol van architectuur'},
-    {id:'sbewoners',      label:'Rol van bewoners'},
-    {id:'sboodschap',     label:'Belangrijkste hoofdboodschap', rows:2}
-  ]},
-  {id:'architectuur', icon:'🏗️', title:'Architectuur & Omgeving', fields:[
-    {id:'astijl',         label:'Architectuurstijl'},
-    {id:'amaterialen',    label:'Materialen'},
-    {id:'akleuren',       label:'Kleuren in het gebouw'},
-    {id:'alandschap',     label:'Landschap en groen'},
-    {id:'ahistorisch',    label:'Historische kenmerken'},
-    {id:'akarakter',      label:'Stedelijk of landelijk karakter'},
-    {id:'arenders',       label:'Beschikbare renders'},
-    {id:'afotografie',    label:'Beschikbare fotografie'},
-    {id:'avisueelinc',    label:'Visuele kenmerken die moeten terugkomen', rows:2},
-    {id:'avisueelex',     label:'Visuele kenmerken die niet moeten worden gebruikt', rows:2}
-  ]},
-  {id:'concurrentie', icon:'⚔️', title:'Concurrentie', fields:[
-    {id:'cconcurrenten',  label:'Belangrijkste concurrerende projecten', rows:2},
-    {id:'ccleuren',       label:'Veelgebruikte kleuren in de markt'},
-    {id:'ctypografie',    label:'Veelgebruikte typografie'},
-    {id:'cfotografie',    label:'Veelgebruikte fotografie'},
-    {id:'ccliches',       label:'Visuele clichés in de markt', rows:2},
-    {id:'cinspiratiepr',  label:'Projecten die inspireren'},
-    {id:'cvermijden',     label:'Projecten die niet passen'},
-    {id:'conderscheid',   label:'Gewenste mate van onderscheid'}
-  ]},
-  {id:'randvoorwaarden', icon:'⚙️', title:'Praktische Randvoorwaarden', fields:[
-    {id:'rhuisstijl',     label:'Bestaande huisstijl ontwikkelaar'},
-    {id:'rlogos',         label:'Verplichte logo\'s'},
-    {id:'rkleuren',       label:'Verplichte kleuren'},
-    {id:'rtoegang',       label:'Toegankelijkheidseisen'},
-    {id:'rdigitaal',      label:'Digitale toepassingen'},
-    {id:'rdrukwerk',      label:'Gedrukte toepassingen'},
-    {id:'rbewegwijzering',label:'Bewegwijzering'},
-    {id:'rverkoopcentrum',label:'Verkoopcentrum'},
-    {id:'rtalen',         label:'Benodigde talen'},
-    {id:'rbeperkingen',   label:'Technische beperkingen'},
-    {id:'rgoedkeuring',   label:'Wie keurt de visuele identiteit goed'},
-    {id:'rstatus',        label:'Gewenste status van het resultaat'}
-  ]}
-];
-
-/* ═══════════════════════════════════════════════════════════
-   STATE
-═══════════════════════════════════════════════════════════ */
 var state = {
   intakeText: '',
   controleText: '',
@@ -576,176 +682,198 @@ var state = {
   projectNaam: ''
 };
 
-/* ═══════════════════════════════════════════════════════════
-   API KEY
-═══════════════════════════════════════════════════════════ */
+/* ── API KEY ── */
 function saveKey(){
   var k = document.getElementById('apiKeyInput').value.trim();
   if(!k || !k.startsWith('gsk_')){ alert('Voer een geldige Groq API-sleutel in (begint met gsk_)'); return; }
   localStorage.setItem(KEY_STORE, k);
   document.getElementById('setupModal').style.display = 'none';
-  // If home screen is showing, move directly to intake
-  var home = document.getElementById('homeSection');
-  if(home && getComputedStyle(home).display !== 'none') showScreen('intakeSection');
+  startIntake();
 }
 function resetKey(){
   localStorage.removeItem(KEY_STORE);
   document.getElementById('apiKeyInput').value = '';
   document.getElementById('setupModal').style.display = 'flex';
 }
+
+/* ── INIT ── */
 (function init(){
-  buildForm();
-  updateIntakeCount();
   initUpload();
-  // Show home screen; modal opens when user clicks Start Intake without a key
 })();
 
-/* ═══════════════════════════════════════════════════════════
-   BUILD INTAKE FORM
-═══════════════════════════════════════════════════════════ */
-function buildForm(){
-  var container = document.getElementById('accordionContainer');
-  container.innerHTML = SECTIONS.map(function(sec, si){
-    var fieldsHtml = sec.fields.map(function(f){
-      var tag = f.rows ? 'textarea' : 'input';
-      var attrs = f.rows
-        ? 'class="fa" rows="'+f.rows+'"'
-        : 'class="fi" type="text"';
-      attrs += ' id="f_'+f.id+'" placeholder="'+(f.req?'Verplicht veld':'onbekend')+'"';
-      attrs += ' oninput="updateFieldCount(\''+sec.id+'\')"';
-      return '<div class="fg"><label class="fl" for="f_'+f.id+'">'+esc(f.label)+(f.req?'<span class="req">*</span>':'')+'</label>'
-        +'<'+tag+' '+attrs+(tag==='textarea'?' style="font-family:var(--fn)"':'')+'>'+( tag==='textarea' ? '</textarea>' : '>')+'</div>';
-    }).join('');
-
-    return '<div class="acc'+(si===0?' open':'') +'" id="acc_'+sec.id+'">'
-      +'<div class="acc-head" onclick="toggleAcc(\''+sec.id+'\')">'
-      +'<span class="acc-num">0'+(si+1)+'</span>'
-      +'<span class="acc-title">'+esc(sec.title)+'</span>'
-      +'<span class="acc-count" id="cnt_'+sec.id+'">0/'+sec.fields.length+'</span>'
-      +'<svg class="acc-chev'+(si===0?' open':'')+'" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-      +'</div>'
-      +'<div class="acc-body">'+fieldsHtml+'</div>'
-      +'</div>';
-  }).join('');
+/* ── SCREEN MANAGEMENT ── */
+function showIntakeScreen(){
+  document.getElementById('heroSection').style.display = 'flex';
+  document.getElementById('heroSection').style.flexDirection = 'column';
+  document.getElementById('heroSection').style.alignItems = 'center';
+  document.getElementById('wizardSection').style.display = 'block';
+  document.getElementById('loadingSection').classList.remove('show');
+  document.getElementById('controleSection').classList.remove('show');
+  document.getElementById('fwSection').classList.remove('show');
+  setTopSub('Visual Identity Agent &middot; Nieuwbouwprojecten');
 }
-
-function toggleAcc(id){
-  var el = document.getElementById('acc_'+id);
-  var open = el.classList.contains('open');
-  el.classList.toggle('open', !open);
-  var chev = el.querySelector('.acc-chev');
-  if(chev) chev.classList.toggle('open', !open);
-}
-
-function updateFieldCount(secId){
-  var sec = SECTIONS.find(function(s){ return s.id===secId; });
-  if(!sec) return;
-  var filled = sec.fields.filter(function(f){
-    var el = document.getElementById('f_'+f.id);
-    return el && el.value.trim() && el.value.trim() !== 'onbekend';
-  }).length;
-  var cnt = document.getElementById('cnt_'+secId);
-  if(cnt){
-    cnt.textContent = filled+'/'+sec.fields.length;
-    cnt.classList.toggle('has', filled > 0);
-  }
-  updateIntakeCount();
-}
-
-function updateIntakeCount(){
-  var total = 0, filled = 0;
-  SECTIONS.forEach(function(sec){
-    sec.fields.forEach(function(f){
-      total++;
-      var el = document.getElementById('f_'+f.id);
-      if(el && el.value.trim() && el.value.trim() !== 'onbekend') filled++;
-    });
-  });
-  var hint = document.getElementById('intakeCountHint');
-  if(hint) hint.textContent = filled + ' van ' + total + ' velden ingevuld';
-}
-
-/* ═══════════════════════════════════════════════════════════
-   COLLECT & BUILD INTAKE TEXT
-═══════════════════════════════════════════════════════════ */
-function collectIntake(){
-  var result = {};
-  SECTIONS.forEach(function(sec){
-    sec.fields.forEach(function(f){
-      var el = document.getElementById('f_'+f.id);
-      result[f.id] = el ? el.value.trim() : '';
-    });
-  });
-  return result;
-}
-
-function buildIntakeText(data){
-  var lines = [];
-  SECTIONS.forEach(function(sec){
-    lines.push('\n== ' + sec.title.toUpperCase() + ' ==');
-    sec.fields.forEach(function(f){
-      var val = data[f.id] || 'onbekend';
-      lines.push(f.label + ': ' + val);
-    });
-  });
-  if(uploadedFiles.length){
-    lines.push('\n\n== AANVULLENDE DOCUMENTEN ==');
-    uploadedFiles.forEach(function(f){
-      lines.push('\n--- Bestand: ' + f.name + ' ---');
-      lines.push(f.text.slice(0, 3000));
-    });
-  }
-  return lines.join('\n');
-}
-
-/* ═══════════════════════════════════════════════════════════
-   PHASE NAVIGATION
-═══════════════════════════════════════════════════════════ */
-function setPhase(n){
-  for(var i=1;i<=3;i++){
-    var d=document.getElementById('ph'+i);
-    var l=document.getElementById('phl'+i);
-    d.className='ph-dot '+(i<n?'done':i===n?'active':'pending');
-    l.className='ph-lbl'+(i===n?' active':'');
-  }
-  document.getElementById('phline1').className='ph-line'+(n>1?' done':'');
-  document.getElementById('phline2').className='ph-line'+(n>2?' done':'');
-}
-
 function showScreen(id){
-  ['homeSection','intakeSection','loadingSection','controleSection','fwSection'].forEach(function(sid){
-    var el = document.getElementById(sid);
-    if(el) el.style.display = (sid===id ? 'block' : 'none');
-  });
+  document.getElementById('heroSection').style.display = 'none';
+  document.getElementById('wizardSection').style.display = 'none';
+  document.getElementById('loadingSection').classList.remove('show');
+  document.getElementById('controleSection').classList.remove('show');
+  document.getElementById('fwSection').classList.remove('show');
+  if(id === 'loadingSection') document.getElementById('loadingSection').classList.add('show');
+  if(id === 'controleSection') document.getElementById('controleSection').classList.add('show');
+  if(id === 'fwSection') document.getElementById('fwSection').classList.add('show');
+}
+function setTopSub(html){
+  document.getElementById('topSub').innerHTML = html;
 }
 
 function startIntake(){
   var apiKey = localStorage.getItem(KEY_STORE);
   if(!apiKey){ document.getElementById('setupModal').style.display = 'flex'; return; }
-  showScreen('intakeSection');
+  document.getElementById('heroSection').style.display = 'none';
+  document.getElementById('wizardSection').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
-/* ═══════════════════════════════════════════════════════════
-   SUBMIT INTAKE → STAP 2 CONTROLE
-═══════════════════════════════════════════════════════════ */
+/* ── WIZARD STEPS ── */
+function goStep(n){
+  document.getElementById('step'+currentStep).classList.remove('active');
+  if(n > currentStep){
+    document.getElementById('dot'+currentStep).className = 'prog-dot done';
+    document.getElementById('line'+(n-1)).className = 'prog-line done';
+  } else {
+    document.getElementById('dot'+n).className = 'prog-dot active';
+  }
+  currentStep = n;
+  document.getElementById('step'+n).classList.add('active');
+  document.getElementById('dot'+n).className = 'prog-dot active';
+  window.scrollTo({top: document.getElementById('wizardSection').offsetTop - 20, behavior:'smooth'});
+}
+
+/* ── CHIPS ── */
+function chip(el, group){
+  el.classList.toggle('sel');
+}
+function getChips(group){
+  return Array.from(document.querySelectorAll('.chip.sel[onclick*="\''+group+'\'"]'))
+    .map(function(el){ return el.textContent.trim(); }).join(', ');
+}
+
+/* ── COLLECT INTAKE ── */
+function val(id){ var el=document.getElementById(id); return el ? el.value.trim() : ''; }
+
+function collectIntake(){
+  return {
+    naam: val('f_naam'),
+    locatie: val('f_locatie'),
+    ontwikkelaar: val('f_ontwikkelaar'),
+    architect: val('f_architect'),
+    prijsseg: val('f_prijsseg'),
+    omvang: val('f_omvang'),
+    fase: val('f_fase'),
+    woningtype: getChips('wtype'),
+    architectuur: val('f_architectuur'),
+    materialen: val('f_materialen'),
+    arch_kenmerken: val('f_arch_kenmerken'),
+    locatie_kenmerken: val('f_locatie_kenmerken'),
+    duurzaamheid: getChips('duur'),
+    doelgroep: getChips('doel'),
+    doelsecundair: val('f_doelsecundair'),
+    koopmotieven: val('f_koopmotieven'),
+    essentie: val('f_essentie'),
+    belofte: val('f_belofte'),
+    waarden: val('f_waarden'),
+    tov: getChips('tov'),
+    uitstraling: val('f_uitstraling'),
+    ongewenst: val('f_ongewenst'),
+    naambevestiging: val('f_naambevestiging'),
+    naambetekenis: val('f_naambetekenis'),
+    verhaal: val('f_verhaal'),
+    positionering: val('f_positionering'),
+    concurrenten: val('f_concurrenten'),
+    visueel_inc: val('f_visueel_inc'),
+    visueel_exc: val('f_visueel_exc'),
+    kleuren_verplicht: val('f_kleuren_verplicht'),
+    logos_verplicht: val('f_logos_verplicht'),
+    technisch: val('f_technisch'),
+    status_resultaat: val('f_status_resultaat')
+  };
+}
+
+function buildIntakeText(data){
+  var o = function(v){ return v || 'onbekend'; };
+  var lines = [
+    '== PROJECT ==',
+    'Projectnaam: '+o(data.naam),
+    'Locatie: '+o(data.locatie),
+    'Ontwikkelaar: '+o(data.ontwikkelaar),
+    'Architect: '+o(data.architect),
+    'Prijssegment: '+o(data.prijsseg),
+    'Projectomvang: '+o(data.omvang),
+    'Verkoopfase: '+o(data.fase),
+    'Woningtype: '+o(data.woningtype),
+    '',
+    '== ARCHITECTUUR & LOCATIE ==',
+    'Architectuurstijl: '+o(data.architectuur),
+    'Materiaalgebruik: '+o(data.materialen),
+    'Architectonische kenmerken: '+o(data.arch_kenmerken),
+    'Locatiekenmerken: '+o(data.locatie_kenmerken),
+    'Duurzaamheid: '+o(data.duurzaamheid),
+    '',
+    '== DOELGROEP ==',
+    'Primaire doelgroep: '+o(data.doelgroep),
+    'Secundaire doelgroep: '+o(data.doelsecundair),
+    'Koopmotieven: '+o(data.koopmotieven),
+    '',
+    '== MERKIDENTITEIT ==',
+    'Merkessentie: '+o(data.essentie),
+    'Merkbelofte: '+o(data.belofte),
+    'Kernwaarden: '+o(data.waarden),
+    'Tone of voice: '+o(data.tov),
+    'Gewenste uitstraling: '+o(data.uitstraling),
+    'Ongewenste uitstraling: '+o(data.ongewenst),
+    '',
+    '== PROJECTNAAM & VERHAAL ==',
+    'Projectnaam bevestiging: '+o(data.naambevestiging || data.naam),
+    'Betekenis van de naam: '+o(data.naambetekenis),
+    'Centrale verhaalgedachte: '+o(data.verhaal),
+    'Positionering: '+o(data.positionering),
+    '',
+    '== CONCURRENTIE & VISUEEL ==',
+    'Concurrerende projecten: '+o(data.concurrenten),
+    'Visueel moet terugkomen: '+o(data.visueel_inc),
+    'Visueel mag niet: '+o(data.visueel_exc),
+    '',
+    '== RANDVOORWAARDEN ==',
+    'Verplichte kleuren: '+o(data.kleuren_verplicht),
+    'Verplichte logos: '+o(data.logos_verplicht),
+    'Technische vereisten: '+o(data.technisch),
+    'Gewenste status resultaat: '+o(data.status_resultaat)
+  ];
+  if(uploadedFiles.length){
+    lines.push('', '== AANVULLENDE DOCUMENTEN ==');
+    uploadedFiles.forEach(function(f){
+      lines.push('--- '+f.name+' ---');
+      lines.push(f.text.slice(0,3000));
+    });
+  }
+  return lines.join('\n');
+}
+
+/* ── SUBMIT INTAKE → CONTROLE ── */
 function submitIntake(){
   var apiKey = localStorage.getItem(KEY_STORE);
   if(!apiKey){ resetKey(); return; }
-
   var data = collectIntake();
-  var naam = data.naam || '';
-  var locatie = data.locatie || '';
-  if(!naam.trim()){ alert('Vul een projectnaam in (verplicht).'); return; }
-  if(!locatie.trim()){ alert('Vul een locatie in (verplicht).'); return; }
+  if(!data.naam){ alert('Vul een projectnaam in (verplicht).'); goStep(1); return; }
+  if(!data.locatie){ alert('Vul een locatie in (verplicht).'); goStep(1); return; }
 
   state.intakeText = buildIntakeText(data);
-  state.projectNaam = naam;
+  state.projectNaam = data.naam;
 
   document.getElementById('loadTitle').textContent = 'Agent analyseert de intake';
   document.getElementById('loadSub').textContent = 'Even geduld — dit kan 20-30 seconden duren';
-  setPhase(2);
+  setTopSub('Stap 2 &middot; Controle');
   showScreen('loadingSection');
-  animateDots();
 
   var prompt = state.intakeText
     + '\n\n---\nVoer nu Stap 2 — Controle uit.'
@@ -756,45 +884,37 @@ function submitIntake(){
   callGroq(apiKey, [{role:'user', content:prompt}], 1500)
     .then(function(txt){
       state.controleText = txt;
-      document.getElementById('controleText').textContent = txt;
+      document.getElementById('controleText').innerHTML = simpleMarkdown(txt);
+      setTopSub('Stap 2 &middot; Controle');
       showScreen('controleSection');
     })
     .catch(function(e){
-      showScreen('intakeSection');
-      setPhase(1);
+      showIntakeScreen();
       alert('Fout: ' + e.message);
     });
 }
 
-/* ═══════════════════════════════════════════════════════════
-   GENERATE FRAMEWORK → STAP 3
-═══════════════════════════════════════════════════════════ */
+/* ── GENERATE FRAMEWORK ── */
 function doFramework(){
   var apiKey = localStorage.getItem(KEY_STORE);
   if(!apiKey){ resetKey(); return; }
-
   state.answersText = document.getElementById('answersTA').value.trim();
 
   var messages = [
     {role:'user', content: state.intakeText + '\n\n---\nVoer nu Stap 2 — Controle uit zoals hierboven.'},
-    {role:'assistant', content: state.controleText}
+    {role:'assistant', content: state.controleText || 'Controle overgeslagen.'}
   ];
-
-  var userMsg = state.answersText
-    ? 'Mijn antwoorden op je vragen:\n\n' + state.answersText + '\n\n---\n'
-    : '';
+  var userMsg = state.answersText ? 'Mijn antwoorden:\n\n'+state.answersText+'\n\n---\n' : '';
   userMsg += 'Voer nu Stap 3 — Resultaat uit. '
-    + 'Maak het complete Visual Identity Framework voor ' + state.projectNaam + '. '
-    + 'Begin met "# Visual Identity Framework — ' + state.projectNaam + '" '
-    + 'en werk alle 21 secties volledig uit in de exacte structuur. '
-    + 'Wees concreet, specifiek en toepasbaar. Geef voor secties 5 en 6 indicatieve hex-codes.';
+    + 'Maak het complete Visual Identity Framework voor '+state.projectNaam+'. '
+    + 'Begin met "# Visual Identity Framework — '+state.projectNaam+'" '
+    + 'en werk alle 21 secties volledig uit. Wees concreet en toepasbaar. Geef voor secties 5 en 6 indicatieve hex-codes.';
   messages.push({role:'user', content:userMsg});
 
   document.getElementById('loadTitle').textContent = 'Framework wordt gegenereerd';
   document.getElementById('loadSub').textContent = 'Dit duurt 45-90 seconden — het framework is uitgebreid';
-  setPhase(3);
+  setTopSub('Stap 3 &middot; Framework');
   showScreen('loadingSection');
-  animateDots();
 
   callGroq(apiKey, messages, 8000)
     .then(function(txt){
@@ -804,427 +924,309 @@ function doFramework(){
     })
     .catch(function(e){
       showScreen('controleSection');
-      setPhase(2);
+      setTopSub('Stap 2 &middot; Controle');
       alert('Fout: ' + e.message);
     });
 }
 
-function backToIntake(){
-  setPhase(1);
-  showScreen('intakeSection');
-}
-function backToControle(){
-  setPhase(2);
-  showScreen('controleSection');
-}
-function startNew(){
-  state = {intakeText:'',controleText:'',answersText:'',frameworkMarkdown:'',projectNaam:''};
-  uploadedFiles = [];
-  updateFileChips();
-  document.getElementById('answersTA').value = '';
-  setPhase(1);
-  showScreen('homeSection');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-/* ═══════════════════════════════════════════════════════════
-   GROQ API CALL
-═══════════════════════════════════════════════════════════ */
-async function callGroq(apiKey, messages, maxTokens){
-  var models = [MODEL_PRIMARY, MODEL_FALLBACK];
-  var lastErr = null;
-
-  for(var mi = 0; mi < models.length; mi++){
-    try{
-      var ctrl = new AbortController();
-      var timer = setTimeout(function(){ ctrl.abort(); }, 90000);
-
-      var res = await fetch(GROQ_URL, {
-        method: 'POST',
-        headers: {'Authorization':'Bearer '+apiKey,'Content-Type':'application/json'},
-        body: JSON.stringify({
-          model: models[mi],
-          messages: [{role:'system', content:SYSTEM_PROMPT}].concat(messages),
-          max_tokens: maxTokens || 4000,
-          temperature: 0.6
-        }),
-        signal: ctrl.signal
-      });
-      clearTimeout(timer);
-
-      if(!res.ok){
-        var ed = await res.json().catch(function(){ return {}; });
-        var msg = ed.error && ed.error.message ? ed.error.message : 'HTTP '+res.status;
-        if(res.status === 400 || res.status === 404){ lastErr = new Error(msg); continue; }
-        throw new Error(msg);
-      }
-      var gd = await res.json();
-      var content = gd.choices[0].message.content;
-      if(!content) throw new Error('Leeg antwoord ontvangen van de AI.');
-      return content;
-    } catch(e){
-      if(e.name === 'AbortError') throw new Error('Tijdlimiet overschreden. Probeer opnieuw.');
-      lastErr = e;
-      if(mi < models.length - 1) continue;
-    }
-  }
-  throw lastErr || new Error('Analyse mislukt. Controleer je API-sleutel.');
-}
-
-/* ═══════════════════════════════════════════════════════════
-   RENDER FRAMEWORK
-═══════════════════════════════════════════════════════════ */
-function renderFramework(markdown){
-  // Extract project title from first # heading
-  var titleMatch = markdown.match(/^#\s+(.+)$/m);
-  var fullTitle = titleMatch ? titleMatch[1] : 'Visual Identity Framework — ' + state.projectNaam;
-  var projPart = fullTitle.replace(/^Visual Identity Framework\s*[—–-]*\s*/i, '');
-
-  document.getElementById('fwProjectLabel').textContent = 'Visual Identity Framework · ' + (projPart || state.projectNaam);
-  document.getElementById('fwMainTitle').textContent = fullTitle;
-  document.getElementById('fwStatus').textContent = 'Eerste concept';
-
-  // Split into sections by ## headings
-  var parts = markdown.split(/(?=^## )/m);
-  var cards = parts.filter(function(p){ return p.trim().startsWith('##'); });
-
-  if(!cards.length){
-    // Fallback: show as single card
-    document.getElementById('fwCards').innerHTML = '<div class="fw-card open"><div class="fw-card-head"><span class="fw-card-title">Framework</span></div><div class="fw-body open md-content">' + simpleMarkdown(markdown) + '</div></div>';
-    return;
-  }
-
-  document.getElementById('fwCards').innerHTML = cards.map(function(card, i){
-    var lines = card.split('\n');
-    var headerLine = lines[0].replace(/^##\s+/, '');
-    var numMatch = headerLine.match(/^(\d+)\.\s+/);
-    var num = numMatch ? numMatch[1].padStart(2,'0') : (i+1).toString().padStart(2,'0');
-    var title = headerLine.replace(/^\d+\.\s+/, '');
-    var body = lines.slice(1).join('\n').trim();
-
-    return '<div class="fw-card" id="fwcard_'+i+'">'
-      + '<div class="fw-card-head" onclick="toggleFwCard('+i+')">'
-      + '<span class="fw-num">'+num+'</span>'
-      + '<span class="fw-card-title">'+esc(title)+'</span>'
-      + '<svg class="fw-chev" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-      + '</div>'
-      + '<div class="fw-bar"></div>'
-      + '<div class="fw-body md-content" id="fwbody_'+i+'">' + simpleMarkdown(body) + '</div>'
-      + '</div>';
-  }).join('');
-
-  // Open first two cards
-  [0, 1].forEach(function(i){
-    var body = document.getElementById('fwbody_'+i);
-    var card = document.getElementById('fwcard_'+i);
-    if(body){ body.classList.add('open'); }
-    if(card){ var chev = card.querySelector('.fw-chev'); if(chev) chev.classList.add('open'); }
-  });
-
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-function toggleFwCard(i){
-  var body = document.getElementById('fwbody_'+i);
-  var card = document.getElementById('fwcard_'+i);
-  if(!body) return;
-  var isOpen = body.classList.contains('open');
-  body.classList.toggle('open', !isOpen);
-  var chev = card && card.querySelector('.fw-chev');
-  if(chev) chev.classList.toggle('open', !isOpen);
-}
-
-/* ═══════════════════════════════════════════════════════════
-   SIMPLE MARKDOWN RENDERER
-═══════════════════════════════════════════════════════════ */
-function simpleMarkdown(text){
-  if(!text) return '';
-
-  // Escape HTML first, then apply markdown
-  var lines = text.split('\n');
-  var out = [];
-  var inUl = false, inOl = false;
-
-  function closeList(){
-    if(inUl){ out.push('</ul>'); inUl = false; }
-    if(inOl){ out.push('</ol>'); inOl = false; }
-  }
-
-  lines.forEach(function(line){
-    // Headings
-    if(/^### /.test(line)){
-      closeList();
-      out.push('<h3>'+inlineMarkdown(line.replace(/^### /,''))+'</h3>');
-      return;
-    }
-    if(/^## /.test(line)){
-      closeList();
-      out.push('<h2>'+inlineMarkdown(line.replace(/^## /,''))+'</h2>');
-      return;
-    }
-    if(/^# /.test(line)){
-      closeList();
-      out.push('<h1>'+inlineMarkdown(line.replace(/^# /,''))+'</h1>');
-      return;
-    }
-    // Horizontal rule
-    if(/^---+$/.test(line.trim())){
-      closeList();
-      out.push('<hr>');
-      return;
-    }
-    // Unordered list
-    if(/^[-*]\s/.test(line)){
-      if(!inUl){ out.push('<ul>'); inUl = true; }
-      if(inOl){ out.push('</ol>'); inOl = false; }
-      out.push('<li>'+inlineMarkdown(line.replace(/^[-*]\s+/,''))+'</li>');
-      return;
-    }
-    // Ordered list
-    if(/^\d+\.\s/.test(line)){
-      if(!inOl){ out.push('<ol>'); inOl = true; }
-      if(inUl){ out.push('</ul>'); inUl = false; }
-      out.push('<li>'+inlineMarkdown(line.replace(/^\d+\.\s+/,''))+'</li>');
-      return;
-    }
-    // Blank line
-    if(!line.trim()){
-      closeList();
-      return;
-    }
-    // Special highlight lines (ALL CAPS label followed by colon)
-    if(/^[A-ZÉÈÀÜÖÏËÊ\s]{4,}:/.test(line)){
-      closeList();
-      var colon = line.indexOf(':');
-      var lbl = line.slice(0, colon);
-      var rest = line.slice(colon+1).trim();
-      out.push('<div class="md-highlight"><strong>'+esc(lbl)+':</strong> '+inlineMarkdown(rest)+'</div>');
-      return;
-    }
-    // Blockquote
-    if(/^> /.test(line)){
-      closeList();
-      out.push('<div class="md-blockquote"><p>'+inlineMarkdown(line.replace(/^> /,''))+'</p></div>');
-      return;
-    }
-    // Regular paragraph
-    closeList();
-    out.push('<p>'+inlineMarkdown(line)+'</p>');
-  });
-
-  closeList();
-  return out.join('\n');
-}
-
-function inlineMarkdown(text){
-  // Inline hex color display
-  text = text.replace(/(#[0-9A-Fa-f]{6})\b/g, function(m){
-    return '<span class="color-swatch-inline" style="background:'+m+'"></span><code style="font-size:11px;color:var(--gl)">'+m+'</code>';
-  });
-  // Bold
-  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  // Italic
-  text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  // Inline code
-  text = text.replace(/`(.+?)`/g, '<code style="font-size:11.5px;background:var(--s2);padding:1px 5px;border-radius:3px;color:var(--gl)">$1</code>');
-  return text;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   LOADING ANIMATION
-═══════════════════════════════════════════════════════════ */
-var _ldInterval = null;
-function animateDots(){
-  var dots = ['ld1','ld2','ld3','ld4','ld5'];
-  var idx = 0;
-  dots.forEach(function(id){ document.getElementById(id).className='l-dot'; });
-  document.getElementById(dots[0]).className = 'l-dot active';
-  clearInterval(_ldInterval);
-  _ldInterval = setInterval(function(){
-    document.getElementById(dots[idx]).className = 'l-dot done';
-    idx = (idx+1) % dots.length;
-    if(idx === 0){ dots.forEach(function(id){ document.getElementById(id).className='l-dot'; }); }
-    document.getElementById(dots[idx]).className = 'l-dot active';
-  }, 1400);
-}
-
-/* ═══════════════════════════════════════════════════════════
-   UTILS
-═══════════════════════════════════════════════════════════ */
-function esc(s){
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-function showToast(msg){
-  var t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(t._timer);
-  t._timer = setTimeout(function(){ t.classList.remove('show'); }, 2200);
-}
-
-/* ═══════════════════════════════════════════════════════════
-   FILE UPLOAD
-═══════════════════════════════════════════════════════════ */
-var uploadedFiles = [];
-
-function initUpload(){
-  try {
-    if(typeof pdfjsLib !== 'undefined'){
-      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-    }
-  } catch(e){}
-  var zone = document.getElementById('uploadZone');
-  if(!zone) return;
-  zone.addEventListener('dragover', function(e){ e.preventDefault(); zone.classList.add('drag-over'); });
-  zone.addEventListener('dragleave', function(){ zone.classList.remove('drag-over'); });
-  zone.addEventListener('drop', function(e){
-    e.preventDefault();
-    zone.classList.remove('drag-over');
-    handleFiles(e.dataTransfer.files);
-  });
-}
-
-function handleFiles(files){
-  Array.from(files).forEach(function(file){
-    if(uploadedFiles.find(function(u){ return u.name === file.name; })) return;
-    var ext = file.name.split('.').pop().toLowerCase();
-    if(ext === 'pdf'){
-      showToast('PDF wordt gelezen: ' + file.name);
-      extractPdfText(file).then(function(text){
-        uploadedFiles.push({name: file.name, text: text});
-        updateFileChips();
-        showToast('Geladen: ' + file.name);
-      }).catch(function(){ showToast('PDF lezen mislukt: ' + file.name); });
-    } else if(ext === 'txt'){
-      var reader = new FileReader();
-      reader.onload = function(ev){
-        uploadedFiles.push({name: file.name, text: ev.target.result});
-        updateFileChips();
-        showToast('Geladen: ' + file.name);
-      };
-      reader.readAsText(file);
-    } else {
-      showToast('Gebruik PDF of TXT bestanden');
-    }
-  });
-  document.getElementById('fileInput').value = '';
-}
-
-async function extractPdfText(file){
-  var ab = await file.arrayBuffer();
-  var pdf = await pdfjsLib.getDocument({data: ab}).promise;
-  var text = '';
-  for(var i = 1; i <= pdf.numPages; i++){
-    var page = await pdf.getPage(i);
-    var content = await page.getTextContent();
-    text += content.items.map(function(item){ return item.str; }).join(' ') + '\n';
-  }
-  return text.trim();
-}
-
-function removeFile(i){
-  uploadedFiles.splice(i, 1);
-  updateFileChips();
-}
-
-function updateFileChips(){
-  var chips = document.getElementById('fileChips');
-  var cnt = document.getElementById('cnt_upload');
-  if(chips){
-    chips.innerHTML = uploadedFiles.map(function(f, i){
-      return '<div class="file-chip">'
-        + '<span class="file-chip-name">'+esc(f.name)+'</span>'
-        + '<span class="file-chip-rm" onclick="removeFile('+i+')" title="Verwijderen">&times;</span>'
-        + '</div>';
-    }).join('');
-  }
-  if(cnt) cnt.textContent = uploadedFiles.length + (uploadedFiles.length === 1 ? ' bestand' : ' bestanden');
-}
-
-/* ═══════════════════════════════════════════════════════════
-   DIRECT GENEREREN (sla controle over)
-═══════════════════════════════════════════════════════════ */
+/* ── DIRECT GENEREREN ── */
 function directGenereer(){
   var apiKey = localStorage.getItem(KEY_STORE);
   if(!apiKey){ resetKey(); return; }
-
   var data = collectIntake();
-  var naam = data.naam || '';
-  var locatie = data.locatie || '';
-  if(!naam.trim()){ alert('Vul een projectnaam in (verplicht).'); return; }
-  if(!locatie.trim()){ alert('Vul een locatie in (verplicht).'); return; }
+  if(!data.naam){ alert('Vul een projectnaam in (verplicht).'); goStep(1); return; }
+  if(!data.locatie){ alert('Vul een locatie in (verplicht).'); goStep(1); return; }
 
   state.intakeText = buildIntakeText(data);
-  state.projectNaam = naam;
+  state.projectNaam = data.naam;
   state.controleText = '';
   state.answersText = '';
 
   document.getElementById('loadTitle').textContent = 'Framework wordt direct gegenereerd';
   document.getElementById('loadSub').textContent = 'Controle overgeslagen — dit duurt 45-90 seconden';
-  setPhase(3);
+  setTopSub('Stap 3 &middot; Framework');
   showScreen('loadingSection');
-  animateDots();
 
-  var userMsg = 'Voer direct Stap 3 — Resultaat uit (sla Stap 2 Controle over). '
-    + 'Maak het complete Visual Identity Framework voor ' + naam + '. '
-    + 'Begin met "# Visual Identity Framework — ' + naam + '" '
-    + 'en werk alle 21 secties volledig uit in de exacte structuur. '
-    + 'Wees concreet, specifiek en toepasbaar. Geef voor secties 5 en 6 indicatieve hex-codes.\n\n'
+  var userMsg = 'Voer direct Stap 3 — Resultaat uit (sla Stap 2 over). '
+    + 'Maak het complete Visual Identity Framework voor '+data.naam+'. '
+    + 'Begin met "# Visual Identity Framework — '+data.naam+'" '
+    + 'en werk alle 21 secties volledig uit. Wees concreet en toepasbaar. Geef voor secties 5 en 6 indicatieve hex-codes.\n\n'
     + state.intakeText;
 
-  callGroq(apiKey, [{role:'user', content: userMsg}], 8000)
+  callGroq(apiKey, [{role:'user', content:userMsg}], 8000)
     .then(function(txt){
       state.frameworkMarkdown = txt;
       renderFramework(txt);
       showScreen('fwSection');
     })
     .catch(function(e){
-      showScreen('intakeSection');
-      setPhase(1);
+      showIntakeScreen();
       alert('Fout: ' + e.message);
     });
 }
 
-/* ═══════════════════════════════════════════════════════════
-   PDF EXPORT (Dansende Daken stijl)
-═══════════════════════════════════════════════════════════ */
-function exportPDF(){
-  if(!state.frameworkMarkdown){ showToast('Geen framework om te exporteren.'); return; }
-  showToast('PDF wordt opgemaakt…');
+function backToIntake(){
+  document.getElementById('heroSection').style.display = 'none';
+  document.getElementById('wizardSection').style.display = 'block';
+  document.getElementById('loadingSection').classList.remove('show');
+  document.getElementById('controleSection').classList.remove('show');
+  document.getElementById('fwSection').classList.remove('show');
+  setTopSub('Visual Identity Agent &middot; Nieuwbouwprojecten');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function backToControle(){
+  setTopSub('Stap 2 &middot; Controle');
+  showScreen('controleSection');
+}
+function startNew(){
+  state = {intakeText:'',controleText:'',answersText:'',frameworkMarkdown:'',projectNaam:''};
+  uploadedFiles = [];
+  updateFileList();
+  document.getElementById('answersTA').value = '';
+  currentStep = 1;
+  ['step1','step2','step3'].forEach(function(id,i){
+    var el=document.getElementById(id);
+    if(el){ el.classList.remove('active'); if(i===0) el.classList.add('active'); }
+  });
+  [1,2,3].forEach(function(i){
+    document.getElementById('dot'+i).className = 'prog-dot'+(i===1?' active':'');
+    if(i<3) document.getElementById('line'+i).className = 'prog-line';
+  });
+  // Go back to hero screen
+  document.getElementById('heroSection').style.display = '';
+  document.getElementById('wizardSection').style.display = 'none';
+  document.getElementById('loadingSection').classList.remove('show');
+  document.getElementById('controleSection').classList.remove('show');
+  document.getElementById('fwSection').classList.remove('show');
+  setTopSub('Visual Identity Agent &middot; Nieuwbouwprojecten');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
 
-  var proj = state.projectNaam || 'Project';
-  var now = new Date();
-  var months = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
-  var dateStr = months[now.getMonth()] + ' ' + now.getFullYear();
-  dateStr = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
+/* ── GROQ API ── */
+async function callGroq(apiKey, messages, maxTokens){
+  var models = [MODEL_PRIMARY, MODEL_FALLBACK];
+  var lastErr = null;
+  for(var mi=0; mi<models.length; mi++){
+    try{
+      var ctrl = new AbortController();
+      var timer = setTimeout(function(){ ctrl.abort(); }, 90000);
+      var res = await fetch(GROQ_URL, {
+        method:'POST',
+        headers:{'Authorization':'Bearer '+apiKey,'Content-Type':'application/json'},
+        body:JSON.stringify({
+          model:models[mi],
+          messages:[{role:'system',content:SYSTEM_PROMPT}].concat(messages),
+          max_tokens: maxTokens||4000,
+          temperature:0.6
+        }),
+        signal:ctrl.signal
+      });
+      clearTimeout(timer);
+      if(!res.ok){
+        var ed = await res.json().catch(function(){return{};});
+        var msg = ed.error&&ed.error.message ? ed.error.message : 'HTTP '+res.status;
+        if(res.status===400||res.status===404){ lastErr=new Error(msg); continue; }
+        throw new Error(msg);
+      }
+      var gd = await res.json();
+      var content = gd.choices[0].message.content;
+      if(!content) throw new Error('Leeg antwoord ontvangen van de AI.');
+      return content;
+    }catch(e){
+      if(e.name==='AbortError') throw new Error('Tijdlimiet overschreden. Probeer opnieuw.');
+      lastErr=e;
+      if(mi<models.length-1) continue;
+    }
+  }
+  throw lastErr||new Error('Analyse mislukt. Controleer je API-sleutel.');
+}
 
-  var coverHtml = '<div class="dd-cover">'
-    + '<div class="dd-cover-top"><div class="dd-mark">S</div><div class="dd-cover-brand">Spring Real Estate &nbsp;&middot;&nbsp; Visual Identity Agent</div></div>'
-    + '<div class="dd-cover-mid">'
-    + '<div class="dd-eyebrow">V I S U A L &nbsp; I D E N T I T Y &nbsp; F R A M E W O R K</div>'
-    + '<div class="dd-proj-title">'+esc(proj)+'</div>'
-    + '<div class="dd-cover-date">'+esc(dateStr)+'</div>'
-    + '</div>'
-    + '<div class="dd-cover-foot"><div class="dd-foot-lbl">Eerste concept &nbsp;&middot;&nbsp; Vertrouwelijk</div><div class="dd-foot-green">springrealestate.com</div></div>'
-    + '</div>';
+/* ── RENDER FRAMEWORK ── */
+function renderFramework(markdown){
+  var titleMatch = markdown.match(/^#\s+(.+)$/m);
+  var fullTitle = titleMatch ? titleMatch[1] : 'Visual Identity Framework — '+state.projectNaam;
+  var projPart = fullTitle.replace(/^Visual Identity Framework\s*[—–-]*\s*/i,'');
 
-  var parts = state.frameworkMarkdown.split(/(?=^## )/m);
+  document.getElementById('fwProjectLabel').textContent = 'Visual Identity Framework · '+(projPart||state.projectNaam);
+  document.getElementById('fwMainTitle').textContent = fullTitle;
+  document.getElementById('fwStatus').textContent = 'Eerste concept';
+
+  var parts = markdown.split(/(?=^## )/m);
   var cards = parts.filter(function(p){ return p.trim().startsWith('##'); });
 
-  var sectionsHtml = cards.map(function(card){
+  if(!cards.length){
+    document.getElementById('fwCards').innerHTML = '<div class="fw-card"><div class="fw-card-head"><span class="fw-card-title">Framework</span></div><div class="fw-body open md-content">'+simpleMarkdown(markdown)+'</div></div>';
+    return;
+  }
+
+  document.getElementById('fwCards').innerHTML = cards.map(function(card,i){
     var lines = card.split('\n');
-    var headerLine = lines[0].replace(/^##\s+/, '');
+    var headerLine = lines[0].replace(/^##\s+/,'');
     var numMatch = headerLine.match(/^(\d+)\.\s+/);
-    var num = numMatch ? numMatch[1].padStart(2,'0') : '';
-    var title = headerLine.replace(/^\d+\.\s+/, '');
+    var num = numMatch ? numMatch[1].padStart(2,'0') : (i+1).toString().padStart(2,'0');
+    var title = headerLine.replace(/^\d+\.\s+/,'');
     var body = lines.slice(1).join('\n').trim();
-    return '<div class="dd-sec">'
-      + '<div class="dd-sec-head"><span class="dd-sec-num">'+esc(num)+'</span><span class="dd-sec-title">'+esc(title)+'</span></div>'
-      + '<div class="dd-sec-body">'+mdToExportHtml(body)+'</div>'
-      + '</div>';
+    return '<div class="fw-card" id="fwcard_'+i+'">'
+      +'<div class="fw-card-head" onclick="toggleFwCard('+i+')">'
+      +'<span class="fw-num">'+num+'</span>'
+      +'<span class="fw-card-title">'+esc(title)+'</span>'
+      +'<button class="copy-btn" onclick="copyCard(event,'+i+')" title="Kopieer">&#128203;</button>'
+      +'<svg class="fw-chev" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      +'</div>'
+      +'<div class="fw-body md-content" id="fwbody_'+i+'">'+simpleMarkdown(body)+'</div>'
+      +'</div>';
   }).join('');
 
-  var css = [
+  [0,1].forEach(function(i){
+    var body=document.getElementById('fwbody_'+i);
+    var card=document.getElementById('fwcard_'+i);
+    if(body) body.classList.add('open');
+    if(card){ var ch=card.querySelector('.fw-chev'); if(ch) ch.classList.add('open'); }
+  });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function toggleFwCard(i){
+  var body=document.getElementById('fwbody_'+i);
+  var card=document.getElementById('fwcard_'+i);
+  if(!body) return;
+  var isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  var chev=card&&card.querySelector('.fw-chev');
+  if(chev) chev.classList.toggle('open',!isOpen);
+}
+
+function copyCard(e, i){
+  e.stopPropagation();
+  var body=document.getElementById('fwbody_'+i);
+  if(!body) return;
+  var text = body.innerText || body.textContent;
+  navigator.clipboard.writeText(text).then(function(){ showToast('Gekopieerd'); }).catch(function(){});
+}
+
+/* ── MARKDOWN RENDERER ── */
+function simpleMarkdown(text){
+  if(!text) return '';
+  var lines=text.split('\n'), out=[], inUl=false, inOl=false;
+  function closeList(){ if(inUl){out.push('</ul>');inUl=false;} if(inOl){out.push('</ol>');inOl=false;} }
+  lines.forEach(function(line){
+    if(/^### /.test(line)){closeList();out.push('<h3>'+inlineMd(line.replace(/^### /,''))+'</h3>');return;}
+    if(/^## /.test(line)){closeList();out.push('<h3>'+inlineMd(line.replace(/^## /,''))+'</h3>');return;}
+    if(/^# /.test(line)){closeList();out.push('<h3>'+inlineMd(line.replace(/^# /,''))+'</h3>');return;}
+    if(/^---+$/.test(line.trim())){closeList();out.push('<hr>');return;}
+    if(/^[-*]\s/.test(line)){
+      if(!inUl){out.push('<ul>');inUl=true;}
+      if(inOl){out.push('</ol>');inOl=false;}
+      out.push('<li>'+inlineMd(line.replace(/^[-*]\s+/,''))+'</li>');return;
+    }
+    if(/^\d+\.\s/.test(line)){
+      if(!inOl){out.push('<ol>');inOl=true;}
+      if(inUl){out.push('</ul>');inUl=false;}
+      out.push('<li>'+inlineMd(line.replace(/^\d+\.\s+/,''))+'</li>');return;
+    }
+    if(/^> /.test(line)){closeList();out.push('<blockquote><p>'+inlineMd(line.replace(/^> /,''))+'</p></blockquote>');return;}
+    if(!line.trim()){closeList();return;}
+    closeList();
+    out.push('<p>'+inlineMd(line)+'</p>');
+  });
+  closeList();
+  return out.join('\n');
+}
+
+function inlineMd(text){
+  text=text.replace(/(#[0-9A-Fa-f]{6})\b/g,function(m){
+    return '<span class="color-swatch-inline" style="background:'+m+'"></span><code>'+m+'</code>';
+  });
+  text=text.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  text=text.replace(/\*(.+?)\*/g,'<em>$1</em>');
+  text=text.replace(/`(.+?)`/g,'<code>$1</code>');
+  return text;
+}
+
+/* ── FILE UPLOAD ── */
+var uploadedFiles = [];
+
+function initUpload(){
+  try{
+    if(typeof pdfjsLib!=='undefined'){
+      pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  }catch(e){}
+  var zone=document.getElementById('uploadZone');
+  if(!zone) return;
+  zone.addEventListener('dragover',function(e){e.preventDefault();zone.classList.add('drag');});
+  zone.addEventListener('dragleave',function(){zone.classList.remove('drag');});
+  zone.addEventListener('drop',function(e){
+    e.preventDefault();zone.classList.remove('drag');
+    handleFiles(e.dataTransfer.files);
+  });
+}
+
+function handleFiles(files){
+  Array.from(files).forEach(function(file){
+    if(uploadedFiles.find(function(u){return u.name===file.name;})) return;
+    var ext=file.name.split('.').pop().toLowerCase();
+    var item={name:file.name,text:'',status:'loading'};
+    uploadedFiles.push(item);
+    updateFileList();
+    if(ext==='pdf'){
+      extractPdfText(file).then(function(text){
+        item.text=text; item.status='ok'; updateFileList();
+      }).catch(function(){item.status='err'; updateFileList();});
+    } else if(ext==='txt'){
+      var reader=new FileReader();
+      reader.onload=function(ev){item.text=ev.target.result;item.status='ok';updateFileList();};
+      reader.readAsText(file);
+    } else {
+      item.status='err'; updateFileList(); showToast('Gebruik PDF of TXT bestanden');
+    }
+  });
+  document.getElementById('fileInput').value='';
+}
+
+async function extractPdfText(file){
+  var ab=await file.arrayBuffer();
+  var pdf=await pdfjsLib.getDocument({data:ab}).promise;
+  var text='';
+  for(var i=1;i<=pdf.numPages;i++){
+    var page=await pdf.getPage(i);
+    var content=await page.getTextContent();
+    text+=content.items.map(function(item){return item.str;}).join(' ')+'\n';
+  }
+  return text.trim();
+}
+
+function removeFile(i){
+  uploadedFiles.splice(i,1);
+  updateFileList();
+}
+
+function updateFileList(){
+  var list=document.getElementById('fileList');
+  if(!list) return;
+  list.innerHTML=uploadedFiles.map(function(f,i){
+    var ico=f.status==='ok'?'📄':f.status==='loading'?'⏳':'❌';
+    var statusLabel=f.status==='ok'?'Geladen':f.status==='loading'?'Laden…':'Fout';
+    return '<div class="file-item">'
+      +'<span class="file-ico">'+ico+'</span>'
+      +'<span class="file-name">'+esc(f.name)+'</span>'
+      +'<span class="file-status '+f.status+'">'+statusLabel+'</span>'
+      +'<button class="file-remove" onclick="removeFile('+i+')" title="Verwijderen">&times;</button>'
+      +'</div>';
+  }).join('');
+}
+
+/* ── PDF EXPORT (Dansende Daken stijl) ── */
+function exportPDF(){
+  if(!state.frameworkMarkdown){showToast('Geen framework om te exporteren.');return;}
+  showToast('PDF wordt opgemaakt…');
+  var proj=state.projectNaam||'Project';
+  var now=new Date();
+  var months=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+  var dateStr=months[now.getMonth()]+' '+now.getFullYear();
+  dateStr=dateStr.charAt(0).toUpperCase()+dateStr.slice(1);
+
+  var css=[
     'body{margin:0;padding:0;font-family:Raleway,sans-serif;background:#fff;color:#1a1a1a;font-size:12px}',
     '.dd-cover{background:#0c0c0c;width:210mm;min-height:297mm;box-sizing:border-box;padding:56px 64px;display:flex;flex-direction:column;justify-content:space-between;page-break-after:always}',
     '.dd-cover-top{display:flex;align-items:center;gap:14px;border-bottom:1px solid rgba(124,167,63,.35);padding-bottom:22px}',
@@ -1251,64 +1253,81 @@ function exportPDF(){
     '.dd-swatch-dot{width:11px;height:11px;border-radius:3px;flex-shrink:0;border:1px solid rgba(0,0,0,.1)}'
   ].join('');
 
-  var fullHtml = '<!DOCTYPE html><html><head><meta charset="utf-8">'
-    + '<link rel="preconnect" href="https://fonts.googleapis.com">'
-    + '<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">'
-    + '<style>'+css+'</style></head><body>'
-    + coverHtml
-    + '<div class="dd-pages">'+sectionsHtml+'</div>'
-    + '</body></html>';
+  var coverHtml='<div class="dd-cover">'
+    +'<div class="dd-cover-top"><div class="dd-mark">S</div><div class="dd-cover-brand">Spring Real Estate &nbsp;&middot;&nbsp; Visual Identity Agent</div></div>'
+    +'<div><div class="dd-eyebrow">V I S U A L &nbsp; I D E N T I T Y &nbsp; F R A M E W O R K</div>'
+    +'<div class="dd-proj-title">'+esc(proj)+'</div>'
+    +'<div class="dd-cover-date">'+esc(dateStr)+'</div></div>'
+    +'<div class="dd-cover-foot"><div class="dd-foot-lbl">Eerste concept &nbsp;&middot;&nbsp; Vertrouwelijk</div><div class="dd-foot-green">springrealestate.com</div></div>'
+    +'</div>';
 
-  var container = document.createElement('div');
-  container.innerHTML = fullHtml;
-  container.style.cssText = 'position:fixed;left:-9999px;top:0;width:210mm;z-index:-1;background:#fff';
+  var parts=state.frameworkMarkdown.split(/(?=^## )/m);
+  var cards=parts.filter(function(p){return p.trim().startsWith('##');});
+  var sectionsHtml=cards.map(function(card){
+    var lines=card.split('\n');
+    var headerLine=lines[0].replace(/^##\s+/,'');
+    var numMatch=headerLine.match(/^(\d+)\.\s+/);
+    var num=numMatch?numMatch[1].padStart(2,'0'):'';
+    var title=headerLine.replace(/^\d+\.\s+/,'');
+    var body=lines.slice(1).join('\n').trim();
+    return '<div class="dd-sec">'
+      +'<div class="dd-sec-head"><span class="dd-sec-num">'+esc(num)+'</span><span class="dd-sec-title">'+esc(title)+'</span></div>'
+      +'<div class="dd-sec-body">'+mdToExportHtml(body)+'</div>'
+      +'</div>';
+  }).join('');
+
+  var fullHtml='<!DOCTYPE html><html><head><meta charset="utf-8">'
+    +'<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">'
+    +'<style>'+css+'</style></head><body>'
+    +coverHtml+'<div class="dd-pages">'+sectionsHtml+'</div></body></html>';
+
+  var container=document.createElement('div');
+  container.innerHTML=fullHtml;
+  container.style.cssText='position:fixed;left:-9999px;top:0;width:210mm;z-index:-1;background:#fff';
   document.body.appendChild(container);
 
-  var opt = {
-    margin: 0,
-    filename: 'VIF_' + proj.replace(/[^a-zA-Z0-9]/g, '_') + '.pdf',
-    image: {type: 'jpeg', quality: 0.97},
-    html2canvas: {scale: 2, useCORS: true, logging: false},
-    jsPDF: {unit: 'mm', format: 'a4', orientation: 'portrait'},
-    pagebreak: {mode: ['css', 'legacy']}
-  };
-
-  html2pdf().set(opt).from(container.firstChild).save()
-    .then(function(){
-      document.body.removeChild(container);
-      showToast('PDF gedownload');
-    })
-    .catch(function(e){
-      document.body.removeChild(container);
-      showToast('PDF mislukt — probeer afdrukken');
-    });
+  html2pdf().set({
+    margin:0,
+    filename:'VIF_'+proj.replace(/[^a-zA-Z0-9]/g,'_')+'.pdf',
+    image:{type:'jpeg',quality:0.97},
+    html2canvas:{scale:2,useCORS:true,logging:false},
+    jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},
+    pagebreak:{mode:['css','legacy']}
+  }).from(container.firstChild).save()
+    .then(function(){document.body.removeChild(container);showToast('PDF gedownload');})
+    .catch(function(){document.body.removeChild(container);showToast('PDF mislukt — probeer afdrukken');});
 }
 
 function mdToExportHtml(text){
   if(!text) return '';
-  var lines = text.split('\n');
-  var out = [];
-  var inUl = false, inOl = false;
-  function close(){ if(inUl){out.push('</ul>');inUl=false;} if(inOl){out.push('</ol>');inOl=false;} }
+  var lines=text.split('\n'),out=[],inUl=false,inOl=false;
+  function close(){if(inUl){out.push('</ul>');inUl=false;}if(inOl){out.push('</ol>');inOl=false;}}
   lines.forEach(function(line){
-    if(/^### /.test(line)){ close(); out.push('<h3>'+esc(line.replace(/^### /,''))+'</h3>'); return; }
-    if(/^[-*]\s/.test(line)){ if(!inUl){out.push('<ul>');inUl=true;} out.push('<li>'+exportInline(line.replace(/^[-*]\s+/,''))+'</li>'); return; }
-    if(/^\d+\.\s/.test(line)){ if(!inOl){out.push('<ol>');inOl=true;} out.push('<li>'+exportInline(line.replace(/^\d+\.\s+/,''))+'</li>'); return; }
-    if(!line.trim()){ close(); return; }
-    close();
-    out.push('<p>'+exportInline(line)+'</p>');
+    if(/^### /.test(line)){close();out.push('<h3>'+esc(line.replace(/^### /,''))+'</h3>');return;}
+    if(/^[-*]\s/.test(line)){if(!inUl){out.push('<ul>');inUl=true;}out.push('<li>'+exportInline(line.replace(/^[-*]\s+/,''))+'</li>');return;}
+    if(/^\d+\.\s/.test(line)){if(!inOl){out.push('<ol>');inOl=true;}out.push('<li>'+exportInline(line.replace(/^\d+\.\s+/,''))+'</li>');return;}
+    if(!line.trim()){close();return;}
+    close();out.push('<p>'+exportInline(line)+'</p>');
   });
   close();
   return out.join('');
 }
-
 function exportInline(text){
-  text = text.replace(/(#[0-9A-Fa-f]{6})\b/g, function(m){
+  text=text.replace(/(#[0-9A-Fa-f]{6})\b/g,function(m){
     return '<span class="dd-swatch"><span class="dd-swatch-dot" style="background:'+m+'"></span>'+m+'</span>';
   });
-  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  text=text.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  text=text.replace(/\*(.+?)\*/g,'<em>$1</em>');
   return text;
+}
+
+/* ── UTILS ── */
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer=setTimeout(function(){t.classList.remove('show');},2200);
 }
 </script>
 </body>
