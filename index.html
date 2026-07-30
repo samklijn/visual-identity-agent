@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -191,6 +193,17 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-
   .md-content h1,.md-content h2,.fw-card-title{color:#111}
   .md-content h3,.fw-num,.fw-status-chip{color:#4a7021}
 }
+/* ── FILE UPLOAD ── */
+.upload-zone{border:2px dashed var(--bd);border-radius:var(--r);padding:20px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;margin-top:4px}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--g);background:rgba(124,167,63,.07)}
+.upload-zone-ico{font-size:22px;margin-bottom:6px}
+.upload-zone-lbl{color:var(--muted);font-size:12.5px;line-height:1.6}
+.upload-zone-lbl strong{color:var(--gl)}
+.file-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.file-chip{display:flex;align-items:center;gap:7px;background:var(--s2);border:1px solid var(--bd);border-radius:999px;padding:4px 12px;font-size:11.5px;color:var(--ink)}
+.file-chip-name{max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file-chip-rm{cursor:pointer;color:var(--muted);font-size:16px;line-height:1}
+.file-chip-rm:hover{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -250,10 +263,32 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-
     <p class="intake-sub">Vul de informatie zo volledig mogelijk in. Schrijf <strong>onbekend</strong> wanneer iets nog niet bekend is. Alleen projectnaam en locatie zijn verplicht.</p>
   </div>
   <div id="accordionContainer"></div>
+
+  <!-- Aanvullende documenten upload -->
+  <div class="acc" id="acc_upload" style="margin-top:8px">
+    <div class="acc-head" onclick="toggleAcc('upload')">
+      <span class="acc-ico">📎</span>
+      <span class="acc-title">Aanvullende documenten</span>
+      <span class="acc-count" id="cnt_upload">0 bestanden</span>
+      <svg class="acc-chev" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="acc-body">
+      <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+        <div class="upload-zone-ico">📄</div>
+        <div class="upload-zone-lbl">Sleep bestanden hier naartoe of <strong>klik om te uploaden</strong><br>Ondersteunde formaten: PDF, TXT</div>
+      </div>
+      <input type="file" id="fileInput" multiple accept=".pdf,.txt" style="display:none" onchange="handleFiles(this.files)">
+      <div class="file-chips" id="fileChips"></div>
+    </div>
+  </div>
+
   <div class="intake-submit">
     <button class="btn-p" id="submitBtn" onclick="submitIntake()">
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l1.8 5H15L10.5 9.8l1.8 5L8 12l-4.3 2.8 1.8-5L1 6.5h5.2z" fill="white"/></svg>
       Verstuur naar AI Agent
+    </button>
+    <button class="btn-g" id="directBtn" onclick="directGenereer()" title="Sla de controlefase over en genereer het framework direct">
+      &#9889; Direct genereren
     </button>
     <span class="intake-count-hint" id="intakeCountHint"></span>
   </div>
@@ -317,7 +352,7 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:20px;border-
   </div>
   <div id="fwCards"></div>
   <div class="fw-actions">
-    <button class="btn-p" onclick="window.print()">&#128438; Afdrukken / PDF</button>
+    <button class="btn-p" onclick="exportPDF()">&#128438; PDF Exporteren</button>
     <button class="btn-g" onclick="backToControle()">&#8592; Terugkoppeling geven</button>
     <button class="btn-g" onclick="startNew()">&#8635; Nieuw project</button>
   </div>
@@ -527,6 +562,7 @@ function resetKey(){
   if(!localStorage.getItem(KEY_STORE)) document.getElementById('setupModal').style.display = 'flex';
   buildForm();
   updateIntakeCount();
+  initUpload();
 })();
 
 /* ═══════════════════════════════════════════════════════════
@@ -617,6 +653,13 @@ function buildIntakeText(data){
       lines.push(f.label + ': ' + val);
     });
   });
+  if(uploadedFiles.length){
+    lines.push('\n\n== AANVULLENDE DOCUMENTEN ==');
+    uploadedFiles.forEach(function(f){
+      lines.push('\n--- Bestand: ' + f.name + ' ---');
+      lines.push(f.text.slice(0, 3000));
+    });
+  }
   return lines.join('\n');
 }
 
@@ -973,6 +1016,252 @@ function showToast(msg){
   t.classList.add('show');
   clearTimeout(t._timer);
   t._timer = setTimeout(function(){ t.classList.remove('show'); }, 2200);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FILE UPLOAD
+═══════════════════════════════════════════════════════════ */
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+var uploadedFiles = [];
+
+function initUpload(){
+  var zone = document.getElementById('uploadZone');
+  if(!zone) return;
+  zone.addEventListener('dragover', function(e){ e.preventDefault(); zone.classList.add('drag-over'); });
+  zone.addEventListener('dragleave', function(){ zone.classList.remove('drag-over'); });
+  zone.addEventListener('drop', function(e){
+    e.preventDefault();
+    zone.classList.remove('drag-over');
+    handleFiles(e.dataTransfer.files);
+  });
+}
+
+function handleFiles(files){
+  Array.from(files).forEach(function(file){
+    if(uploadedFiles.find(function(u){ return u.name === file.name; })) return;
+    var ext = file.name.split('.').pop().toLowerCase();
+    if(ext === 'pdf'){
+      showToast('PDF wordt gelezen: ' + file.name);
+      extractPdfText(file).then(function(text){
+        uploadedFiles.push({name: file.name, text: text});
+        updateFileChips();
+        showToast('Geladen: ' + file.name);
+      }).catch(function(){ showToast('PDF lezen mislukt: ' + file.name); });
+    } else if(ext === 'txt'){
+      var reader = new FileReader();
+      reader.onload = function(ev){
+        uploadedFiles.push({name: file.name, text: ev.target.result});
+        updateFileChips();
+        showToast('Geladen: ' + file.name);
+      };
+      reader.readAsText(file);
+    } else {
+      showToast('Gebruik PDF of TXT bestanden');
+    }
+  });
+  document.getElementById('fileInput').value = '';
+}
+
+async function extractPdfText(file){
+  var ab = await file.arrayBuffer();
+  var pdf = await pdfjsLib.getDocument({data: ab}).promise;
+  var text = '';
+  for(var i = 1; i <= pdf.numPages; i++){
+    var page = await pdf.getPage(i);
+    var content = await page.getTextContent();
+    text += content.items.map(function(item){ return item.str; }).join(' ') + '\n';
+  }
+  return text.trim();
+}
+
+function removeFile(i){
+  uploadedFiles.splice(i, 1);
+  updateFileChips();
+}
+
+function updateFileChips(){
+  var chips = document.getElementById('fileChips');
+  var cnt = document.getElementById('cnt_upload');
+  if(chips){
+    chips.innerHTML = uploadedFiles.map(function(f, i){
+      return '<div class="file-chip">'
+        + '<span class="file-chip-name">'+esc(f.name)+'</span>'
+        + '<span class="file-chip-rm" onclick="removeFile('+i+')" title="Verwijderen">&times;</span>'
+        + '</div>';
+    }).join('');
+  }
+  if(cnt) cnt.textContent = uploadedFiles.length + (uploadedFiles.length === 1 ? ' bestand' : ' bestanden');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DIRECT GENEREREN (sla controle over)
+═══════════════════════════════════════════════════════════ */
+function directGenereer(){
+  var apiKey = localStorage.getItem(KEY_STORE);
+  if(!apiKey){ resetKey(); return; }
+
+  var data = collectIntake();
+  var naam = data.naam || '';
+  var locatie = data.locatie || '';
+  if(!naam.trim()){ alert('Vul een projectnaam in (verplicht).'); return; }
+  if(!locatie.trim()){ alert('Vul een locatie in (verplicht).'); return; }
+
+  state.intakeText = buildIntakeText(data);
+  state.projectNaam = naam;
+  state.controleText = '';
+  state.answersText = '';
+
+  document.getElementById('loadTitle').textContent = 'Framework wordt direct gegenereerd';
+  document.getElementById('loadSub').textContent = 'Controle overgeslagen — dit duurt 45-90 seconden';
+  setPhase(3);
+  showScreen('loadingSection');
+  animateDots();
+
+  var userMsg = 'Voer direct Stap 3 — Resultaat uit (sla Stap 2 Controle over). '
+    + 'Maak het complete Visual Identity Framework voor ' + naam + '. '
+    + 'Begin met "# Visual Identity Framework — ' + naam + '" '
+    + 'en werk alle 21 secties volledig uit in de exacte structuur. '
+    + 'Wees concreet, specifiek en toepasbaar. Geef voor secties 5 en 6 indicatieve hex-codes.\n\n'
+    + state.intakeText;
+
+  callGroq(apiKey, [{role:'user', content: userMsg}], 8000)
+    .then(function(txt){
+      state.frameworkMarkdown = txt;
+      renderFramework(txt);
+      showScreen('fwSection');
+    })
+    .catch(function(e){
+      showScreen('intakeSection');
+      setPhase(1);
+      alert('Fout: ' + e.message);
+    });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PDF EXPORT (Dansende Daken stijl)
+═══════════════════════════════════════════════════════════ */
+function exportPDF(){
+  if(!state.frameworkMarkdown){ showToast('Geen framework om te exporteren.'); return; }
+  showToast('PDF wordt opgemaakt…');
+
+  var proj = state.projectNaam || 'Project';
+  var now = new Date();
+  var months = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+  var dateStr = months[now.getMonth()] + ' ' + now.getFullYear();
+  dateStr = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
+
+  var coverHtml = '<div class="dd-cover">'
+    + '<div class="dd-cover-top"><div class="dd-mark">S</div><div class="dd-cover-brand">Spring Real Estate &nbsp;&middot;&nbsp; Visual Identity Agent</div></div>'
+    + '<div class="dd-cover-mid">'
+    + '<div class="dd-eyebrow">V I S U A L &nbsp; I D E N T I T Y &nbsp; F R A M E W O R K</div>'
+    + '<div class="dd-proj-title">'+esc(proj)+'</div>'
+    + '<div class="dd-cover-date">'+esc(dateStr)+'</div>'
+    + '</div>'
+    + '<div class="dd-cover-foot"><div class="dd-foot-lbl">Eerste concept &nbsp;&middot;&nbsp; Vertrouwelijk</div><div class="dd-foot-green">springrealestate.com</div></div>'
+    + '</div>';
+
+  var parts = state.frameworkMarkdown.split(/(?=^## )/m);
+  var cards = parts.filter(function(p){ return p.trim().startsWith('##'); });
+
+  var sectionsHtml = cards.map(function(card){
+    var lines = card.split('\n');
+    var headerLine = lines[0].replace(/^##\s+/, '');
+    var numMatch = headerLine.match(/^(\d+)\.\s+/);
+    var num = numMatch ? numMatch[1].padStart(2,'0') : '';
+    var title = headerLine.replace(/^\d+\.\s+/, '');
+    var body = lines.slice(1).join('\n').trim();
+    return '<div class="dd-sec">'
+      + '<div class="dd-sec-head"><span class="dd-sec-num">'+esc(num)+'</span><span class="dd-sec-title">'+esc(title)+'</span></div>'
+      + '<div class="dd-sec-body">'+mdToExportHtml(body)+'</div>'
+      + '</div>';
+  }).join('');
+
+  var css = [
+    'body{margin:0;padding:0;font-family:Raleway,sans-serif;background:#fff;color:#1a1a1a;font-size:12px}',
+    '.dd-cover{background:#0c0c0c;width:210mm;min-height:297mm;box-sizing:border-box;padding:56px 64px;display:flex;flex-direction:column;justify-content:space-between;page-break-after:always}',
+    '.dd-cover-top{display:flex;align-items:center;gap:14px;border-bottom:1px solid rgba(124,167,63,.35);padding-bottom:22px}',
+    '.dd-mark{width:34px;height:34px;background:#7CA73F;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;color:#fff;flex-shrink:0}',
+    '.dd-cover-brand{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45)}',
+    '.dd-eyebrow{font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:rgba(124,167,63,.8);margin-bottom:18px}',
+    '.dd-proj-title{font-size:52px;font-weight:800;line-height:1.06;color:#fff;letter-spacing:-.02em;margin:0 0 18px}',
+    '.dd-cover-date{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3)}',
+    '.dd-cover-foot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.08);padding-top:20px}',
+    '.dd-foot-lbl{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.22)}',
+    '.dd-foot-green{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#7CA73F}',
+    '.dd-pages{padding:44px 64px}',
+    '.dd-sec{margin-bottom:36px;padding-left:18px;border-left:3px solid #7CA73F;break-inside:avoid}',
+    '.dd-sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #e8e8e8}',
+    '.dd-sec-num{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:#7CA73F;font-weight:700;flex-shrink:0}',
+    '.dd-sec-title{font-size:16px;font-weight:700;color:#0c0c0c;letter-spacing:-.01em}',
+    '.dd-sec-body{font-size:11.5px;line-height:1.72;color:#2a2a2a}',
+    '.dd-sec-body h3{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0c0c0c;margin:14px 0 5px}',
+    '.dd-sec-body p{margin:0 0 7px}',
+    '.dd-sec-body ul,.dd-sec-body ol{margin:4px 0 9px;padding-left:17px}',
+    '.dd-sec-body li{margin-bottom:3px}',
+    '.dd-sec-body strong{font-weight:700;color:#0c0c0c}',
+    '.dd-swatch{display:inline-flex;align-items:center;gap:5px;background:#f4f4f4;border:1px solid #e0e0e0;border-radius:4px;padding:3px 8px;font-size:10px;font-family:monospace;vertical-align:middle;margin:2px 2px}',
+    '.dd-swatch-dot{width:11px;height:11px;border-radius:3px;flex-shrink:0;border:1px solid rgba(0,0,0,.1)}'
+  ].join('');
+
+  var fullHtml = '<!DOCTYPE html><html><head><meta charset="utf-8">'
+    + '<link rel="preconnect" href="https://fonts.googleapis.com">'
+    + '<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">'
+    + '<style>'+css+'</style></head><body>'
+    + coverHtml
+    + '<div class="dd-pages">'+sectionsHtml+'</div>'
+    + '</body></html>';
+
+  var container = document.createElement('div');
+  container.innerHTML = fullHtml;
+  container.style.cssText = 'position:fixed;left:-9999px;top:0;width:210mm;z-index:-1;background:#fff';
+  document.body.appendChild(container);
+
+  var opt = {
+    margin: 0,
+    filename: 'VIF_' + proj.replace(/[^a-zA-Z0-9]/g, '_') + '.pdf',
+    image: {type: 'jpeg', quality: 0.97},
+    html2canvas: {scale: 2, useCORS: true, logging: false},
+    jsPDF: {unit: 'mm', format: 'a4', orientation: 'portrait'},
+    pagebreak: {mode: ['css', 'legacy']}
+  };
+
+  html2pdf().set(opt).from(container.firstChild).save()
+    .then(function(){
+      document.body.removeChild(container);
+      showToast('PDF gedownload');
+    })
+    .catch(function(e){
+      document.body.removeChild(container);
+      showToast('PDF mislukt — probeer afdrukken');
+    });
+}
+
+function mdToExportHtml(text){
+  if(!text) return '';
+  var lines = text.split('\n');
+  var out = [];
+  var inUl = false, inOl = false;
+  function close(){ if(inUl){out.push('</ul>');inUl=false;} if(inOl){out.push('</ol>');inOl=false;} }
+  lines.forEach(function(line){
+    if(/^### /.test(line)){ close(); out.push('<h3>'+esc(line.replace(/^### /,''))+'</h3>'); return; }
+    if(/^[-*]\s/.test(line)){ if(!inUl){out.push('<ul>');inUl=true;} out.push('<li>'+exportInline(line.replace(/^[-*]\s+/,''))+'</li>'); return; }
+    if(/^\d+\.\s/.test(line)){ if(!inOl){out.push('<ol>');inOl=true;} out.push('<li>'+exportInline(line.replace(/^\d+\.\s+/,''))+'</li>'); return; }
+    if(!line.trim()){ close(); return; }
+    close();
+    out.push('<p>'+exportInline(line)+'</p>');
+  });
+  close();
+  return out.join('');
+}
+
+function exportInline(text){
+  text = text.replace(/(#[0-9A-Fa-f]{6})\b/g, function(m){
+    return '<span class="dd-swatch"><span class="dd-swatch-dot" style="background:'+m+'"></span>'+m+'</span>';
+  });
+  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  return text;
 }
 </script>
 </body>
