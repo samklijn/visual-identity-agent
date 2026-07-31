@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -220,14 +219,58 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:18px;border-
   .prog-label{display:none}
   .prog-line{width:20px}
 }
-@media print{
-  .top,.key-btn,.fw-actions,.toast,.modal-bg,.controle-wrap,.wizard,.hero,.loading-card{display:none!important}
-  .fw-wrap{display:block!important;padding:0}
-  .fw-body{display:block!important}
-  body{background:#fff;color:#111}
-  .fw-card,.fw-card-head{background:#f5f5f5;border-color:#ddd}
-  .md-content p,.md-content li{color:#333}
-  .fw-card-title,.fw-num{color:#4a7021}
+/* ── MOODBOARD ── */
+.mb-tagline{font-size:18px;color:var(--muted);font-style:italic;text-align:center;padding:0 0 28px;border-bottom:1px solid var(--bd);margin-bottom:28px;}
+.mb-section{margin-bottom:28px;}
+.mb-sec-label{font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--koud);border-bottom:1px solid var(--bd);padding-bottom:8px;margin-bottom:14px;}
+.mb-core-row{display:grid;gap:10px;margin-bottom:0;}
+.mb-core-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:16px 18px;}
+.mb-core-label{font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--koud);margin-bottom:7px;}
+.mb-core-text{font-size:13.5px;color:var(--ink);line-height:1.55;}
+.mb-colors{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px;}
+.mb-color-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;}
+.mb-color-swatch{height:76px;width:100%;}
+.mb-color-info{padding:11px 13px;}
+.mb-color-rol{font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--koud);margin-bottom:2px;}
+.mb-color-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:1px;}
+.mb-color-hex{font-size:11.5px;font-family:monospace;color:var(--gl);margin-bottom:5px;}
+.mb-color-gebruik{font-size:11px;color:var(--muted);line-height:1.4;}
+.mb-type-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mb-type-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:18px 20px;display:flex;gap:14px;align-items:flex-start;}
+.mb-type-demo{font-size:38px;font-weight:800;color:var(--ink);line-height:1;flex-shrink:0;width:52px;}
+.mb-type-rol{font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--koud);margin-bottom:4px;}
+.mb-type-naam{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:2px;}
+.mb-type-detail{font-size:11px;color:var(--gl);margin-bottom:6px;}
+.mb-type-gebruik{font-size:11.5px;color:var(--muted);line-height:1.45;}
+.mb-card-row{display:grid;gap:10px;}
+.mb-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:16px 18px;}
+.mb-card-lbl{font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--koud);margin-bottom:9px;}
+.mb-card-body{font-size:13px;color:var(--ink);line-height:1.62;}
+.mb-2col{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mb-dd{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mb-dd-col{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;}
+.mb-dd-head{font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;padding:9px 14px;border-bottom:1px solid var(--bd);}
+.mb-dd-head.do{color:#68b558;background:rgba(104,181,88,.07);}
+.mb-dd-head.dont{color:#c05050;background:rgba(192,80,80,.07);}
+.mb-dd-item{display:flex;gap:10px;padding:9px 14px;border-bottom:1px solid var(--bd);font-size:12.5px;color:var(--muted);line-height:1.45;align-items:flex-start;}
+.mb-dd-item:last-child{border-bottom:none;}
+.mb-dd-icon{flex-shrink:0;font-weight:800;font-size:13px;margin-top:1px;}
+.mb-dd-icon.do{color:#68b558;}
+.mb-dd-icon.dont{color:#c05050;}
+.mb-apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px;}
+.mb-app-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--rsm);padding:11px 13px;display:flex;gap:9px;align-items:flex-start;}
+.mb-app-dot{width:6px;height:6px;border-radius:50%;background:var(--gl);flex-shrink:0;margin-top:5px;}
+.mb-app-text{font-size:12.5px;color:var(--muted);line-height:1.5;}
+.mb-status{display:flex;align-items:center;gap:10px;margin-top:28px;padding-top:18px;border-top:1px solid var(--bd);flex-wrap:wrap;}
+.mb-status-lbl{font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--koud);}
+.mb-status-val{font-size:11px;padding:3px 12px;border-radius:999px;background:rgba(124,167,63,.1);border:1px solid rgba(124,167,63,.25);color:var(--gl);font-weight:700;}
+.mb-open-punten{font-size:12px;color:var(--muted);margin-left:auto;}
+@media(max-width:600px){
+  .mb-core-row,.mb-card-row,.mb-type-cards,.mb-dd,.mb-2col{grid-template-columns:1fr!important;}
+  .mb-colors{grid-template-columns:1fr 1fr;}
+  .field-row.c2,.field-row.c3{grid-template-columns:1fr}
+  .prog-label{display:none}
+  .prog-line{width:20px}
 }
 </style>
 </head>
@@ -604,7 +647,6 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:18px;border-
   </div>
   <div id="fwCards"></div>
   <div class="fw-actions">
-    <button class="btn-p" onclick="exportPDF()">&#128438; PDF exporteren</button>
     <button class="btn-g" onclick="backToControle()">&larr; Terugkoppeling geven</button>
     <button class="btn-g" onclick="startNew()">&#8635; Nieuw project</button>
   </div>
@@ -636,42 +678,45 @@ var SYSTEM_PROMPT = [
   '4. Markeer aannames duidelijk.',
   '5. Vraag toestemming om het framework te maken.',
   '',
-  'STAP 3 — RESULTAAT (gebruik wanneer de gebruiker het framework vraagt):',
-  'Maak één compact Visual Identity Framework met EXACT deze 21 secties:',
-  '## 1. Strategische basis',
-  '## 2. Visuele kern',
-  '## 3. Visuele ontwerpprincipes',
-  '## 4. Visuele richting',
-  '## 5. Kleurstrategie',
-  '## 6. Typografiestrategie',
-  '## 7. Logo-richting',
-  '## 8. Beeldtaal',
-  '## 9. Fotografie',
-  '## 10. Renders en visualisaties',
-  '## 11. Grafische elementen',
-  '## 12. Lay-out en compositie',
-  '## 13. Materiaal- en textuurgevoel',
-  '## 14. Iconografie en illustratie',
-  '## 15. Visuele hiërarchie',
-  '## 16. Toepassingsrichtlijnen',
-  '## 17. Visuele do\'s en don\'ts',
-  '## 18. Concurrentieonderscheid',
-  '## 19. Toegankelijkheid en bruikbaarheid',
-  '## 20. Openstaande punten',
-  '## 21. Status',
+  'STAP 3 — RESULTAAT (gebruik wanneer het framework gevraagd wordt):',
+  'Geef UITSLUITEND een geldig JSON-object terug. Geen markdown, geen tekst ervoor of erna, alleen pure JSON.',
+  'Gebruik exact dit schema:',
+  '{',
+  '  "projectnaam": "...",',
+  '  "tagline": "Korte merkzin of concept (max 10 woorden)",',
+  '  "merkessentie": "Kern van het merk in één zin",',
+  '  "merkbelofte": "Wat het project belooft aan de koper",',
+  '  "positionering": "Hoe het project zich onderscheidt in de markt",',
+  '  "kleuren": [',
+  '    {"naam":"...","hex":"#RRGGBB","rol":"Primair","gebruik":"..."},',
+  '    {"naam":"...","hex":"#RRGGBB","rol":"Accent","gebruik":"..."},',
+  '    {"naam":"...","hex":"#RRGGBB","rol":"Achtergrond","gebruik":"..."},',
+  '    {"naam":"...","hex":"#RRGGBB","rol":"Tekst","gebruik":"..."}',
+  '  ],',
+  '  "typografie": [',
+  '    {"rol":"Display / Koptekst","naam":"FontNaam","gewicht":"Bold 700","gebruik":"..."},',
+  '    {"rol":"Body & UI","naam":"FontNaam","gewicht":"Regular 400","gebruik":"..."}',
+  '  ],',
+  '  "logorichting": "Beschrijving van logo-concept, vormen, stijl, varianten",',
+  '  "beeldtaal": "Beschrijving van de visuele beeldtaal en sfeer",',
+  '  "fotografie": "Richtlijnen voor fotografie: stijl, kleur, compositie, sfeer",',
+  '  "grafischeElementen": "Grafische elementen, patronen, lijnen, texturen",',
+  '  "toonStem": "Tone of voice: toon, stijl, woordkeuze",',
+  '  "dos": ["Concreet do 1","Concreet do 2","Concreet do 3","Concreet do 4","Concreet do 5"],',
+  '  "donts": ["Concreet dont 1","Concreet dont 2","Concreet dont 3","Concreet dont 4","Concreet dont 5"],',
+  '  "toepassingen": ["Toepassing 1","Toepassing 2","Toepassing 3","Toepassing 4"],',
+  '  "openstaandePunten": "Wat nog onduidelijk is of aanvullende input vereist",',
+  '  "status": "Eerste concept"',
+  '}',
   '',
   'KWALITEITSEISEN:',
-  '- Concreet, specifiek en direct toepasbaar.',
-  '- Voortkomen uit de branding en positionering.',
-  '- Onderscheidend maar geloofwaardig.',
-  '- Geef voor secties 5 en 6 indicatieve hex-codes.',
-  '',
-  'VERMIJD:',
-  '- Generieke luxe-uitstraling, automatisch goud/zwart/serif bij premium.',
-  '- Visuele trends zonder strategische reden.',
-  '- Slecht leesbare combinaties.',
-  '- Niet-onderbouwde kleurkeuzes.',
-  '- Een identiteit die alleen op een moodboard werkt.'
+  '- Kleuren: gebruik minimaal 3, maximaal 5. Altijd valide hex-codes (#RRGGBB).',
+  '- Typografie: 1-2 fonts, kies uit gangbare Google Fonts of systeemfonts.',
+  '- Do\'s en Don\'ts: minimaal 4, maximaal 6. Concreet en projectspecifiek, geen clichés.',
+  '- Toepassingen: minimaal 3, maximaal 5. Beschrijf de visuele toepassing.',
+  '- Alles gebaseerd op de intake — onderscheidend en geloofwaardig.',
+  '- Geen generieke luxe-uitstraling of automatisch goud/zwart zonder reden.',
+  '- Alleen de JSON, niets anders.'
 ].join('\n');
 
 var state = {
@@ -905,10 +950,8 @@ function doFramework(){
     {role:'assistant', content: state.controleText || 'Controle overgeslagen.'}
   ];
   var userMsg = state.answersText ? 'Mijn antwoorden:\n\n'+state.answersText+'\n\n---\n' : '';
-  userMsg += 'Voer nu Stap 3 — Resultaat uit. '
-    + 'Maak het complete Visual Identity Framework voor '+state.projectNaam+'. '
-    + 'Begin met "# Visual Identity Framework — '+state.projectNaam+'" '
-    + 'en werk alle 21 secties volledig uit. Wees concreet en toepasbaar. Geef voor secties 5 en 6 indicatieve hex-codes.';
+  userMsg += 'Voer nu Stap 3 — Resultaat uit voor project "'+state.projectNaam+'". '
+    + 'Geef uitsluitend een geldig JSON-object terug zoals beschreven in de instructies. Wees concreet en specifiek.';
   messages.push({role:'user', content:userMsg});
 
   document.getElementById('loadTitle').textContent = 'Framework wordt gegenereerd';
@@ -947,10 +990,8 @@ function directGenereer(){
   setTopSub('Stap 3 &middot; Framework');
   showScreen('loadingSection');
 
-  var userMsg = 'Voer direct Stap 3 — Resultaat uit (sla Stap 2 over). '
-    + 'Maak het complete Visual Identity Framework voor '+data.naam+'. '
-    + 'Begin met "# Visual Identity Framework — '+data.naam+'" '
-    + 'en werk alle 21 secties volledig uit. Wees concreet en toepasbaar. Geef voor secties 5 en 6 indicatieve hex-codes.\n\n'
+  var userMsg = 'Maak het Visual Identity Framework voor project "'+data.naam+'" (sla Stap 2 over). '
+    + 'Geef uitsluitend een geldig JSON-object terug zoals beschreven in de instructies. Wees concreet en specifiek.\n\n'
     + state.intakeText;
 
   callGroq(apiKey, [{role:'user', content:userMsg}], 8000)
@@ -1042,66 +1083,135 @@ async function callGroq(apiKey, messages, maxTokens){
 }
 
 /* ── RENDER FRAMEWORK ── */
-function renderFramework(markdown){
-  var titleMatch = markdown.match(/^#\s+(.+)$/m);
-  var fullTitle = titleMatch ? titleMatch[1] : 'Visual Identity Framework — '+state.projectNaam;
-  var projPart = fullTitle.replace(/^Visual Identity Framework\s*[—–-]*\s*/i,'');
-
-  document.getElementById('fwProjectLabel').textContent = 'Visual Identity Framework · '+(projPart||state.projectNaam);
-  document.getElementById('fwMainTitle').textContent = fullTitle;
-  document.getElementById('fwStatus').textContent = 'Eerste concept';
-
-  var parts = markdown.split(/(?=^## )/m);
-  var cards = parts.filter(function(p){ return p.trim().startsWith('##'); });
-
-  if(!cards.length){
-    document.getElementById('fwCards').innerHTML = '<div class="fw-card"><div class="fw-card-head"><span class="fw-card-title">Framework</span></div><div class="fw-body open md-content">'+simpleMarkdown(markdown)+'</div></div>';
-    return;
+function renderFramework(txt){
+  var json = null;
+  var m = txt.match(/\{[\s\S]+\}/);
+  if(m){ try{ json = JSON.parse(m[0]); }catch(e){} }
+  var naam = (json && json.projectnaam) || state.projectNaam || 'Visual Identity Framework';
+  document.getElementById('fwProjectLabel').textContent = 'Visual Identity Framework · '+naam;
+  document.getElementById('fwMainTitle').textContent = naam;
+  document.getElementById('fwStatus').textContent = (json && json.status) || 'Eerste concept';
+  if(json && json.kleuren){
+    renderMoodboard(json);
+  } else {
+    document.getElementById('fwCards').innerHTML = '<div class="mb-card" style="margin:24px 0"><div class="mb-card-body md-content">'+simpleMarkdown(txt)+'</div></div>';
   }
-
-  document.getElementById('fwCards').innerHTML = cards.map(function(card,i){
-    var lines = card.split('\n');
-    var headerLine = lines[0].replace(/^##\s+/,'');
-    var numMatch = headerLine.match(/^(\d+)\.\s+/);
-    var num = numMatch ? numMatch[1].padStart(2,'0') : (i+1).toString().padStart(2,'0');
-    var title = headerLine.replace(/^\d+\.\s+/,'');
-    var body = lines.slice(1).join('\n').trim();
-    return '<div class="fw-card" id="fwcard_'+i+'">'
-      +'<div class="fw-card-head" onclick="toggleFwCard('+i+')">'
-      +'<span class="fw-num">'+num+'</span>'
-      +'<span class="fw-card-title">'+esc(title)+'</span>'
-      +'<button class="copy-btn" onclick="copyCard(event,'+i+')" title="Kopieer">&#128203;</button>'
-      +'<svg class="fw-chev" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-      +'</div>'
-      +'<div class="fw-body md-content" id="fwbody_'+i+'">'+simpleMarkdown(body)+'</div>'
-      +'</div>';
-  }).join('');
-
-  [0,1].forEach(function(i){
-    var body=document.getElementById('fwbody_'+i);
-    var card=document.getElementById('fwcard_'+i);
-    if(body) body.classList.add('open');
-    if(card){ var ch=card.querySelector('.fw-chev'); if(ch) ch.classList.add('open'); }
-  });
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
-function toggleFwCard(i){
-  var body=document.getElementById('fwbody_'+i);
-  var card=document.getElementById('fwcard_'+i);
-  if(!body) return;
-  var isOpen=body.classList.contains('open');
-  body.classList.toggle('open',!isOpen);
-  var chev=card&&card.querySelector('.fw-chev');
-  if(chev) chev.classList.toggle('open',!isOpen);
-}
+function renderMoodboard(d){
+  var html = '';
 
-function copyCard(e, i){
-  e.stopPropagation();
-  var body=document.getElementById('fwbody_'+i);
-  if(!body) return;
-  var text = body.innerText || body.textContent;
-  navigator.clipboard.writeText(text).then(function(){ showToast('Gekopieerd'); }).catch(function(){});
+  // Tagline
+  if(d.tagline){
+    html += '<div class="mb-tagline">'+esc(d.tagline)+'</div>';
+  }
+
+  // Merkidentiteit row
+  var coreItems = [];
+  if(d.merkessentie) coreItems.push({label:'Merkessentie', text:d.merkessentie});
+  if(d.merkbelofte) coreItems.push({label:'Merkbelofte', text:d.merkbelofte});
+  if(d.positionering) coreItems.push({label:'Positionering', text:d.positionering});
+  if(coreItems.length){
+    html += '<div class="mb-section"><div class="mb-sec-label">Merkidentiteit</div>';
+    html += '<div class="mb-core-row" style="grid-template-columns:repeat('+coreItems.length+',1fr)">';
+    coreItems.forEach(function(c){
+      html += '<div class="mb-core-card"><div class="mb-core-label">'+esc(c.label)+'</div><div class="mb-core-text">'+esc(c.text)+'</div></div>';
+    });
+    html += '</div></div>';
+  }
+
+  // Kleurenpalet
+  if(d.kleuren && d.kleuren.length){
+    html += '<div class="mb-section"><div class="mb-sec-label">Kleurenpalet</div><div class="mb-colors">';
+    d.kleuren.forEach(function(k){
+      var hex = (k.hex||'#888888').trim();
+      html += '<div class="mb-color-card">';
+      html += '<div class="mb-color-swatch" style="background:'+esc(hex)+'"></div>';
+      html += '<div class="mb-color-info">';
+      if(k.rol) html += '<div class="mb-color-rol">'+esc(k.rol)+'</div>';
+      if(k.naam) html += '<div class="mb-color-name">'+esc(k.naam)+'</div>';
+      html += '<div class="mb-color-hex">'+esc(hex)+'</div>';
+      if(k.gebruik) html += '<div class="mb-color-gebruik">'+esc(k.gebruik)+'</div>';
+      html += '</div></div>';
+    });
+    html += '</div></div>';
+  }
+
+  // Typografie
+  if(d.typografie && d.typografie.length){
+    html += '<div class="mb-section"><div class="mb-sec-label">Typografie</div><div class="mb-type-cards">';
+    d.typografie.forEach(function(t){
+      html += '<div class="mb-type-card">';
+      html += '<div class="mb-type-demo">Aa</div>';
+      html += '<div class="mb-type-info">';
+      if(t.rol) html += '<div class="mb-type-rol">'+esc(t.rol)+'</div>';
+      if(t.naam) html += '<div class="mb-type-naam">'+esc(t.naam)+'</div>';
+      if(t.gewicht) html += '<div class="mb-type-detail">'+esc(t.gewicht)+'</div>';
+      if(t.gebruik) html += '<div class="mb-type-gebruik">'+esc(t.gebruik)+'</div>';
+      html += '</div></div>';
+    });
+    html += '</div></div>';
+  }
+
+  // Visuele richting: logo + beeldtaal + grafisch
+  var richtingCards = [
+    {key:'logorichting', label:'Logo-richting'},
+    {key:'beeldtaal', label:'Beeldtaal'},
+    {key:'grafischeElementen', label:'Grafische elementen'}
+  ].filter(function(f){ return d[f.key]; });
+  if(richtingCards.length){
+    html += '<div class="mb-section"><div class="mb-sec-label">Visuele richting</div>';
+    html += '<div class="mb-card-row" style="grid-template-columns:repeat('+richtingCards.length+',1fr)">';
+    richtingCards.forEach(function(f){
+      html += '<div class="mb-card"><div class="mb-card-lbl">'+esc(f.label)+'</div><div class="mb-card-body">'+esc(d[f.key])+'</div></div>';
+    });
+    html += '</div></div>';
+  }
+
+  // Fotografie + Tone
+  var fotoTone = [];
+  if(d.fotografie) fotoTone.push({label:'Fotografie', text:d.fotografie});
+  if(d.toonStem) fotoTone.push({label:'Toon &amp; Stem', text:d.toonStem});
+  if(fotoTone.length){
+    html += '<div class="mb-section"><div class="mb-2col">';
+    fotoTone.forEach(function(f){
+      html += '<div><div class="mb-sec-label">'+f.label+'</div><div class="mb-card"><div class="mb-card-body">'+esc(f.text)+'</div></div></div>';
+    });
+    html += '</div></div>';
+  }
+
+  // Do's & Don'ts
+  if((d.dos && d.dos.length) || (d.donts && d.donts.length)){
+    html += '<div class="mb-section"><div class="mb-sec-label">Do\'s &amp; Don\'ts</div><div class="mb-dd">';
+    html += '<div class="mb-dd-col"><div class="mb-dd-head do">Do\'s</div>';
+    (d.dos||[]).forEach(function(item){
+      html += '<div class="mb-dd-item"><span class="mb-dd-icon do">&#10003;</span><span>'+esc(item)+'</span></div>';
+    });
+    html += '</div><div class="mb-dd-col"><div class="mb-dd-head dont">Don\'ts</div>';
+    (d.donts||[]).forEach(function(item){
+      html += '<div class="mb-dd-item"><span class="mb-dd-icon dont">&#10005;</span><span>'+esc(item)+'</span></div>';
+    });
+    html += '</div></div></div>';
+  }
+
+  // Toepassingen
+  if(d.toepassingen && d.toepassingen.length){
+    html += '<div class="mb-section"><div class="mb-sec-label">Toepassingen</div><div class="mb-apps">';
+    d.toepassingen.forEach(function(item){
+      html += '<div class="mb-app-card"><div class="mb-app-dot"></div><div class="mb-app-text">'+esc(item)+'</div></div>';
+    });
+    html += '</div></div>';
+  }
+
+  // Status + openstaande punten
+  html += '<div class="mb-status">';
+  html += '<span class="mb-status-lbl">Status:</span>';
+  html += '<span class="mb-status-val">'+esc(d.status||'Eerste concept')+'</span>';
+  if(d.openstaandePunten) html += '<span class="mb-open-punten">'+esc(d.openstaandePunten)+'</span>';
+  html += '</div>';
+
+  document.getElementById('fwCards').innerHTML = html;
 }
 
 /* ── MARKDOWN RENDERER ── */
@@ -1217,109 +1327,6 @@ function updateFileList(){
 }
 
 /* ── PDF EXPORT (Dansende Daken stijl) ── */
-function exportPDF(){
-  if(!state.frameworkMarkdown){showToast('Geen framework om te exporteren.');return;}
-  showToast('PDF wordt opgemaakt…');
-  var proj=state.projectNaam||'Project';
-  var now=new Date();
-  var months=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
-  var dateStr=months[now.getMonth()]+' '+now.getFullYear();
-  dateStr=dateStr.charAt(0).toUpperCase()+dateStr.slice(1);
-
-  var css=[
-    'body{margin:0;padding:0;font-family:Raleway,sans-serif;background:#fff;color:#1a1a1a;font-size:12px}',
-    '.dd-cover{background:#0c0c0c;width:210mm;min-height:297mm;box-sizing:border-box;padding:56px 64px;display:flex;flex-direction:column;justify-content:space-between;page-break-after:always}',
-    '.dd-cover-top{display:flex;align-items:center;gap:14px;border-bottom:1px solid rgba(124,167,63,.35);padding-bottom:22px}',
-    '.dd-mark{width:34px;height:34px;background:#7CA73F;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;color:#fff;flex-shrink:0}',
-    '.dd-cover-brand{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45)}',
-    '.dd-eyebrow{font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:rgba(124,167,63,.8);margin-bottom:18px}',
-    '.dd-proj-title{font-size:52px;font-weight:800;line-height:1.06;color:#fff;letter-spacing:-.02em;margin:0 0 18px}',
-    '.dd-cover-date{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3)}',
-    '.dd-cover-foot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.08);padding-top:20px}',
-    '.dd-foot-lbl{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.22)}',
-    '.dd-foot-green{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#7CA73F}',
-    '.dd-pages{padding:44px 64px}',
-    '.dd-sec{margin-bottom:36px;padding-left:18px;border-left:3px solid #7CA73F;break-inside:avoid}',
-    '.dd-sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #e8e8e8}',
-    '.dd-sec-num{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:#7CA73F;font-weight:700;flex-shrink:0}',
-    '.dd-sec-title{font-size:16px;font-weight:700;color:#0c0c0c;letter-spacing:-.01em}',
-    '.dd-sec-body{font-size:11.5px;line-height:1.72;color:#2a2a2a}',
-    '.dd-sec-body h3{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0c0c0c;margin:14px 0 5px}',
-    '.dd-sec-body p{margin:0 0 7px}',
-    '.dd-sec-body ul,.dd-sec-body ol{margin:4px 0 9px;padding-left:17px}',
-    '.dd-sec-body li{margin-bottom:3px}',
-    '.dd-sec-body strong{font-weight:700;color:#0c0c0c}',
-    '.dd-swatch{display:inline-flex;align-items:center;gap:5px;background:#f4f4f4;border:1px solid #e0e0e0;border-radius:4px;padding:3px 8px;font-size:10px;font-family:monospace;vertical-align:middle;margin:2px 2px}',
-    '.dd-swatch-dot{width:11px;height:11px;border-radius:3px;flex-shrink:0;border:1px solid rgba(0,0,0,.1)}'
-  ].join('');
-
-  var coverHtml='<div class="dd-cover">'
-    +'<div class="dd-cover-top"><div class="dd-mark">S</div><div class="dd-cover-brand">Spring Real Estate &nbsp;&middot;&nbsp; Visual Identity Agent</div></div>'
-    +'<div><div class="dd-eyebrow">V I S U A L &nbsp; I D E N T I T Y &nbsp; F R A M E W O R K</div>'
-    +'<div class="dd-proj-title">'+esc(proj)+'</div>'
-    +'<div class="dd-cover-date">'+esc(dateStr)+'</div></div>'
-    +'<div class="dd-cover-foot"><div class="dd-foot-lbl">Eerste concept &nbsp;&middot;&nbsp; Vertrouwelijk</div><div class="dd-foot-green">springrealestate.com</div></div>'
-    +'</div>';
-
-  var parts=state.frameworkMarkdown.split(/(?=^## )/m);
-  var cards=parts.filter(function(p){return p.trim().startsWith('##');});
-  var sectionsHtml=cards.map(function(card){
-    var lines=card.split('\n');
-    var headerLine=lines[0].replace(/^##\s+/,'');
-    var numMatch=headerLine.match(/^(\d+)\.\s+/);
-    var num=numMatch?numMatch[1].padStart(2,'0'):'';
-    var title=headerLine.replace(/^\d+\.\s+/,'');
-    var body=lines.slice(1).join('\n').trim();
-    return '<div class="dd-sec">'
-      +'<div class="dd-sec-head"><span class="dd-sec-num">'+esc(num)+'</span><span class="dd-sec-title">'+esc(title)+'</span></div>'
-      +'<div class="dd-sec-body">'+mdToExportHtml(body)+'</div>'
-      +'</div>';
-  }).join('');
-
-  var fullHtml='<!DOCTYPE html><html><head><meta charset="utf-8">'
-    +'<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">'
-    +'<style>'+css+'</style></head><body>'
-    +coverHtml+'<div class="dd-pages">'+sectionsHtml+'</div></body></html>';
-
-  var container=document.createElement('div');
-  container.innerHTML=fullHtml;
-  container.style.cssText='position:fixed;left:-9999px;top:0;width:210mm;z-index:-1;background:#fff';
-  document.body.appendChild(container);
-
-  html2pdf().set({
-    margin:0,
-    filename:'VIF_'+proj.replace(/[^a-zA-Z0-9]/g,'_')+'.pdf',
-    image:{type:'jpeg',quality:0.97},
-    html2canvas:{scale:2,useCORS:true,logging:false},
-    jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},
-    pagebreak:{mode:['css','legacy']}
-  }).from(container.firstChild).save()
-    .then(function(){document.body.removeChild(container);showToast('PDF gedownload');})
-    .catch(function(){document.body.removeChild(container);showToast('PDF mislukt — probeer afdrukken');});
-}
-
-function mdToExportHtml(text){
-  if(!text) return '';
-  var lines=text.split('\n'),out=[],inUl=false,inOl=false;
-  function close(){if(inUl){out.push('</ul>');inUl=false;}if(inOl){out.push('</ol>');inOl=false;}}
-  lines.forEach(function(line){
-    if(/^### /.test(line)){close();out.push('<h3>'+esc(line.replace(/^### /,''))+'</h3>');return;}
-    if(/^[-*]\s/.test(line)){if(!inUl){out.push('<ul>');inUl=true;}out.push('<li>'+exportInline(line.replace(/^[-*]\s+/,''))+'</li>');return;}
-    if(/^\d+\.\s/.test(line)){if(!inOl){out.push('<ol>');inOl=true;}out.push('<li>'+exportInline(line.replace(/^\d+\.\s+/,''))+'</li>');return;}
-    if(!line.trim()){close();return;}
-    close();out.push('<p>'+exportInline(line)+'</p>');
-  });
-  close();
-  return out.join('');
-}
-function exportInline(text){
-  text=text.replace(/(#[0-9A-Fa-f]{6})\b/g,function(m){
-    return '<span class="dd-swatch"><span class="dd-swatch-dot" style="background:'+m+'"></span>'+m+'</span>';
-  });
-  text=text.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
-  text=text.replace(/\*(.+?)\*/g,'<em>$1</em>');
-  return text;
-}
 
 /* ── UTILS ── */
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
