@@ -38,6 +38,16 @@ body{font-family:var(--fn);background:var(--bg);color:var(--ink);line-height:1.5
 .modal-note{font-size:11.5px;color:var(--koud);margin-top:12px;text-align:center}
 a.ml{color:var(--gl);text-decoration:none;font-weight:700}
 a.ml:hover{text-decoration:underline}
+.prov-row{display:flex;gap:8px;margin-bottom:18px}
+.prov-btn{flex:1;padding:10px 14px;background:var(--bg);border:1.5px solid var(--bd);border-radius:var(--rsm);color:var(--muted);font-family:var(--fn);font-size:13px;font-weight:700;cursor:pointer;transition:border-color .15s,color .15s;text-align:left}
+.prov-btn.active{border-color:var(--g);color:var(--ink)}
+.prov-btn:hover:not(.active){border-color:var(--koud)}
+.prov-tag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:4px;margin-left:6px;background:var(--s2);color:var(--koud)}
+.prov-btn.active .prov-tag{background:rgba(124,167,63,.15);color:var(--gl)}
+.model-row{display:flex;gap:6px;margin-bottom:16px}
+.model-chip{flex:1;padding:7px 10px;background:var(--bg);border:1px solid var(--bd);border-radius:6px;color:var(--muted);font-family:var(--fn);font-size:11px;font-weight:700;cursor:pointer;transition:border-color .15s,color .15s;text-align:center}
+.model-chip.active{border-color:var(--g);color:var(--gl)}
+.model-chip:hover:not(.active){border-color:var(--koud)}
 
 /* ── TOP BAR ── */
 .top{position:sticky;top:0;z-index:20;background:rgba(12,12,12,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:0 22px;height:52px;display:flex;align-items:center;gap:12px}
@@ -306,9 +316,17 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:18px;border-
       <div class="modal-mark">S</div>
       <div class="modal-brand">Spring Real Estate</div>
     </div>
-    <h2>Groq API-sleutel instellen</h2>
-    <p>De Visual Identity Agent gebruikt Groq AI. Maak een gratis sleutel aan op <a class="ml" href="https://console.groq.com" target="_blank">console.groq.com</a> &rarr; API Keys &rarr; Create API key.</p>
-    <label class="modal-lbl" for="apiKeyInput">Groq API-sleutel</label>
+    <h2>AI-provider kiezen</h2>
+    <div class="prov-row">
+      <button class="prov-btn active" id="provGroq" onclick="setProvider('groq')">Groq <span class="prov-tag">Gratis</span></button>
+      <button class="prov-btn" id="provOpenai" onclick="setProvider('openai')">OpenAI <span class="prov-tag">Betaald</span></button>
+    </div>
+    <p id="provDesc">Groq is gratis. Maak een sleutel op <a class="ml" href="https://console.groq.com" target="_blank">console.groq.com</a> &rarr; API Keys &rarr; Create API key.</p>
+    <div id="modelRow" class="model-row" style="display:none">
+      <button class="model-chip" id="chipMini" onclick="setModel('gpt-4o-mini')">GPT-4o mini <span class="prov-tag">Goedkoop</span></button>
+      <button class="model-chip active" id="chipFull" onclick="setModel('gpt-4o')">GPT-4o <span class="prov-tag">Best</span></button>
+    </div>
+    <label class="modal-lbl" for="apiKeyInput" id="provLbl">Groq API-sleutel</label>
     <input class="modal-in" id="apiKeyInput" type="password" placeholder="gsk_..." autocomplete="off" spellcheck="false">
     <button class="modal-btn" onclick="saveKey()">Opslaan &amp; doorgaan</button>
     <div class="modal-note">Sleutel wordt alleen lokaal opgeslagen in jouw browser.</div>
@@ -324,7 +342,7 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:18px;border-
     <div class="brand-sub" id="topSub">Visual Identity Agent &middot; Nieuwbouwprojecten</div>
   </div>
   <div class="top-right">
-    <button class="key-btn" onclick="resetKey()">&#9881; Sleutel</button>
+    <button class="key-btn" id="keyBtn" onclick="resetKey()">&#9881; Sleutel</button>
   </div>
 </div>
 
@@ -680,10 +698,15 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:18px;border-
 <div class="toast" id="toast" aria-live="polite"></div>
 
 <script>
-var KEY_STORE = 'spring-via-key';
-var GROQ_URL  = 'https://api.groq.com/openai/v1/chat/completions';
+var KEY_STORE      = 'spring-via-key';
+var PROV_STORE     = 'spring-via-provider';
+var MODEL_STORE    = 'spring-via-model';
+var GROQ_URL       = 'https://api.groq.com/openai/v1/chat/completions';
+var OPENAI_URL     = 'https://api.openai.com/v1/chat/completions';
 var MODEL_PRIMARY  = 'llama-3.3-70b-versatile';
 var MODEL_FALLBACK = 'llama-3.1-8b-instant';
+var _selProvider   = 'groq';
+var _selModel      = 'gpt-4o';
 var currentStep = 1;
 
 var SYSTEM_PROMPT = [
@@ -766,18 +789,60 @@ var state = {
   projectNaam: ''
 };
 
+/* ── PROVIDER / MODEL TOGGLE ── */
+function setProvider(prov){
+  _selProvider = prov;
+  document.getElementById('provGroq').classList.toggle('active', prov==='groq');
+  document.getElementById('provOpenai').classList.toggle('active', prov==='openai');
+  document.getElementById('modelRow').style.display = prov==='openai' ? 'flex' : 'none';
+  if(prov==='groq'){
+    document.getElementById('provDesc').innerHTML = 'Groq is gratis. Maak een sleutel op <a class="ml" href="https://console.groq.com" target="_blank">console.groq.com</a> → API Keys → Create API key.';
+    document.getElementById('provLbl').textContent = 'Groq API-sleutel';
+    document.getElementById('apiKeyInput').placeholder = 'gsk_...';
+  } else {
+    document.getElementById('provDesc').innerHTML = 'OpenAI vraagt een betaalde account. Maak een sleutel op <a class="ml" href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com</a> → API keys → Create new secret key.';
+    document.getElementById('provLbl').textContent = 'OpenAI API-sleutel';
+    document.getElementById('apiKeyInput').placeholder = 'sk-...';
+  }
+  document.getElementById('apiKeyInput').value = '';
+}
+function setModel(m){
+  _selModel = m;
+  document.getElementById('chipMini').classList.toggle('active', m==='gpt-4o-mini');
+  document.getElementById('chipFull').classList.toggle('active', m==='gpt-4o');
+}
+
 /* ── API KEY ── */
 function saveKey(){
   var k = document.getElementById('apiKeyInput').value.trim();
-  if(!k || !k.startsWith('gsk_')){ alert('Voer een geldige Groq API-sleutel in (begint met gsk_)'); return; }
+  if(_selProvider==='groq'){
+    if(!k || !k.startsWith('gsk_')){ alert('Voer een geldige Groq API-sleutel in (begint met gsk_)'); return; }
+  } else {
+    if(!k || !k.startsWith('sk-')){ alert('Voer een geldige OpenAI API-sleutel in (begint met sk-)'); return; }
+  }
   localStorage.setItem(KEY_STORE, k);
+  localStorage.setItem(PROV_STORE, _selProvider);
+  localStorage.setItem(MODEL_STORE, _selModel);
   document.getElementById('setupModal').style.display = 'none';
+  updateKeyBtn();
   startIntake();
 }
 function resetKey(){
+  var savedProv  = localStorage.getItem(PROV_STORE) || 'groq';
+  var savedModel = localStorage.getItem(MODEL_STORE) || 'gpt-4o';
   localStorage.removeItem(KEY_STORE);
   document.getElementById('apiKeyInput').value = '';
+  _selProvider = savedProv;
+  _selModel    = savedModel;
+  setProvider(savedProv);
+  setModel(savedModel);
   document.getElementById('setupModal').style.display = 'flex';
+}
+function updateKeyBtn(){
+  var prov = localStorage.getItem(PROV_STORE) || 'groq';
+  var lbl  = prov === 'openai' ? 'OpenAI' : 'Groq';
+  var btn  = document.getElementById('keyBtn');
+  if(btn) btn.textContent = '⚙ ' + lbl + '-sleutel';
 }
 
 /* ── INIT ── */
@@ -965,7 +1030,7 @@ function submitIntake(){
     + ' stel maximaal vijf gerichte vragen, markeer aannames duidelijk,'
     + ' en vraag toestemming om het Visual Identity Framework te maken.';
 
-  callGroq(apiKey, [{role:'user', content:prompt}], 1500)
+  callAI(apiKey, [{role:'user', content:prompt}], 1500)
     .then(function(txt){
       state.controleText = txt;
       document.getElementById('controleText').innerHTML = simpleMarkdown(txt);
@@ -998,7 +1063,7 @@ function doFramework(){
   setTopSub('Stap 3 &middot; Framework');
   showScreen('loadingSection');
 
-  callGroq(apiKey, messages, 8000)
+  callAI(apiKey, messages, 8000)
     .then(function(txt){
       state.frameworkMarkdown = txt;
       renderFramework(txt);
@@ -1033,7 +1098,7 @@ function directGenereer(){
     + 'Geef uitsluitend een geldig JSON-object terug zoals beschreven in de instructies. Wees concreet en specifiek.\n\n'
     + state.intakeText;
 
-  callGroq(apiKey, [{role:'user', content:userMsg}], 8000)
+  callAI(apiKey, [{role:'user', content:userMsg}], 8000)
     .then(function(txt){
       state.frameworkMarkdown = txt;
       renderFramework(txt);
@@ -1082,19 +1147,22 @@ function startNew(){
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
-/* ── GROQ API ── */
-async function callGroq(apiKey, messages, maxTokens){
-  var models = [MODEL_PRIMARY, MODEL_FALLBACK];
+/* ── AI API ── */
+async function callAI(apiKey, messages, maxTokens){
+  var prov  = localStorage.getItem(PROV_STORE) || 'groq';
+  var model = localStorage.getItem(MODEL_STORE) || MODEL_PRIMARY;
+  var url   = prov === 'openai' ? OPENAI_URL : GROQ_URL;
+  var tryModels = prov === 'openai' ? [model] : [MODEL_PRIMARY, MODEL_FALLBACK];
   var lastErr = null;
-  for(var mi=0; mi<models.length; mi++){
+  for(var mi=0; mi<tryModels.length; mi++){
     try{
       var ctrl = new AbortController();
       var timer = setTimeout(function(){ ctrl.abort(); }, 90000);
-      var res = await fetch(GROQ_URL, {
+      var res = await fetch(url, {
         method:'POST',
         headers:{'Authorization':'Bearer '+apiKey,'Content-Type':'application/json'},
         body:JSON.stringify({
-          model:models[mi],
+          model:tryModels[mi],
           messages:[{role:'system',content:SYSTEM_PROMPT}].concat(messages),
           max_tokens: maxTokens||4000,
           temperature:0.6
@@ -1115,7 +1183,7 @@ async function callGroq(apiKey, messages, maxTokens){
     }catch(e){
       if(e.name==='AbortError') throw new Error('Tijdlimiet overschreden. Probeer opnieuw.');
       lastErr=e;
-      if(mi<models.length-1) continue;
+      if(mi<tryModels.length-1) continue;
     }
   }
   throw lastErr||new Error('Analyse mislukt. Controleer je API-sleutel.');
@@ -1617,6 +1685,9 @@ function showToast(msg){
   clearTimeout(t._timer);
   t._timer=setTimeout(function(){t.classList.remove('show');},2200);
 }
+
+/* ── INIT ── */
+updateKeyBtn();
 </script>
 </body>
 </html>
