@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -220,33 +221,53 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:18px;border-
   .prog-line{width:20px}
 }
 /* ── MOODBOARD ── */
-.mb-tagline{font-size:18px;color:var(--muted);font-style:italic;text-align:center;padding:0 0 28px;border-bottom:1px solid var(--bd);margin-bottom:28px;}
 .mb-section{margin-bottom:28px;}
 .mb-sec-label{font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--koud);border-bottom:1px solid var(--bd);padding-bottom:8px;margin-bottom:14px;}
+/* Concept block */
+.mb-concept{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:22px 24px;margin-bottom:24px;border-left:3px solid var(--g);}
+.mb-concept-tagline{font-size:19px;font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:10px;font-style:italic;}
+.mb-concept-body{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:10px;}
+.mb-concept-doel{font-size:12px;color:var(--koud);border-top:1px solid var(--bd);padding-top:10px;margin-top:2px;}
+.mb-concept-doel-lbl{font-weight:700;color:var(--muted);}
+/* Merkidentiteit */
 .mb-core-row{display:grid;gap:10px;margin-bottom:0;}
 .mb-core-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:16px 18px;}
 .mb-core-label{font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--koud);margin-bottom:7px;}
 .mb-core-text{font-size:13.5px;color:var(--ink);line-height:1.55;}
-.mb-colors{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px;}
-.mb-color-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;}
-.mb-color-swatch{height:76px;width:100%;}
-.mb-color-info{padding:11px 13px;}
-.mb-color-rol{font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--koud);margin-bottom:2px;}
-.mb-color-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:1px;}
-.mb-color-hex{font-size:11.5px;font-family:monospace;color:var(--gl);margin-bottom:5px;}
-.mb-color-gebruik{font-size:11px;color:var(--muted);line-height:1.4;}
-.mb-type-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.mb-type-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:18px 20px;display:flex;gap:14px;align-items:flex-start;}
-.mb-type-demo{font-size:38px;font-weight:800;color:var(--ink);line-height:1;flex-shrink:0;width:52px;}
-.mb-type-rol{font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--koud);margin-bottom:4px;}
-.mb-type-naam{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:2px;}
-.mb-type-detail{font-size:11px;color:var(--gl);margin-bottom:6px;}
-.mb-type-gebruik{font-size:11.5px;color:var(--muted);line-height:1.45;}
+/* Horizontale kleurenrij (Dansende Daken stijl) */
+.mb-colors-row{display:flex;gap:10px;margin-bottom:14px;}
+.mb-color-item{flex:1;min-width:0;}
+.mb-color-block{height:80px;border-radius:6px;margin-bottom:10px;}
+.mb-color-naam{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.mb-color-hex{font-size:11.5px;font-family:monospace;color:var(--gl);margin-bottom:4px;}
+.mb-color-rol{font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--koud);margin-bottom:3px;}
+.mb-color-gebruik{font-size:11px;color:var(--muted);line-height:1.38;}
+/* Sfeerwoorden */
+.mb-sfeer{display:flex;align-items:center;flex-wrap:wrap;gap:4px;padding:12px 0 2px;}
+.mb-sfeer-word{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.02em;}
+.mb-sfeer-sep{font-size:13px;color:var(--koud);padding:0 4px;}
+/* Typografie — lijst-stijl */
+.mb-type-list{display:flex;flex-direction:column;gap:0;}
+.mb-type-row{display:flex;gap:18px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--bd);}
+.mb-type-row:last-child{border-bottom:none;}
+.mb-type-demo-lg{font-size:42px;font-weight:800;color:var(--ink);line-height:1;flex-shrink:0;width:60px;}
+.mb-type-detail-col{flex:1;}
+.mb-type-main{margin-bottom:3px;}
+.mb-type-naam{font-size:16px;font-weight:800;color:var(--ink);}
+.mb-type-stijl{font-size:12px;color:var(--gl);}
+.mb-type-rol-lbl{font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--koud);margin-bottom:5px;}
+.mb-type-desc{font-size:12px;color:var(--muted);line-height:1.5;}
+/* Visuele richting cards */
 .mb-card-row{display:grid;gap:10px;}
 .mb-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:16px 18px;}
 .mb-card-lbl{font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--koud);margin-bottom:9px;}
 .mb-card-body{font-size:13px;color:var(--ink);line-height:1.62;}
 .mb-2col{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+/* Voorbeelduiting */
+.mb-voorbeeld{background:var(--s2);border:1px solid var(--bd);border-left:3px solid var(--ink);border-radius:var(--r);padding:16px 20px;display:flex;gap:14px;align-items:flex-start;}
+.mb-voorbeeld-ico{font-size:10px;color:var(--koud);flex-shrink:0;margin-top:3px;}
+.mb-voorbeeld-body{font-size:13px;color:var(--ink);line-height:1.65;}
+/* Do's & Don'ts */
 .mb-dd{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .mb-dd-col{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;}
 .mb-dd-head{font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;padding:9px 14px;border-bottom:1px solid var(--bd);}
@@ -257,10 +278,12 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:18px;border-
 .mb-dd-icon{flex-shrink:0;font-weight:800;font-size:13px;margin-top:1px;}
 .mb-dd-icon.do{color:#68b558;}
 .mb-dd-icon.dont{color:#c05050;}
-.mb-apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px;}
-.mb-app-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--rsm);padding:11px 13px;display:flex;gap:9px;align-items:flex-start;}
-.mb-app-dot{width:6px;height:6px;border-radius:50%;background:var(--gl);flex-shrink:0;margin-top:5px;}
+/* Toepassingen */
+.mb-apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:9px;}
+.mb-app-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--rsm);padding:13px 15px;}
+.mb-app-medium{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gl);margin-bottom:5px;}
 .mb-app-text{font-size:12.5px;color:var(--muted);line-height:1.5;}
+/* Status */
 .mb-status{display:flex;align-items:center;gap:10px;margin-top:28px;padding-top:18px;border-top:1px solid var(--bd);flex-wrap:wrap;}
 .mb-status-lbl{font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--koud);}
 .mb-status-val{font-size:11px;padding:3px 12px;border-radius:999px;background:rgba(124,167,63,.1);border:1px solid rgba(124,167,63,.25);color:var(--gl);font-weight:700;}
@@ -647,6 +670,7 @@ footer{text-align:center;font-size:10.5px;color:var(--koud);padding:18px;border-
   </div>
   <div id="fwCards"></div>
   <div class="fw-actions">
+    <button class="btn-p" onclick="exportPDF()">&#8659; PDF downloaden</button>
     <button class="btn-g" onclick="backToControle()">&larr; Terugkoppeling geven</button>
     <button class="btn-g" onclick="startNew()">&#8635; Nieuw project</button>
   </div>
@@ -679,43 +703,57 @@ var SYSTEM_PROMPT = [
   '5. Vraag toestemming om het framework te maken.',
   '',
   'STAP 3 — RESULTAAT (gebruik wanneer het framework gevraagd wordt):',
+  'Lever een professioneel, strategisch Visual Identity Framework op senior art-director niveau.',
   'Geef UITSLUITEND een geldig JSON-object terug. Geen markdown, geen tekst ervoor of erna, alleen pure JSON.',
   'Gebruik exact dit schema:',
   '{',
   '  "projectnaam": "...",',
-  '  "tagline": "Korte merkzin of concept (max 10 woorden)",',
-  '  "merkessentie": "Kern van het merk in één zin",',
-  '  "merkbelofte": "Wat het project belooft aan de koper",',
-  '  "positionering": "Hoe het project zich onderscheidt in de markt",',
+  '  "tagline": "De centrale merkzin — compact, eigen, memorabel (max 8 woorden)",',
+  '  "concept": "De wereld van dit project in 2-3 zinnen: wat is de visuele en emotionele sfeer? Vergelijk met een referentie (bijv. \'Classiek notariskantoor gekruist met een ingetogen designhotel\')",',
+  '  "doelgroepSummary": "Wie zijn de kopers en wat verwachten zij visueel van dit project?",',
+  '  "merkessentie": "De kern van het merk — één zin, scherp en onderscheidend",',
+  '  "merkbelofte": "Concrete belofte aan de koper — wat geeft dit project hen?",',
+  '  "positionering": "Hoe onderscheidt dit project zich visueel en strategisch van concurrenten?",',
+  '  "sfeerwoorden": ["Woord1","Woord2","Woord3","Woord4","Woord5","Woord6"],',
   '  "kleuren": [',
-  '    {"naam":"...","hex":"#RRGGBB","rol":"Primair","gebruik":"..."},',
-  '    {"naam":"...","hex":"#RRGGBB","rol":"Accent","gebruik":"..."},',
-  '    {"naam":"...","hex":"#RRGGBB","rol":"Achtergrond","gebruik":"..."},',
-  '    {"naam":"...","hex":"#RRGGBB","rol":"Tekst","gebruik":"..."}',
+  '    {"naam":"NaamMetKarakter","hex":"#RRGGBB","rol":"Primair","gebruik":"Headlines, achtergronden"},',
+  '    {"naam":"NaamMetKarakter","hex":"#RRGGBB","rol":"Accent","gebruik":"CTA, iconen, highlights"},',
+  '    {"naam":"NaamMetKarakter","hex":"#RRGGBB","rol":"Achtergrond","gebruik":"Vlakken, wit ruimte"},',
+  '    {"naam":"NaamMetKarakter","hex":"#RRGGBB","rol":"Tekst","gebruik":"Body tekst, navigatie"},',
+  '    {"naam":"NaamMetKarakter","hex":"#RRGGBB","rol":"Ondersteunend","gebruik":"Kaders, details"}',
   '  ],',
   '  "typografie": [',
-  '    {"rol":"Display / Koptekst","naam":"FontNaam","gewicht":"Bold 700","gebruik":"..."},',
-  '    {"rol":"Body & UI","naam":"FontNaam","gewicht":"Regular 400","gebruik":"..."}',
+  '    {"rol":"Display / Koptekst","naam":"FontNaam","stijl":"Bold Italic","beschrijving":"Waarom dit font past bij het project"},',
+  '    {"rol":"Body & UI","naam":"FontNaam","stijl":"Regular / Medium","beschrijving":"Waarom dit font werkt voor leesbaarheid en sfeer"}',
   '  ],',
-  '  "logorichting": "Beschrijving van logo-concept, vormen, stijl, varianten",',
-  '  "beeldtaal": "Beschrijving van de visuele beeldtaal en sfeer",',
-  '  "fotografie": "Richtlijnen voor fotografie: stijl, kleur, compositie, sfeer",',
-  '  "grafischeElementen": "Grafische elementen, patronen, lijnen, texturen",',
-  '  "toonStem": "Tone of voice: toon, stijl, woordkeuze",',
-  '  "dos": ["Concreet do 1","Concreet do 2","Concreet do 3","Concreet do 4","Concreet do 5"],',
-  '  "donts": ["Concreet dont 1","Concreet dont 2","Concreet dont 3","Concreet dont 4","Concreet dont 5"],',
-  '  "toepassingen": ["Toepassing 1","Toepassing 2","Toepassing 3","Toepassing 4"],',
-  '  "openstaandePunten": "Wat nog onduidelijk is of aanvullende input vereist",',
+  '  "logorichting": "Concreet logo-concept: vorm, referentie, varianten, wat het uitdrukt",',
+  '  "beeldtaal": "Beschrijf de complete visuele wereld: compositie, sfeer, kleurbehandeling",',
+  '  "fotografie": "Concrete fotografie-richtlijnen: stijl, belichting, kleurgrading, wat te vermijden",',
+  '  "grafischeElementen": "Grafische bouwstenen: lijnen, vormen, patronen, texturen en hun toepassing",',
+  '  "materiaalTextuur": "Materiaal- en textuurgevoel dat terugkomt in het ontwerp",',
+  '  "toonStem": "Tone of voice: stijl, register, woordkeuze, wat de teksten uitstralen",',
+  '  "voorbeelduiting": "Beschrijf een concrete voorbeelduiting: welk medium, welke tekst, welk beeld, welk effect",',
+  '  "dos": ["Specifiek do 1","Specifiek do 2","Specifiek do 3","Specifiek do 4","Specifiek do 5"],',
+  '  "donts": ["Specifiek dont 1","Specifiek dont 2","Specifiek dont 3","Specifiek dont 4","Specifiek dont 5"],',
+  '  "toepassingen": [',
+  '    {"medium":"Website","beschrijving":"Hoe de identiteit op de projectwebsite werkt"},',
+  '    {"medium":"Verkoopbrochure","beschrijving":"Hoe de identiteit in de brochure werkt"},',
+  '    {"medium":"Social media","beschrijving":"Hoe de identiteit op Instagram/Meta werkt"},',
+  '    {"medium":"Buitenreclame","beschrijving":"Hoe de identiteit op bouwhekken en outdoor werkt"}',
+  '  ],',
+  '  "openstaandePunten": "Wat nog nader bepaald moet worden of aanvullende input vereist",',
   '  "status": "Eerste concept"',
   '}',
   '',
   'KWALITEITSEISEN:',
-  '- Kleuren: gebruik minimaal 3, maximaal 5. Altijd valide hex-codes (#RRGGBB).',
-  '- Typografie: 1-2 fonts, kies uit gangbare Google Fonts of systeemfonts.',
-  '- Do\'s en Don\'ts: minimaal 4, maximaal 6. Concreet en projectspecifiek, geen clichés.',
-  '- Toepassingen: minimaal 3, maximaal 5. Beschrijf de visuele toepassing.',
-  '- Alles gebaseerd op de intake — onderscheidend en geloofwaardig.',
-  '- Geen generieke luxe-uitstraling of automatisch goud/zwart zonder reden.',
+  '- Kleuren: minimaal 4, maximaal 5. Valide hex-codes. Namen met karakter (niet "Blauw" maar "Hanzeblauw").',
+  '- Typografie: 1-2 concrete fonts uit Google Fonts. Motiveer de keuze vanuit het concept.',
+  '- Sfeerwoorden: 5-7 woorden die de visuele sfeer precies raken. Geen abstracte begrippen.',
+  '- Do\'s en Don\'ts: minimaal 5, concreet en projectspecifiek. Geen generieke tips.',
+  '- Concept tekst: inspirerend en bruikbaar als briefing voor een designer.',
+  '- Voorbeelduiting: zo concreet dat een designer ermee aan de slag kan.',
+  '- Alles aansluiten op de specifieke intake — geen generieke sjabloon-output.',
+  '- Geen automatisch goud/zwart/serif bij premium zonder strategische motivatie.',
   '- Alleen de JSON, niets anders.'
 ].join('\n');
 
@@ -724,6 +762,7 @@ var state = {
   controleText: '',
   answersText: '',
   frameworkMarkdown: '',
+  frameworkJson: null,
   projectNaam: ''
 };
 
@@ -1020,7 +1059,7 @@ function backToControle(){
   showScreen('controleSection');
 }
 function startNew(){
-  state = {intakeText:'',controleText:'',answersText:'',frameworkMarkdown:'',projectNaam:''};
+  state = {intakeText:'',controleText:'',answersText:'',frameworkMarkdown:'',frameworkJson:null,projectNaam:''};
   uploadedFiles = [];
   updateFileList();
   document.getElementById('answersTA').value = '';
@@ -1087,6 +1126,7 @@ function renderFramework(txt){
   var json = null;
   var m = txt.match(/\{[\s\S]+\}/);
   if(m){ try{ json = JSON.parse(m[0]); }catch(e){} }
+  state.frameworkJson = json;
   var naam = (json && json.projectnaam) || state.projectNaam || 'Visual Identity Framework';
   document.getElementById('fwProjectLabel').textContent = 'Visual Identity Framework · '+naam;
   document.getElementById('fwMainTitle').textContent = naam;
@@ -1102,12 +1142,16 @@ function renderFramework(txt){
 function renderMoodboard(d){
   var html = '';
 
-  // Tagline
-  if(d.tagline){
-    html += '<div class="mb-tagline">'+esc(d.tagline)+'</div>';
+  // Concept blok (De Gedachte / De Wereld)
+  if(d.concept || d.tagline){
+    html += '<div class="mb-concept">';
+    if(d.tagline) html += '<div class="mb-concept-tagline">&#8220;'+esc(d.tagline)+'&#8221;</div>';
+    if(d.concept) html += '<div class="mb-concept-body">'+esc(d.concept)+'</div>';
+    if(d.doelgroepSummary) html += '<div class="mb-concept-doel"><span class="mb-concept-doel-lbl">Doelgroep &mdash;</span> '+esc(d.doelgroepSummary)+'</div>';
+    html += '</div>';
   }
 
-  // Merkidentiteit row
+  // Merkidentiteit: essentie | belofte | positionering
   var coreItems = [];
   if(d.merkessentie) coreItems.push({label:'Merkessentie', text:d.merkessentie});
   if(d.merkbelofte) coreItems.push({label:'Merkbelofte', text:d.merkbelofte});
@@ -1121,64 +1165,82 @@ function renderMoodboard(d){
     html += '</div></div>';
   }
 
-  // Kleurenpalet
+  // Kleurenpalet — horizontale rij zoals Dansende Daken
   if(d.kleuren && d.kleuren.length){
-    html += '<div class="mb-section"><div class="mb-sec-label">Kleurenpalet</div><div class="mb-colors">';
+    html += '<div class="mb-section"><div class="mb-sec-label">Kleurenpalet</div><div class="mb-colors-row">';
     d.kleuren.forEach(function(k){
       var hex = (k.hex||'#888888').trim();
-      html += '<div class="mb-color-card">';
-      html += '<div class="mb-color-swatch" style="background:'+esc(hex)+'"></div>';
-      html += '<div class="mb-color-info">';
-      if(k.rol) html += '<div class="mb-color-rol">'+esc(k.rol)+'</div>';
-      if(k.naam) html += '<div class="mb-color-name">'+esc(k.naam)+'</div>';
+      html += '<div class="mb-color-item">';
+      html += '<div class="mb-color-block" style="background:'+esc(hex)+'"></div>';
+      html += '<div class="mb-color-naam">'+esc(k.naam||'')+'</div>';
       html += '<div class="mb-color-hex">'+esc(hex)+'</div>';
+      if(k.rol) html += '<div class="mb-color-rol">'+esc(k.rol)+'</div>';
       if(k.gebruik) html += '<div class="mb-color-gebruik">'+esc(k.gebruik)+'</div>';
-      html += '</div></div>';
+      html += '</div>';
     });
-    html += '</div></div>';
+    html += '</div>';
+    // Sfeerwoorden onder kleurenpalet
+    if(d.sfeerwoorden && d.sfeerwoorden.length){
+      html += '<div class="mb-sfeer">';
+      d.sfeerwoorden.forEach(function(w,i){
+        html += '<span class="mb-sfeer-word">'+esc(w)+'</span>';
+        if(i < d.sfeerwoorden.length-1) html += '<span class="mb-sfeer-sep">&middot;</span>';
+      });
+      html += '</div>';
+    }
+    html += '</div>';
   }
 
   // Typografie
   if(d.typografie && d.typografie.length){
-    html += '<div class="mb-section"><div class="mb-sec-label">Typografie</div><div class="mb-type-cards">';
+    html += '<div class="mb-section"><div class="mb-sec-label">Typografie</div><div class="mb-type-list">';
     d.typografie.forEach(function(t){
-      html += '<div class="mb-type-card">';
-      html += '<div class="mb-type-demo">Aa</div>';
-      html += '<div class="mb-type-info">';
-      if(t.rol) html += '<div class="mb-type-rol">'+esc(t.rol)+'</div>';
-      if(t.naam) html += '<div class="mb-type-naam">'+esc(t.naam)+'</div>';
-      if(t.gewicht) html += '<div class="mb-type-detail">'+esc(t.gewicht)+'</div>';
-      if(t.gebruik) html += '<div class="mb-type-gebruik">'+esc(t.gebruik)+'</div>';
+      html += '<div class="mb-type-row">';
+      html += '<div class="mb-type-demo-lg">Aa</div>';
+      html += '<div class="mb-type-detail-col">';
+      html += '<div class="mb-type-main"><span class="mb-type-naam">'+esc(t.naam||'')+'</span>';
+      if(t.stijl||t.gewicht) html += '<span class="mb-type-stijl"> &mdash; '+esc(t.stijl||t.gewicht||'')+'</span>';
+      html += '</div>';
+      if(t.rol) html += '<div class="mb-type-rol-lbl">'+esc(t.rol)+'</div>';
+      if(t.beschrijving||t.gebruik) html += '<div class="mb-type-desc">'+esc(t.beschrijving||t.gebruik||'')+'</div>';
       html += '</div></div>';
     });
     html += '</div></div>';
   }
 
-  // Visuele richting: logo + beeldtaal + grafisch
-  var richtingCards = [
+  // Visuele richting — 3 kolommen
+  var vCards = [
     {key:'logorichting', label:'Logo-richting'},
     {key:'beeldtaal', label:'Beeldtaal'},
     {key:'grafischeElementen', label:'Grafische elementen'}
   ].filter(function(f){ return d[f.key]; });
-  if(richtingCards.length){
+  if(vCards.length){
     html += '<div class="mb-section"><div class="mb-sec-label">Visuele richting</div>';
-    html += '<div class="mb-card-row" style="grid-template-columns:repeat('+richtingCards.length+',1fr)">';
-    richtingCards.forEach(function(f){
+    html += '<div class="mb-card-row" style="grid-template-columns:repeat('+vCards.length+',1fr)">';
+    vCards.forEach(function(f){
       html += '<div class="mb-card"><div class="mb-card-lbl">'+esc(f.label)+'</div><div class="mb-card-body">'+esc(d[f.key])+'</div></div>';
     });
     html += '</div></div>';
   }
 
-  // Fotografie + Tone
-  var fotoTone = [];
-  if(d.fotografie) fotoTone.push({label:'Fotografie', text:d.fotografie});
-  if(d.toonStem) fotoTone.push({label:'Toon &amp; Stem', text:d.toonStem});
-  if(fotoTone.length){
-    html += '<div class="mb-section"><div class="mb-2col">';
-    fotoTone.forEach(function(f){
-      html += '<div><div class="mb-sec-label">'+f.label+'</div><div class="mb-card"><div class="mb-card-body">'+esc(f.text)+'</div></div></div>';
+  // Fotografie + Materiaal + Toon
+  var sfCards = [
+    {key:'fotografie', label:'Fotografie'},
+    {key:'materiaalTextuur', label:'Materiaal &amp; textuur'},
+    {key:'toonStem', label:'Toon &amp; stem'}
+  ].filter(function(f){ return d[f.key]; });
+  if(sfCards.length){
+    html += '<div class="mb-section"><div class="mb-card-row" style="grid-template-columns:repeat('+sfCards.length+',1fr)">';
+    sfCards.forEach(function(f){
+      html += '<div><div class="mb-sec-label">'+f.label+'</div><div class="mb-card"><div class="mb-card-body">'+esc(d[f.key])+'</div></div></div>';
     });
     html += '</div></div>';
+  }
+
+  // Voorbeelduiting
+  if(d.voorbeelduiting){
+    html += '<div class="mb-section"><div class="mb-sec-label">Voorbeelduiting</div>';
+    html += '<div class="mb-voorbeeld"><div class="mb-voorbeeld-ico">&#9654;</div><div class="mb-voorbeeld-body">'+esc(d.voorbeelduiting)+'</div></div></div>';
   }
 
   // Do's & Don'ts
@@ -1199,7 +1261,12 @@ function renderMoodboard(d){
   if(d.toepassingen && d.toepassingen.length){
     html += '<div class="mb-section"><div class="mb-sec-label">Toepassingen</div><div class="mb-apps">';
     d.toepassingen.forEach(function(item){
-      html += '<div class="mb-app-card"><div class="mb-app-dot"></div><div class="mb-app-text">'+esc(item)+'</div></div>';
+      var medium = typeof item === 'object' ? item.medium : null;
+      var beschr = typeof item === 'object' ? item.beschrijving : item;
+      html += '<div class="mb-app-card">';
+      if(medium) html += '<div class="mb-app-medium">'+esc(medium)+'</div>';
+      html += '<div class="mb-app-text">'+esc(beschr||'')+'</div>';
+      html += '</div>';
     });
     html += '</div></div>';
   }
@@ -1212,6 +1279,220 @@ function renderMoodboard(d){
   html += '</div>';
 
   document.getElementById('fwCards').innerHTML = html;
+}
+
+/* ── PDF EXPORT (from JSON) ── */
+function exportPDF(){
+  if(!state.frameworkJson){ showToast('Geen framework om te exporteren.'); return; }
+  showToast('PDF wordt opgemaakt…');
+  var d = state.frameworkJson;
+  var proj = d.projectnaam || state.projectNaam || 'Project';
+
+  var css = [
+    '*{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:Raleway,Arial,sans-serif;background:#fff;color:#1a1a1a;font-size:11px}',
+    '.page{width:210mm;min-height:297mm;padding:0;page-break-after:always;position:relative;display:flex;flex-direction:column}',
+    '.cover{background:#0c0c0c;padding:52px 60px;justify-content:space-between}',
+    '.cov-top{display:flex;align-items:center;gap:14px;border-bottom:1px solid rgba(124,167,63,.3);padding-bottom:20px;margin-bottom:auto}',
+    '.cov-mark{width:32px;height:32px;background:#7CA73F;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;flex-shrink:0}',
+    '.cov-brand{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}',
+    '.cov-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:60px 0 40px}',
+    '.cov-eyebrow{font-size:8.5px;letter-spacing:.28em;text-transform:uppercase;color:rgba(124,167,63,.8);margin-bottom:20px}',
+    '.cov-title{font-size:54px;font-weight:800;line-height:1.04;color:#fff;letter-spacing:-.025em;margin-bottom:14px}',
+    '.cov-tagline{font-size:14px;color:rgba(255,255,255,.5);font-style:italic;margin-bottom:0}',
+    '.cov-foot{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.07);padding-top:18px}',
+    '.cov-foot-lbl{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2)}',
+    '.cov-foot-g{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#7CA73F}',
+    '.sec{padding:44px 56px 32px;flex:1}',
+    '.sec-hdr{display:flex;align-items:center;gap:10px;margin-bottom:28px;border-bottom:2px solid #0c0c0c;padding-bottom:10px}',
+    '.sec-num{font-size:8px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#7CA73F}',
+    '.sec-ttl{font-size:15px;font-weight:800;color:#0c0c0c;letter-spacing:-.01em}',
+    '.sec-lbl{font-size:8px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#aaa;border-bottom:1px solid #e8e8e8;padding-bottom:5px;margin:20px 0 10px}',
+    '.sec-lbl:first-child{margin-top:0}',
+    '.concept-text{font-size:13px;color:#2a2a2a;line-height:1.7;font-style:italic;padding:14px 20px;border-left:3px solid #7CA73F;background:#f9f9f7;margin-bottom:14px}',
+    '.concept-doel{font-size:10.5px;color:#666;margin-bottom:6px}',
+    '.core-row{display:flex;gap:12px;margin-bottom:0}',
+    '.core-card{flex:1;background:#f7f7f5;border:1px solid #e8e8e8;border-radius:5px;padding:12px 14px}',
+    '.core-lbl{font-size:7.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#aaa;margin-bottom:5px}',
+    '.core-txt{font-size:11px;color:#1a1a1a;line-height:1.5}',
+    '.colors-row{display:flex;gap:10px;margin-bottom:10px}',
+    '.color-item{flex:1;text-align:left}',
+    '.color-block{height:72px;border-radius:4px;margin-bottom:8px}',
+    '.color-naam{font-size:11px;font-weight:700;color:#0c0c0c;margin-bottom:2px}',
+    '.color-hex{font-size:10px;font-family:monospace;color:#7CA73F;margin-bottom:3px}',
+    '.color-rol{font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#aaa;margin-bottom:2px}',
+    '.color-gebruik{font-size:9.5px;color:#777;line-height:1.35}',
+    '.sfeer-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}',
+    '.sfeer-w{font-size:10px;font-weight:700;letter-spacing:.05em;color:#2a2a2a;background:#f0f0ee;padding:3px 10px;border-radius:2px}',
+    '.type-item{display:flex;gap:16px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #eee}',
+    '.type-item:last-child{border-bottom:none}',
+    '.type-demo{font-size:34px;font-weight:700;color:#0c0c0c;line-height:1;flex-shrink:0;width:50px}',
+    '.type-naam{font-size:13px;font-weight:800;color:#0c0c0c}',
+    '.type-stijl{font-size:10px;color:#7CA73F;margin:2px 0}',
+    '.type-rol{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#aaa;margin-bottom:3px}',
+    '.type-desc{font-size:10px;color:#666;line-height:1.45}',
+    '.card-row{display:flex;gap:10px}',
+    '.card{flex:1;background:#f7f7f5;border:1px solid #e8e8e8;border-radius:5px;padding:12px 14px}',
+    '.card-lbl{font-size:7.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#aaa;margin-bottom:7px}',
+    '.card-body{font-size:10.5px;color:#2a2a2a;line-height:1.6}',
+    '.voorbeeld{background:#f4f4f2;border-radius:5px;padding:14px 18px;font-size:10.5px;color:#2a2a2a;line-height:1.65;border-left:3px solid #0c0c0c}',
+    '.dd-wrap{display:flex;gap:16px}',
+    '.dd-col{flex:1}',
+    '.dd-head{font-size:8px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding-bottom:6px;border-bottom:2px solid;margin-bottom:8px}',
+    '.dd-head.do{color:#4A9E3F;border-color:#4A9E3F}',
+    '.dd-head.dont{color:#C05050;border-color:#C05050}',
+    '.dd-item{display:flex;gap:8px;padding:6px 0;border-bottom:1px solid #f0f0f0;font-size:10px;color:#444;line-height:1.4}',
+    '.dd-ico{font-weight:800;flex-shrink:0}',
+    '.dd-ico.do{color:#4A9E3F}',
+    '.dd-ico.dont{color:#C05050}',
+    '.apps-grid{display:flex;flex-wrap:wrap;gap:8px}',
+    '.app-card{background:#f7f7f5;border:1px solid #e8e8e8;border-radius:4px;padding:10px 12px;flex:1;min-width:160px}',
+    '.app-medium{font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#7CA73F;margin-bottom:4px}',
+    '.app-txt{font-size:10px;color:#555;line-height:1.45}',
+    '.pg-foot{border-top:1px solid #e8e8e8;padding:10px 56px;display:flex;justify-content:space-between;align-items:center;margin-top:auto}',
+    '.pg-foot-lbl{font-size:7.5px;letter-spacing:.12em;text-transform:uppercase;color:#ccc}',
+    '.pg-foot-g{font-size:7.5px;letter-spacing:.12em;text-transform:uppercase;color:#7CA73F;font-weight:700}'
+  ].join('');
+
+  function pgFoot(proj){
+    return '<div class="pg-foot"><span class="pg-foot-lbl">'+esc(proj)+' &middot; Visual Identity Framework &middot; Eerste concept</span><span class="pg-foot-g">Spring Real Estate</span></div>';
+  }
+
+  // Cover
+  var html = '<div class="page cover">'
+    +'<div class="cov-top"><div class="cov-mark">S</div><div class="cov-brand">Spring Real Estate &nbsp;&middot;&nbsp; Visual Identity Agent</div></div>'
+    +'<div class="cov-body">'
+    +'<div class="cov-eyebrow">Visual Identity Framework</div>'
+    +'<div class="cov-title">'+esc(proj)+'</div>'
+    +(d.tagline ? '<div class="cov-tagline">'+esc(d.tagline)+'</div>' : '')
+    +'</div>'
+    +'<div class="cov-foot"><div class="cov-foot-lbl">Eerste concept &nbsp;&middot;&nbsp; Vertrouwelijk</div><div class="cov-foot-g">springrealestate.com</div></div>'
+    +'</div>';
+
+  // Sectie 01 — Concept & Merkidentiteit
+  html += '<div class="page"><div class="sec">';
+  html += '<div class="sec-hdr"><span class="sec-num">01</span><span class="sec-ttl">Concept &amp; Merkidentiteit</span></div>';
+  if(d.concept){
+    html += '<div class="sec-lbl">De wereld</div>';
+    html += '<div class="concept-text">'+esc(d.concept)+'</div>';
+  }
+  if(d.doelgroepSummary){
+    html += '<div class="concept-doel"><strong>Doelgroep &mdash;</strong> '+esc(d.doelgroepSummary)+'</div>';
+  }
+  var cores = [];
+  if(d.merkessentie) cores.push({l:'Merkessentie',t:d.merkessentie});
+  if(d.merkbelofte) cores.push({l:'Merkbelofte',t:d.merkbelofte});
+  if(d.positionering) cores.push({l:'Positionering',t:d.positionering});
+  if(cores.length){
+    html += '<div class="sec-lbl">Merkidentiteit</div><div class="core-row">';
+    cores.forEach(function(c){ html += '<div class="core-card"><div class="core-lbl">'+esc(c.l)+'</div><div class="core-txt">'+esc(c.t)+'</div></div>'; });
+    html += '</div>';
+  }
+  html += '</div>'+pgFoot(proj)+'</div>';
+
+  // Sectie 02 — Kleurenpalet & Sfeerwoorden
+  html += '<div class="page"><div class="sec">';
+  html += '<div class="sec-hdr"><span class="sec-num">02</span><span class="sec-ttl">Kleurenpalet</span></div>';
+  if(d.kleuren && d.kleuren.length){
+    html += '<div class="colors-row">';
+    d.kleuren.forEach(function(k){
+      var hex=(k.hex||'#888').trim();
+      html += '<div class="color-item"><div class="color-block" style="background:'+esc(hex)+'"></div>'
+        +'<div class="color-naam">'+esc(k.naam||'')+'</div>'
+        +'<div class="color-hex">'+esc(hex)+'</div>'
+        +(k.rol?'<div class="color-rol">'+esc(k.rol)+'</div>':'')
+        +(k.gebruik?'<div class="color-gebruik">'+esc(k.gebruik)+'</div>':'')
+        +'</div>';
+    });
+    html += '</div>';
+  }
+  if(d.sfeerwoorden && d.sfeerwoorden.length){
+    html += '<div class="sec-lbl">Sfeerwoorden</div><div class="sfeer-row">';
+    d.sfeerwoorden.forEach(function(w){ html += '<span class="sfeer-w">'+esc(w)+'</span>'; });
+    html += '</div>';
+  }
+  // Typografie op dezelfde pagina
+  if(d.typografie && d.typografie.length){
+    html += '<div class="sec-lbl" style="margin-top:24px">Typografie</div>';
+    d.typografie.forEach(function(t){
+      html += '<div class="type-item"><div class="type-demo">Aa</div><div>'
+        +'<div class="type-rol">'+esc(t.rol||'')+'</div>'
+        +'<div class="type-naam">'+esc(t.naam||'')+'</div>'
+        +'<div class="type-stijl">'+esc(t.stijl||t.gewicht||'')+'</div>'
+        +'<div class="type-desc">'+esc(t.beschrijving||t.gebruik||'')+'</div>'
+        +'</div></div>';
+    });
+  }
+  html += '</div>'+pgFoot(proj)+'</div>';
+
+  // Sectie 03 — Visuele richting
+  html += '<div class="page"><div class="sec">';
+  html += '<div class="sec-hdr"><span class="sec-num">03</span><span class="sec-ttl">Visuele richting</span></div>';
+  var vr = [
+    {k:'logorichting',l:'Logo-richting'},{k:'beeldtaal',l:'Beeldtaal'},{k:'grafischeElementen',l:'Grafische elementen'}
+  ].filter(function(f){return d[f.k];});
+  if(vr.length){
+    html += '<div class="card-row">';
+    vr.forEach(function(f){ html += '<div class="card"><div class="card-lbl">'+esc(f.l)+'</div><div class="card-body">'+esc(d[f.k])+'</div></div>'; });
+    html += '</div>';
+  }
+  var sf = [
+    {k:'fotografie',l:'Fotografie'},{k:'materiaalTextuur',l:'Materiaal & Textuur'},{k:'toonStem',l:'Toon & Stem'}
+  ].filter(function(f){return d[f.k];});
+  if(sf.length){
+    html += '<div class="card-row" style="margin-top:12px">';
+    sf.forEach(function(f){ html += '<div class="card"><div class="card-lbl">'+esc(f.l)+'</div><div class="card-body">'+esc(d[f.k])+'</div></div>'; });
+    html += '</div>';
+  }
+  if(d.voorbeelduiting){
+    html += '<div class="sec-lbl">Voorbeelduiting</div><div class="voorbeeld">'+esc(d.voorbeelduiting)+'</div>';
+  }
+  html += '</div>'+pgFoot(proj)+'</div>';
+
+  // Sectie 04 — Do's & Don'ts
+  html += '<div class="page"><div class="sec">';
+  html += '<div class="sec-hdr"><span class="sec-num">04</span><span class="sec-ttl">Do\'s &amp; Don\'ts</span></div>';
+  html += '<div class="dd-wrap">';
+  html += '<div class="dd-col"><div class="dd-head do">Do\'s</div>';
+  (d.dos||[]).forEach(function(item){ html += '<div class="dd-item"><span class="dd-ico do">&#10003;</span><span>'+esc(item)+'</span></div>'; });
+  html += '</div><div class="dd-col"><div class="dd-head dont">Don\'ts</div>';
+  (d.donts||[]).forEach(function(item){ html += '<div class="dd-item"><span class="dd-ico dont">&#10005;</span><span>'+esc(item)+'</span></div>'; });
+  html += '</div></div>';
+  // Toepassingen op dezelfde pagina
+  if(d.toepassingen && d.toepassingen.length){
+    html += '<div class="sec-lbl" style="margin-top:24px">Toepassingen</div><div class="apps-grid">';
+    d.toepassingen.forEach(function(item){
+      var medium = typeof item==='object' ? item.medium : null;
+      var beschr = typeof item==='object' ? item.beschrijving : item;
+      html += '<div class="app-card">'+(medium?'<div class="app-medium">'+esc(medium)+'</div>':'')+'<div class="app-txt">'+esc(beschr||'')+'</div></div>';
+    });
+    html += '</div>';
+  }
+  if(d.openstaandePunten){
+    html += '<div class="sec-lbl" style="margin-top:20px">Openstaande punten</div>';
+    html += '<div style="font-size:10.5px;color:#666;line-height:1.6">'+esc(d.openstaandePunten)+'</div>';
+  }
+  html += '</div>'+pgFoot(proj)+'</div>';
+
+  var fullHtml = '<!DOCTYPE html><html><head><meta charset="utf-8">'
+    +'<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">'
+    +'<style>'+css+'</style></head><body>'+html+'</body></html>';
+
+  var container = document.createElement('div');
+  container.innerHTML = fullHtml;
+  container.style.cssText = 'position:fixed;left:-9999px;top:0;width:210mm;z-index:-1;background:#fff';
+  document.body.appendChild(container);
+
+  html2pdf().set({
+    margin:0,
+    filename:'VIF_'+proj.replace(/[^a-zA-Z0-9]/g,'_')+'.pdf',
+    image:{type:'jpeg',quality:0.97},
+    html2canvas:{scale:2,useCORS:true,logging:false},
+    jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},
+    pagebreak:{mode:['css','legacy']}
+  }).from(container.firstChild).save()
+    .then(function(){ document.body.removeChild(container); showToast('PDF gedownload'); })
+    .catch(function(){ document.body.removeChild(container); showToast('PDF mislukt — probeer opnieuw'); });
 }
 
 /* ── MARKDOWN RENDERER ── */
